@@ -13,7 +13,7 @@ This site is deployed to netlify and built using Hugo, a static site generator.
 #### File Directory
 My folders are organized as followed:
 
-![alt text](https://raw.githubusercontent.com/FriendlyUser/PortfolioWebsite/content/fileDirectory.png)
+![alt text](https://raw.githubusercontent.com/FriendlyUser/PortfolioWebsite/master/content/fileDirectory.png)
 
 The public folder is distributed on netlify.
 
