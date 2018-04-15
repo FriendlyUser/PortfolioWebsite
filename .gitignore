@@ -1,0 +1,35 @@
+# LaTeX temporary files
+*.aux
+*.log
+*.toc
+*.xdy
+
+# Zip files
+*.zip
+
+# Latexmk
+*.fdb_latexmk
+
+# SyncTeX
+*.synctex.gz
+
+# LaTeX Beamer
+*.snm
+*.vrb
+*.nav
+*.out
+*.ilg
+
+# BibTeX
+*.bbl
+*.blg
+
+# SVN Files, and text files
+*.svn
+*.txt 
+
+# folders specific for me, wait until I'm ready before deploying my docs to github.
+/docs/ 
+
+# Keep lecture slides and other goodies, hmm, maybe manually add
+!/uploads/rubbish/stuff/keep/
