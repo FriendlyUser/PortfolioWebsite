@@ -92,7 +92,9 @@ theme = "hugo-freelancer-theme"
         [params.contact.form.button]
             text = "Send"
 
-
+	[params.junk]
+		title ="Junk"
+		
     [params.footer]
         copyright = "Published under the Apache License 2.0. Powered by [Hugo](//gohugo.io)."
 

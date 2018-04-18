@@ -30,6 +30,4 @@
 
 # folders specific for me, wait until I'm ready before deploying my docs to github.
 /docs/ 
-
-# Keep lecture slides and other goodies, hmm, maybe manually add
-!/uploads/rubbish/stuff/keep/
+/hugo-easy-gallery-master/
