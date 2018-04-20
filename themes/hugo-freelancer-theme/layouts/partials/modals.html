@@ -1,37 +1,35 @@
 {{ "<!-- Portfolio Modals -->" | safeHTML }}
 {{ range .Site.Data.projects }}
-<div class="portfolio-modal modal fade" id="portfolioModal{{ .modalID }}" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>{{ .title }}</h2>
-                        <hr class="star-primary">
-                        <img src="img/portfolio/{{ .img }}" class="img-responsive img-centered" alt="">
-                        <p>{{ .description | markdownify }}</p>
-                        <ul class="list-inline item-details">
-                            <li>{{ with $.Site.Params.portfolio.modal.client }}{{.}}{{ end }}:
-                                <strong><a href="{{ .clientLink }}">{{ .client }}</a></strong>
-                            </li>
-                            <li>{{ with $.Site.Params.portfolio.modal.date }}{{.}}{{ end }}:
-                                <strong>{{ .date }}</strong>
-                            </li>
-                            <li>{{ with $.Site.Params.portfolio.modal.category }}{{.}}{{ end }}:
-                                <strong>{{ .category }}</strong>
-                            </li>
-                        </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> {{ with $.Site.Params.portfolio.modal.buttontext }}{{.}}{{ end }}</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="portfolio-modal mfp fade" id="portfolio-modal-{{ .modalID }}" data-toggle="modal">
+    <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary text-uppercase mb-0">{{ .title }}</h2>
+				<hr class="star-dark mb-5">
+				<img class="img-fluid mb-5" src="img/portfolio/{{ .img }}" alt="" >
+				<p class="mb-5">{{ .description | markdownify }}</p>
+				<ul class="list-inline item-details">
+					<li>{{ with $.Site.Params.portfolio.modal.client }}{{.}}{{ end }}:
+						<strong><a href="{{ .clientLink }}">{{ .client }}</a></strong>
+					</li>
+					<li>{{ with $.Site.Params.portfolio.modal.date }}{{.}}{{ end }}:
+						<strong>{{ .date }}</strong>
+					</li>
+					<li>{{ with $.Site.Params.portfolio.modal.category }}{{.}}{{ end }}:
+						<strong>{{ .category }}</strong>
+					</li>
+				</ul>
+				<a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                <i class="fa fa-close"></i>Close Project
+				</a>
+			  </div>
+	       </div>
+		</div>
     </div>
 </div>
 {{ end }}
+
