@@ -1,0 +1,8 @@
+modalID: 2
+title: Personal Dashboard
+date: 2018-04-01
+img: personalDashboard.png
+client: Personal Dashboard
+clientLink: "https://davidli-personal-databoard.herokuapp.com/"
+category: Data Analytics
+description: Partly inspired by my work at the MOTI IMB where I created JIRA dashboards to illustrate what was issues, I designed I wanted my own. Data is taken from my own experiences. Uses dash as well as pandas for data analytics.
