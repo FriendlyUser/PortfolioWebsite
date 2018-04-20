@@ -30,4 +30,5 @@
 
 # folders specific for me, wait until I'm ready before deploying my docs to github.
 /docs/ 
+/bootstrap-4.0.0-dist/
 /hugo-easy-gallery-master/
