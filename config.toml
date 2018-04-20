@@ -13,7 +13,7 @@ theme = "hugo-freelancer-theme"
     # To provide some metadata for search engines feel free to add a few
     # information about you and your website.
     name = "Mr. Man"
-    description = "My awesome description"
+    description = "My awesome personal website using bootstrap 4."
 
     # Since this template is static, the contact form uses www.formspree.io as a
     # proxy. The form makes a POST request to their servers to send the actual
@@ -26,21 +26,21 @@ theme = "hugo-freelancer-theme"
     # - send a dummy email youself to confirm your account
     # - click the confirm link in the email from www.formspree.io
     # - you're done. Happy mailing!
-    email = "your@email.com"
+    email = "davidli012345@gmail.com"
 
     # Custom assets
 	custom_css = []
 	custom_js  = []
 
     [params.navigation]
-        brand = "Mr. Hugo's Portfolio"
+        brand = "My Portfolio"
 
 
     [params.header]
         # Copy your own image into './static/img/'' if you wish
-        image = "profile.png"
-        name = "Mr. Hugo"
-        subtitle = "Blogger - Programmer - Gopher"
+        image = "myAvatar.png"
+        name = "David Li"
+        subtitle = "Blockchain enthusiast - Programmer - Engineer"
 
 
     [params.portfolio]
@@ -51,7 +51,7 @@ theme = "hugo-freelancer-theme"
         title = "Portfolio"
 
         [params.portfolio.modal]
-            client = "Client"
+            client = "Url"
             date = "Date"
             category = "Category"
             buttontext = "Close"
@@ -60,14 +60,13 @@ theme = "hugo-freelancer-theme"
     [params.about]
         title = "About"
         # The about text is splitted into a left and right column.		
-        left = "Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization."
+        left = "Created used Hugo, this statically generated site contains projects."
         right = "I am a student looking to showcase my work."
 
         [params.about.button]
-            text = "Download theme"
-            link = "//github.com/digitalcraftsman/hugo-freelancer-theme/archive/master.zip"
+            text = "Download repo"
+            link = "//github.com/FriendlyUser/PortfolioWebsite/master.zip"
             icon = "download"
-
 
     [params.contact]
         title = "Contact"
@@ -91,17 +90,15 @@ theme = "hugo-freelancer-theme"
 
         [params.contact.form.button]
             text = "Send"
-
-	[params.junk]
-		title ="Junk"
 		
     [params.footer]
         copyright = "Published under the Apache License 2.0. Powered by [Hugo](//gohugo.io)."
 
-        [params.footer.location]
-            title = "Location"
+        [params.footer.education]
+            title = "Education"
             # Postal address (add as many lines as necessary)
-            address = ["3481 Melrose Place", "Beverly Hills, CA 90210"]
+			schools = ["University of Victoria, Victoria, BC",
+						"Spectrum Community School, Victoria"]
 
         [params.footer.social]
             title = "Around the web"
@@ -118,5 +115,7 @@ theme = "hugo-freelancer-theme"
 
 
         [params.footer.credits]
-            title = "About Freelancer"
-            text = "Freelance is a free to use, open source Bootstrap theme created by [Start Bootstrap](//startbootstrap.com)."
+            title = "Accomplishments"
+			list = ["Getting invited to math honours",
+						"Maintaining an A- GPA."]
+            text ="[Github](//github.com/FriendlyUser)."

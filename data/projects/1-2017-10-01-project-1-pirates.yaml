@@ -2,7 +2,7 @@ modalID: 1
 title: Pirates
 date: 2017-09-01
 img: piratesGamesScreenShot.png
-client: Academic Project
+client: Simple Networked Game
 clientLink: "https://piratesmulti.herokuapp.com/"
 category: Web Development
-description: CENG 356 &#9866; Engineering Software Design, the project I made for one of the my academic classes. It is a Simple Networked Game where pirate ships battle each other.
+description: CENG 356 &#9866; Engineering Software Design, the project I made for one of the my academic classes. It is a Simple Networked Game where pirate ships battle each other. Documentation is available at [here](https://friendlyuser.github.io/Pirates-Game/)<hr> 1.  implemented in Node.js using server-side and client-side Javascript. <br /> 2. hosted on heroku and created using free assets.
