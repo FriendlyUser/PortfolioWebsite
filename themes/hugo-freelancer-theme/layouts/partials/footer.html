@@ -4,11 +4,11 @@
         <div class="container">
             <div class="row">
                 <div class="footer-col col-md-4">
-                    <h3>{{ with .Site.Params.footer.location.title }}{{.}}{{ end }}</h3>
+                    <h3>{{ with .Site.Params.footer.education.title }}{{.}}{{ end }}</h3>
 
-                    {{ with .Site.Params.footer.location.address }}
+                    {{ with .Site.Params.footer.education.schools }}
                         <p>
-                            {{ range $i, $e := $.Site.Params.footer.location.address }}
+                            {{ range $i, $e := $.Site.Params.footer.education.schools }}
                                 {{ if $i }}<br>{{ end }}
                                 {{ $e }}
                             {{ end }}
@@ -27,6 +27,16 @@
                 </div>
                 <div class="footer-col col-md-4">
                     <h3>{{ with .Site.Params.footer.credits.title }}{{.}}{{ end }}</h3>
+						<ol>
+						 {{ with .Site.Params.footer.credits.list }}
+							{{ range $i, $e := $.Site.Params.footer.credits.list }}
+							<li>
+								{{ $e }}
+							</li>
+							{{ if $i }}<hr>{{ end }}
+							{{ end }}
+						{{ end }}
+						</ol>
                     <p>{{ with .Site.Params.footer.credits.text }}{{ . | markdownify }}{{ end }}</p>
                 </div>
             </div>

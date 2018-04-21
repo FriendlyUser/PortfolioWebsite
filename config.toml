@@ -62,7 +62,15 @@ theme = "hugo-freelancer-theme"
         # The about text is splitted into a left and right column.		
         left = "Created used Hugo, this statically generated site contains projects."
         right = "I am a student looking to showcase my work."
+		# Interesting facts about myself
+		[params.about.interests]
+			interestTitle = "Interesting Facts"
+			icon     = "fas fa-thumbs-up"
+			list = ["Machine Learning Algorithms (in particular foundational math)",
+					"Blockchain technologies",
+					"Good at math, decent at exams and like reading manga."]
 
+						
         [params.about.button]
             text = "Download repo"
             link = "//github.com/FriendlyUser/PortfolioWebsite/master.zip"
@@ -107,7 +115,7 @@ theme = "hugo-freelancer-theme"
             # CSS class.
             [[params.footer.social.networks]]
                 icon = "fa-github"
-                link = "//github.com/spf13/hugo"
+                link = "//github.com/FriendlyUser/PortfolioWebsite"
 
             [[params.footer.social.networks]]
                 icon = "fa-stack-overflow"

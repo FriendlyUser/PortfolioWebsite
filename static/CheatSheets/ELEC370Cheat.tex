@@ -1,0 +1,560 @@
+\chapter{ELEC 370 Cheatsheet}
+
+\begin{multicols}{2}
+	\section{MAGNETIC CIRCUITS}
+	
+	\[\mu = \ \mu_{o}\mu_{r}\text{\ where\ }\mu_{o} = 4\pi \times 10^{- 7}\ \lbrack\frac{H}{m}\rbrack\]
+	
+	Field Intensity:
+	\(H = \ \frac{\text{Ni}}{l_{c}}\ \lbrack\frac{\text{At}}{m}\rbrack\)
+	
+	Flux Density: \(B = \ \mu H\ \lbrack\frac{\text{Wb}}{m^{2}}\rbrack\)
+	
+	Reluctance:
+	\(\mathcal{R = \ }\frac{l_{c}}{\mu A}\ \left\lbrack \frac{\text{At}}{\text{Wb}} \right\rbrack\)
+	
+	Flux:
+	\(\phi = B \times A = \ \frac{\mathcal{F}}{\mathcal{R}}\ \lbrack Wb\rbrack\)
+	
+	Flux: \(\phi = \ \frac{\mu\text{NiA}}{l_{c}}\ \lbrack Wb\rbrack\)
+	
+	Induced EMF:
+	\(\varepsilon = N \times \frac{\text{d}\phi}{\text{dt}}\ \left\lbrack V \right\rbrack\)
+	
+	Flux linkage: \(\lambda = N\phi\ \left\lbrack \text{Wbt} \right\rbrack\)
+	
+	Eddy current loss:
+	\(P_{e} = \ K_{e}\ f^{2}B_{m}^{2}\ \left\lbrack \frac{\text{Wb}}{\text{kg}} \right\rbrack\)
+	
+	\[B_{m} = \ B_{\max}\text{\ of\ core}\]
+	
+	Inductance:
+	\(L = \ \frac{\text{N}\phi}{I} = \ \frac{N^{2}}{\mathcal{R}} = \ \frac{N^{2}\mu\text{A}}{l_{c}}\ \lbrack H\rbrack\)
+	
+	Leakage inductance: \(L_{l} = \ \frac{N\phi_{l}}{I}\ \lbrack H\rbrack\)
+	
+	Energy:
+	\(\varepsilon = \ \frac{Li^{2}}{2} = \ \frac{\mathcal{R}\phi^{2}}{2}\ \lbrack J\rbrack\)
+	
+	\section{TRANSFORMERS}
+	
+	Turns ratio:
+	\(\frac{V_{1}}{V_{2}} = \frac{i_{1}}{i_{2}} = \frac{N_{1}}{N_{2}} = k\)
+	
+	Load impedance as seen from primary:
+	
+	\({Z'}_{L} = {(\frac{N_{1}}{N_{2}})}^{2} \times Z_{L}\ \lbrack\Omega\rbrack\)
+	
+	Peak flux: \(\phi_{m}\)
+	
+	Peak voltage:
+	\(V_{\text{pk}} = \varepsilon_{11p} = N_{1}\theta_{m}\omega\text{\ \ }\left\lbrack V \right\rbrack\)
+	
+	RMS voltage:
+	\(V_{\text{RMS}} = \frac{V_{\text{peak}}}{\sqrt{2}}\text{\ \ }\left\lbrack V \right\rbrack\)
+	
+	\[L_{l1} = \frac{N_{1}\phi_{l1}}{i_{1}}\ \ ;\ \ L_{l2} = \frac{N_{2}\phi_{l2}}{i_{2}}\]
+	
+	\[{i^{'}}_{m} = i_{1} - \frac{N_{2}}{N_{1}}i_{2}\ \ ;\ \ {i^{''}}_{m} = i_{2} - \frac{N_{1}}{N_{2}}i_{1}\]
+	
+	\[{L^{'}}_{m} = \frac{N_{1}\varnothing_{m}}{{i^{'}}_{m}}\ \ ;\ \ {L^{''}}_{m} = \frac{N_{1}\varnothing_{m}}{{i^{''}}_{m}}\]
+	
+	\[\frac{{L^{'}}_{m}}{{L^{''}}_{m}} = \left( \frac{N_{1}}{N_{2}} \right)^{2}\ \]
+	
+	\[{X^{'}}_{l2} = \left( \frac{N_{1}}{N_{2}} \right)^{2}X_{l2}\ \ ;\ \ {R^{'}}_{2} = \left( \frac{N_{1}}{N_{2}} \right)^{2}R_{2}\]
+	
+	\[{X^{''}}_{l1} = \left( \frac{N_{2}}{N_{1}} \right)^{2}X_{l1}\ \ ;\ \ {R^{''}}_{1} = \left( \frac{N_{2}}{N_{1}} \right)^{2}R_{1}\]
+	
+	\[{X^{''}}_{m} = \left( \frac{N_{2}}{N_{1}} \right)^{2}{X^{'}}_{m}\ \ ;\ \ {R^{''}}_{c} = \left( \frac{N_{2}}{N_{1}} \right)^{2}{R^{'}}_{c}\]
+	
+	\[\overline{{\varepsilon''}_{1}} = \frac{N_{2}}{N_{1}}\overline{\varepsilon_{1}}\ \ ;\ \ \overline{{V''}_{1}} = \frac{N_{2}}{N_{1}}\overline{V_{1}}\text{\ \ }\]
+	
+	\[\overline{{I^{''}}_{1}} = \frac{N_{1}}{N_{2}}\overline{I_{1}}\ \ ;\ \ \overline{{I^{''}}_{m}} = \frac{N_{1}}{N_{2}}\overline{I_{m}}\]
+	
+	\[P_{c} = \frac{V_{1}^{2}}{{R'}_{c}}\ \ ;\ \ P_{w} = I_{1}^{2}R_{1} + I_{2}^{2}R_{2}\]
+	
+	\[\eta = \left( \frac{V_{2}I_{2}\cos\theta_{2}}{V_{2}I_{2}\cos{\theta_{2} + P_{c} + P_{w}}} \right)*100\%\]
+	
+	Regulation:
+	\(\frac{\left| \overline{V_{\text{NL}}} \right| - \left| \overline{V_{\text{FL}}} \right|}{\left| \overline{V_{\text{FL}}} \right|}\)
+	
+	\subsection{OPEN CIRCUIT TEST}
+	
+	\[\cos\theta_{\text{OC}} = \frac{P_{\text{OC}}}{V_{\text{OC}}I_{\text{OC}}}\]
+	
+	\[{R^{'}}_{c} = \frac{V_{\text{OC}}}{I_{\text{OC}}\cos\theta_{\text{OC}}}\ \ ;\ \ {X^{'}}_{m} = \frac{V_{\text{OC}}}{I_{\text{OC}}\sin\theta_{\text{OC}}}\]
+	
+	\subsection{SHORT CIRCUIT TEST}
+	
+	\[\left| Z_{\text{SC}} \right| = \frac{V_{\text{SC}}}{I_{\text{SC}}} = \sqrt{\left( R_{1} + k^{2}R_{2} \right)^{2} + \left( X_{l1} + k^{2}X_{l2} \right)^{2}}\]
+	
+	\[P_{\text{SC}} = I_{\text{SC}}^{2}(R_{1} + k^{2}R_{2})\]
+	
+	\[{R'}_{\text{eq}} = R_{1} + {R'}_{2} = R_{1} + k^{2}R_{2} = \frac{P_{\text{SC}}}{I_{\text{SC}}^{2}}\]
+	
+	\[{X^{'}}_{\text{leq}} = \sqrt{\left| Z_{\text{SC}} \right|^{2} - {R^{'}}_{\text{eq}}^{2}} = X_{l1} + {X^{'}}_{l2} = X_{l1} + k^{2}X_{l2}\]
+	
+	Assume: \(R_{1} = {R'}_{2}\ \ \&\ \ X_{l1} = {X'}_{l2}\)
+	
+	\subsection{PER-UNIT VALUES}
+	
+	\[I_{\text{BASE}} = \frac{S_{\text{BASE}}}{V_{\text{BASE}}}\ \ \lbrack per\ winding\rbrack\]
+	
+	\[R_{\text{BASE}} = X_{\text{BASE}} = Z_{\text{BASE}} = \frac{V_{\text{BASE}}}{I_{\text{BASE}}}\]
+	
+	\[P_{\text{BASE}} = Q_{\text{BASE}} = \left| S_{\text{BASE}} \right| = V_{\text{BASE}}I_{\text{BASE}}\]
+	
+	\[P.U.\  = \frac{\text{actual\ amount}}{\text{base\ amount}}\]
+	
+	\textbf{AUTO-TRANSFORMER}
+	
+	\[I_{x} = I_{2} - I_{1}\ \ \ ;\ \ \ \text{CU}_{\text{RATIO}} = 1 - \frac{N_{2}}{N_{1}}\]
+	
+	\section{DC-MACHINES}
+	
+	Lossless Machine:
+	\(vi = T_{e}\omega_{m}\ \ \ ;\ \ \ \overset{}{F} = i(\overset{}{l} \times \overset{}{B})\)
+	
+	\subsection{DC GENERATORS}
+	
+	\textbf{LAP WINDING}
+	
+	\[a = P\ ;\ \ \varepsilon_{a} = \frac{\phi\text{Z}\Omega}{2\pi}\]
+	
+	\textbf{WAVE WINDING}
+	
+	\[a = 2\ ;\ \ \varepsilon_{a} = \frac{\phi\text{Z}\Omega P}{4\pi}\]
+	
+	Average Flux density per pole: \(B_{a} = \frac{\phi \text{P}}{\pi l_{a}D}\)
+	
+	\[\varepsilon_{a1} = \phi PN\ \left( \text{per\ coil} \right);\ \ \varepsilon_{a} = \frac{\phi\text{Z}\Omega P}{2\pi a}\]
+	
+	\[K = \frac{\text{ZP}}{2\pi a}\]
+	
+	\[T_{d} = K\phi I_{a}\]
+	
+	Air gap power:
+	\(P_{\text{ag}} = \varepsilon_{a}I_{a} = T_{d}\Omega\text{\ \ }\left\lbrack W \right\rbrack\)
+	
+	Where: \(\phi = \frac{\text{flux}}{\text{pole}}\)
+	
+	\[Z = total\ armature\ conductors\]
+	
+	\[\ \ \ \  = \# slots\frac{\# conductors}{\text{slot}}\]
+	
+	\[P = \# generator\ poles\ (always\ even)\]
+	
+	\[\Omega = \frac{2\pi N}{60} = angular\ velocity\ \left\lbrack \frac{\text{rads}}{s} \right\rbrack\]
+	
+	\[N = armature\ speed\ \lbrack rpm\rbrack\]
+	
+	\[a = \# parallel\ paths\ in\ armature\ winding\]
+	
+	\subsection{SEPERATLY EXCITED}
+	
+	\[v_{f} = R_{f}i_{f} + L_{f}\frac{di_{f}}{\text{dt}}\ \ ;\ \ \ \ V_{f} = I_{f}R_{f}\]
+	
+	\[v_{t} = K\phi\Omega - L_{a}\frac{di_{a}}{\text{dt}} - i_{a}R_{a}\]
+	
+	\[V_{t} = K\phi\Omega - i_{a}R_{a}\]
+	
+	\[T_{\text{shaft}} = K\phi i_{a} + J\frac{d\Omega}{\text{dt}} + T_{\text{loss}}\]
+	
+	\[T_{\text{shaft}} = K\phi i_{a} + T_{\text{loss}}\]
+	
+	\[I_{f} = \frac{V_{\text{fs}}}{R_{e} + R_{f}}\ ;\ \ I_{l} = I_{a}\]
+	
+	\[I_{l} = \frac{V_{t}}{R_{L}} = \frac{\varepsilon_{a}}{R_{a} + R_{L}} = \frac{\text{K}\phi\Omega}{R_{a} + R_{L}}\]
+	
+	\[\varepsilon_{a} = V_{t} + I_{a}R_{a} = K\phi\Omega\]
+	
+	\[\text{K} \phi \text{ depends\ on\ }I_{f}\]
+	
+	\[V_{t} = \varepsilon_{a} - I_{a}R_{a} = \varepsilon_{a} - I_{L}R_{a}\]
+	
+	\subsection{SHUNT}
+	
+	No Load:
+	
+	\[\varepsilon_{a} = I_{f}(R_{a} + R_{e} + R_{f})\]
+	
+	\[V_{t} = I_{f}\left( R_{e} + R_{f} \right) \cong \varepsilon_{a} = f(I_{f})\]
+	
+	Loaded:
+	
+	\[V_{t} = I_{L}R_{L} = \varepsilon_{a} - I_{a}R_{a}\]
+	
+	\[I_{a} = I_{L} + I_{f}\]
+	
+	\[I_{L} = \frac{P_{L}}{I_{L}}\ \ ;\ \ I_{f} = \frac{V_{t}}{R_{f}}\]
+	
+	Voltage will not build if:
+	
+	\begin{enumerate}
+		\def\labelenumi{\arabic{enumi}.}
+		\item
+		There is no residual magnetism present
+		\item
+		Field connected opposes permanent magnetism
+		\item
+		\(R_{f} > R_{\text{criti}\text{cal}}\)
+	\end{enumerate}
+	
+	\[\varepsilon_{a} = V_{t} + I_{a}R_{a} = I_{f}\left( R_{e} + R_{f} \right) + I_{a}R_{a}\]
+	
+	\textbf{SERIES}
+	
+	\[I_{a} = I_{L} = I_{f}\]
+	
+	\[V_{t} = \varepsilon_{a} - I_{L}(R_{a} + R_{s})\]
+	
+	\textbf{EFFICIENCY}
+	
+	\[P_{\text{in}} = T_{\text{applied}}\Omega + V_{f}I_{f}\]
+	
+	\[P_{\text{out}} = V_{t}I_{L}\]
+	
+	\[\eta = \frac{P_{\text{out}}}{P_{\text{in}}} = \frac{V_{t}I_{L}}{T_{\text{applied}}\Omega + V_{f}I_{f}}\]
+	
+	\textbf{LOSSES}
+	
+	\[P_{STRAY\_ LOSS}\]
+	
+	\[P_{MECHANICAL\_ LOSS} = winding\ \&\ friction\]
+	
+	\[P_{MAGNETIG\_ LOSS} = core\ losses\]
+	
+	\[P_{ELECTRICAL\_ LOSS} = I_{a}^{2}R_{a} + I_{f}^{2}R_{f}\]
+	
+	\[P_{ARMATURE\_ LOSS} = \varepsilon_{a}I_{a} = T_{d}\Omega\]
+	
+	\[P_{ARMATURE\_ CU\_ LOSS} = P_{a} = I_{a}^{2}R_{a}\]
+	
+	\[P_{SHUNT\_ FIELD\_ CU\_ LOSS} = P_{f} = V_{t}I_{f}\]
+	
+	\[P_{BRUSH\_ LOSS} = V_{\text{BD}}I_{a}\]
+	
+	\[P_{\text{RO}T\_ LOSS} = P_{\text{CORE}} + P_{\text{MECH}} = E_{a}I_{a} = (V_{t} - I_{a}R_{a})I_{a}\]
+	
+	\[P_{\text{ROT}} - \text{calculated\ at\ no\ load\ conditions}\]
+	
+	\subsection{DC MOTORS}
+	
+	\textbf{SEPARATELY EXCITED}
+	
+	\[v_{f} = R_{f}i_{f} + L_{f}\frac{di_{f}}{\text{dt}}\ ;\ V_{f} = I_{f}R_{f}\]
+	
+	\[v_{t} = K\phi\Omega + L_{a}\frac{di_{a}}{\text{dt}} + i_{a}R_{a}\]
+	
+	\[V_{t} = \varepsilon_{a} + I_{a}R_{a} = K\phi\Omega + I_{a}R_{a}\]
+	
+	\[T_{\text{LOAD}} = K\phi i_{a} - J\frac{d\Omega}{\text{dt}} - T_{\text{LOSS}} = K\phi i_{a} - T_{\text{LOSS}}\]
+	
+	\[\varepsilon_{a} = K\phi\Omega = f\left( I_{f} \right)|_{\Omega = \Omega_{\text{RATED}}}\]
+	
+	\[T = T_{\text{internal}} = K\phi I_{a}\]
+	
+	\textbf{SPEED CONTROL}
+	
+	\[\Omega = \frac{V_{t} - I_{a}R_{a}}{\text{K}\phi} = \frac{V_{t}}{\text{K}\phi} - \frac{TR_{a}}{\left( \text{K}\phi \right)^{2}}\]
+	
+	\[\Omega = \frac{V_{t}}{\text{K}\phi} - \frac{T(R_{a} + R_{d})}{\left( \text{K}\phi \right)^{2}}\]
+	
+	\[T = T_{\text{LOSS}} + T_{\text{LOAD}}\]
+	
+	\textbf{SHUNT}
+	
+	\[V_{t} = I_{f}\left( R_{e} + R_{f} \right) = \varepsilon_{a} + I_{a}R_{a} = K\phi\Omega{+ i}_{a}R_{a}\]
+	
+	\[T_{\text{LOAD}} = K\phi I_{a} - T_{\text{LOSS}}\]
+	
+	\[\varepsilon_{a} = K\phi\Omega = f\left( I_{f} \right)|_{\Omega = \Omega_{R}}\]
+	
+	\[T = T_{\text{INTERNAL}} = K\phi I_{a}\]
+	
+	\[\Omega = \frac{V_{t}}{\text{K}\phi} - \frac{TR_{a}}{\left( \text{K}\phi \right)^{2}}\]
+	
+	\[\Omega = \frac{V_{t}}{\text{K}\phi} - \frac{T(R_{a} + R_{d})}{\left( \text{K}\phi \right)^{2}}\]
+	
+	\textbf{BLOCKED ROTOR}
+	
+	\[R_{a} = \frac{V_{a}}{I_{a}}\ \ ;\ \ R_{f} = \frac{V_{f}}{I_{f}}\]
+	
+	\textbf{SERIES}
+	
+	\[T = K\phi I_{a} = \text{K}\phi I_{L}\]
+	
+	\[\varepsilon_{a} = K\phi\Omega = f(I_{f})|_{\Omega = \Omega_{R}}\]
+	
+	\[V_{t} = \varepsilon_{a} + I_{a}(R_{a} + R_{s}) = K\phi\Omega{+ I}_{a}(R_{a} + R_{s})\]
+	
+	\[T_{\text{LOAD}} = K\phi I_{L} - T_{\text{LOSS}}\]
+	
+	\[T = T_{\text{LOSS}} + T_{\text{LOAD}}\]
+	
+	\[\Omega = \frac{V_{t}}{\text{K}\phi} - \frac{T(R_{a} + R_{s})}{\left( \text{K}\phi \right)^{2}}\]
+	
+	\[for\ liner\ range\ of\ mag\ curve:\ I_{L} < I_{a(RATED)}\]
+	
+	\[K\varnothing = K_{f}I_{L}^{2}\]
+	
+	\[K\phi = \sqrt{K_{f}T}\]
+	
+	\[T = K_{f}I_{L}^{2}\]
+	
+	\[T_{\text{DEVELOPED}} = \frac{P_{\text{DEVELOPED}}}{\Omega}\]
+	
+	\subsection{INDUCTION MOTORS}
+	
+	\[P = 2n\ ;where\ P = \# poles,\ n = \# stator\ slots\ or\ poles\ or\ phases\]
+	
+	Synchronous Speed: \(N_{s} = \frac{120f}{P}\)
+	
+	\[\omega_{s} = \frac{P}{2} \times \frac{2\pi N_{s}}{60}\]
+	
+	\[\% slip = \left( \frac{N_{s} - N}{N_{s}} \right) \times 100\%\]
+	
+	Rotor speed: \(N = (1 - s)N_{s}\)
+	
+	\[N_{r} = sN_{s}\]
+	
+	\[X_{2BR} = \omega_{s}L_{s}\ ;blocked\ rotor\ leakage\ L\]
+	
+	\[X_{2} = sX_{2BR}\]
+	
+	\[\varepsilon_{2BR} = 4.44f\phi_{m}N_{t}\ ;where:\ N_{t} = \# rotor\ tuns,\ \phi_{m} = \max\text{flux}\]
+	
+	\[\varepsilon_{2} = s\varepsilon_{2BR}\]
+	
+	\[\overset{\overline{}}{I_{2}} = \frac{\overset{\overline{}}{\varepsilon_{2BR}}}{\frac{R_{2}}{s} + jX_{2BR}} = \frac{s\overset{\overline{}}{\varepsilon_{2BR}}}{R_{2} + jsX_{2BR}}\]
+	
+	\[\frac{R_{2}}{s} = R_{2} + \frac{R_{2}}{s}(1 - s)\]
+	
+	\[{R^{'}}_{2} = \left( \frac{N_{1}}{N_{2}} \right)^{2}{R^{'}}_{2}\ \ ;\ \ {X^{'}}_{2BR} = \left( \frac{N_{1}}{N_{2}} \right)^{2}X_{2BR}\]
+	
+	\textbf{EQUIVALENT CIRCUIT PARAMETERS}
+	
+	\[P_{OC - 3\phi} = P_{\text{total}} = W_{1} + W_{2}\]
+	
+	\[P_{OC - 1\phi} = \frac{P_{OC - 3\phi}}{3}\]
+	
+	\[P_{OC - 1\phi} = \frac{P_{OC - 3\phi} - 3I_{\text{OC}}^{2}R_{1} - P_{\text{mech}}}{3}\]
+	
+	\[P_{NL - 1\phi} = P_{OC - 1\phi -}I_{\text{OC}}^{2}R_{1} - P_{mech - loss - 1\phi}\]
+	
+	\[R_{c} = \frac{V_{\text{OC}}^{2}}{P_{NL - 1\phi}}\ \ ;\ \ V_{OC - 1\phi} = \frac{V_{\text{NL}}}{\sqrt{3}}\]
+	
+	Where: \(V_{\text{OC}} = V\ line\ to\ neutral = V_{\text{RATED}}\)
+	
+	\[\cos{\theta_{\text{OC}} = \frac{P_{NL - 1\phi}}{V_{\text{OC}}I_{\text{OC}}}}\]
+	
+	\[X_{m} = \frac{V_{\text{OC}}}{I_{\text{OC}}\sin\theta_{\text{OC}}} = \frac{V_{\text{OC}}^{2}}{\sqrt{V_{\text{OC}}^{2}I_{\text{OC}}^{2} - P_{NL - 1\phi}^{2}}}\]
+	
+	\[k = \frac{N_{\text{stator}}}{N_{\text{rotor}}}\]
+	
+	\textbf{WOUND ROTOR}
+	
+	\[k = \sqrt{\frac{V_{\text{ss}}V_{\text{sm}}}{V_{rm}V_{\text{rs}}}}\ ;where\ \]
+	
+	\[V_{\text{sm}} = measured\ V_{\text{stator}}\text{for\ }V_{\text{rotor}} = V_{\text{rs}}\]
+	
+	\[V_{\text{rm}} = measured\ V_{\text{rotor}}\text{for\ }V_{\text{stator}} = V_{\text{ss}}\]
+	
+	\textbf{BLOCKED ROTOR TEST}
+	
+	\[R_{\text{eq}} = R_{1} + {R'}_{2} = R_{1} + k^{2}R_{2} = \frac{P_{SC - 1\phi}}{I_{\text{SC}}^{2}}\]
+	
+	\[\left| Z_{\text{SC}} \right| = \frac{V_{\text{SC}}}{I_{\text{SC}}}\ \ ;\ \ V_{SC - 1\phi} = \frac{V_{\text{SC}}}{\sqrt{3}}\]
+	
+	\[X_{\text{eq}} = X_{1} + k^{2}X_{2BR} = \sqrt{\left| Z_{\text{SC}} \right|^{2} - {R^{'}}_{\text{eq}}^{2}}\]
+	
+	\[X_{1} = {X'}_{2BR} \cong \frac{X_{\text{eq}}}{2}\]
+	
+	\(Y - Connected:\ R_{1} = \frac{R_{m}}{2}\)
+	
+	\[\Delta - Connected:R_{1} = \frac{3R_{m}}{2}\]
+	
+	\[P_{CU - LOSS} = 3I_{1}^{2}R_{1}\]
+	
+	\[P_{AG - 3\phi} = P_{i - 3\phi} - P_{CU - LOSS} - P_{CORE - LOSS} = 3{I^{'}}_{2}^{2}\frac{{R^{'}}_{2}}{s}\]
+	
+	\[P_{d - 3\phi} = 3{I^{'}}_{2}^{2}{R^{'}}_{2}\frac{(1 - s)}{s} = P_{ag - 3\phi}(1 - s)\]
+	
+	\[P_{o - 3\phi} = P_{d - 3\phi} - P_{\text{MECH}} - P_{CORE - LOSS}\]
+	
+	\[\frac{P_{R - CU - LOSS}}{P_{d - MECH}} = \frac{s}{1 - s}\]
+	
+	\textbf{SPEED TORQUE CHARACTERISTIC}
+	
+	\[T_{e} = \frac{P_{d - 3\phi}}{\Omega_{m}}\ ;\ \Omega_{m} = \Omega_{s}(1 - s)\]
+	
+	\[T_{e} = \frac{3}{\Omega_{s}} \times \frac{{I^{'}}_{2}^{2}{R^{'}}_{2}}{s}\ \ ;\ \ T_{e - start} = \frac{3}{\Omega_{s}} \times {I^{'}}_{2}^{2}{R^{'}}_{2}\]
+	
+	\[{I'}_{2} = \frac{\overset{\overline{}}{V_{1}}}{\left( R_{1} + \frac{{R^{'}}_{2}}{s} \right) + j\left( X_{1} + X_{2BR} \right)}\]
+	
+	\[T_{e - normal\ } = \frac{3V_{1}^{2}s}{\Omega_{s}{R^{'}}_{2}}\]
+	
+	\textbf{THEVENIN EQUIVALENT}
+	
+	\[\overset{\overline{}}{V_{\text{TH}}} = \frac{jX_{m}\overset{\overline{}}{V_{1}}}{R_{1} + j\left( X_{1} + X_{m} \right)}\]
+	
+	\[Z_{\text{TH}} = R_{\text{TH}} + jX_{\text{TH}} = \frac{jX_{m}\left( R_{1} + jX_{1} \right)}{R_{1} + j\left( X_{1} + X_{m} \right)}\]
+	
+	\[T_{e - start} = \frac{3V_{1}^{2}{R^{'}}_{2}}{{\Omega_{s}\left( X_{1} + {X^{'}}_{2BR} \right)}^{2}}\]
+	
+	\[s_{m} = \frac{{R'}_{2}}{\sqrt{R_{1}^{2} + {(X_{1} + {X^{'}}_{2BR})}^{2}}}\]
+	
+	\[T_{e - max} = \frac{3V_{1}^{2}}{2\Omega_{s}\left( R_{1} + \sqrt{R_{1}^{2} + \left( X_{1} + {X^{'}}_{2BR} \right)^{2}} \right)}\]
+	
+	\textbf{INDUCTION MOTOR PERFORMANCE}
+	
+	Neglecting mechanical and core losses:
+	
+	\[P_{o - 3\phi} = P_{d - 3\phi}\ \ ;\ \ \eta \cong 1 - s\]
+	
+	\textbf{THREE PHASE THEORY}
+	
+	\[V_{L} = Line\ Voltage = line\ to\ line\ voltage\]
+	
+	\[V_{P} = Phase\ Voltage = line\ to\ neutral\ voltage\]
+	
+	\[Y - Connected\]
+	
+	\[V_{L} = \sqrt{3}V_{P}\]
+	
+	\[P_{T} = \sqrt{3}V_{L}I_{L}\cos\theta\]
+	
+	\[P_{P} = V_{P}I_{P}\cos\theta\]
+	
+	\[\Delta - Connected\]
+	
+	\[I_{L} = \sqrt{3}I_{P}\]
+	
+	\[V_{L} = V_{P}\]
+	
+	\[P_{T} = \sqrt{3}V_{L}I_{L}\cos\theta\]
+	
+	\section{SYNCHRONOUS MACHINES}
+	
+	\textbf{SYNCHRONOUS GENERATOR}
+	
+	Open Circuit Characteristic:
+	
+	\[\text{Plot\ }V_{\text{OC}}\text{\ vs.\ }I_{f}\]
+	
+	\[I_{f0} \rightarrow E_{0}\]
+	
+	Short Circuit Characteristic:
+	
+	\[short\ armature,\ keep\ I_{f0}\text{\ constant}\]
+	
+	\[\text{measure\ }I_{a}\]
+	
+	\[\left| Z_{s} \right| = \frac{E_{0}}{I_{a}}\]
+	
+	Resistance Measurement:
+	
+	\[Y - connected\]
+	
+	\[R_{a\left( \text{DC} \right)} = \frac{R_{\text{measured}}}{2}\]
+	
+	\[- connected\]
+	
+	\[R_{a\left( \text{DC} \right)} = \frac{3R_{\text{measured}}}{2}\]
+	
+	\[R_{\text{eff}} = 1.4R_{a\left( \text{DC} \right)}\]
+	
+	\[Voltage\ induced\ in\ phase\ a:\ \]
+	
+	\[\varepsilon_{a} = E_{m}\operatorname{sin(}{\omega t)}\]
+	
+	Where:
+	
+	\[E_{m} = 2\pi fN\phi\]
+	
+	\[\phi = flux\ per\ po\text{le}\]
+	
+	\[\omega = 2\pi f\]
+	
+	\[f = frequency\ of\ induced\ voltage\]
+	
+	\[\varepsilon_{b} = E_{m}\operatorname{sin(}{\omega t - 120)}\]
+	
+	\[\varepsilon_{c} = E_{m}\operatorname{sin(}{\omega t - 240)}\]
+	
+	\[E_{0} = K\phi f\ (rms\ or\ peak)\]
+	
+	\textbf{PER-PHASE}
+	
+	\[\overset{\overline{}}{E_{0}} = \overset{\overline{}}{V_{t}} + \overset{\overline{}}{I_{a}}\left( R_{a} + jX_{s} \right)\]
+	
+	\[\% VR = \frac{\left| \overset{\overline{}}{E_{0}} \right| - \left| \overset{\overline{}}{V_{t}} \right|}{\left| \overset{\overline{}}{V_{t}} \right|} \times 100\%\]
+	
+	\[\delta = \angle between\ \overset{\overline{}}{E_{0}}\ \&\ \overset{\overline{}}{V_{t}} = power\ angle\]
+	
+	\[\phi = \angle between\ \overset{\overline{}}{I_{a}}\ \&\ \overset{\overline{}}{V_{t}}\]
+	
+	\[\text{gennerally\ }X_{s} \gg R_{a}\ \therefore\ Z_{s} \cong jX_{s}\]
+	
+	\[\mathbf{\text{Neglecting\ }}\mathbf{R}_{\mathbf{0}}\mathbf{:}\]
+	
+	\[E_{0}\sin\delta = X_{s}I_{a}\cos\phi\]
+	
+	\[P_{d - 1\phi} = V_{t}I_{d}\cos{\phi =}V_{t}\left( \frac{E_{0}\sin\delta}{X_{s}} \right)\]
+	
+	\[\mathbf{\text{Including\ }}\mathbf{R}_{\mathbf{0}}\mathbf{:}\]
+	
+	Unity PF Load:
+	
+	\[E_{0} = \sqrt{\left( V_{t} + I_{a}R_{a} \right)^{2} + \left( I_{a}X_{s} \right)^{2}}\]
+	
+	Lagging PF Load:
+	
+	\[E_{0} = \sqrt{{\left( V_{t}\operatorname{cos(}\phi \right) + I_{a}R_{a})}^{2} + {\left( V_{t}\operatorname{sin(}\phi \right) + I_{a}X_{s})}^{2}}\]
+	
+	Leading PF Load:
+	
+	\[E_{0} = \sqrt{{\left( V_{t}\operatorname{cos(}\phi \right) + I_{a}R_{a})}^{2} + {\left( V_{t}\operatorname{sin(}\phi \right) - I_{a}X_{s})}^{2}}\]
+	
+	Active and Reactive Power:
+	
+	\[\overset{\overline{}}{E_{0}} = \overset{\overline{}}{V_{t}} + \overset{\overline{}}{I_{a}}\left( R_{a} + jX_{s} \right) = E_{0}(\cos\delta + j\sin\delta)\]
+	
+	\[I_{a} = \frac{1}{\left| Z_{s} \right|^{2}}\left\lbrack R_{a}\left( E_{0}\cos\left( \delta \right) - V_{t} \right) + X_{s}E_{0}\sin\left( \delta \right) + jR_{a}E_{0}\sin\left( \delta \right) - jX_{s}\left( E_{0}\cos\left( \delta \right) - V_{t} \right) \right\rbrack\]
+	
+	\[where:\ \left| Z_{S} \right|^{2} = R_{a}^{2} + X_{s}^{2}\]
+	
+	\[\overset{\overline{}}{S} = \overset{\overline{}}{V_{t}}\overset{\overline{}}{I_{a}} = P + jQ\]
+	
+	\[P = \frac{1}{\left| Z_{s} \right|^{2}}\left\lbrack R_{a}\left( V_{t}E_{0}\cos\left( \delta \right) - {V_{t}}^{2} \right) + X_{s}{V_{t}E}_{0}\sin\left( \delta \right) \right\rbrack\]
+	
+	\[Q = \frac{1}{\left| Z_{s} \right|^{2}}\left\lbrack - R_{a}V_{t}E_{0}\sin\left( \delta \right) + X_{s}\left( V_{t}E_{0}\cos\left( \delta \right) - V_{t}^{2} \right) \right\rbrack\]
+	
+	\[\text{Neglecting\ }R_{a}:\]
+	
+	\[P \cong \frac{V_{t}E_{0}\sin\left( \delta \right)}{X_{s}}\ \ ;\ Q \cong \frac{{- V}_{t}^{2} + V_{t}E_{0}\cos\left( \delta \right)}{X_{s}}\]
+	
+	\[T \cong \frac{V_{t}E_{0}\sin\left( \delta \right)}{\Omega_{s}X_{s}}\]
+	
+	\textbf{SYNCHRONOUS MOTOR}
+	
+	\[T_{d} \cong \frac{3V_{t}E_{0}\sin\left( \delta \right)}{\Omega_{s}X_{s}}\]
+	
+	\textbf{PER-PHASE}
+	
+	\[\text{neglecting\ }R_{a}:\]
+	
+	\[P_{d - 1\phi} = \frac{V_{t}E_{0}\sin{(\delta)}}{X_{s}} = constant\]
+	
+	\[I_{a}X_{s}\cos\left( \phi \right) = E_{0}\sin\left( \delta \right) = constant\]
+	
+	\textbf{SALIENT-POLE MACHINES}
+	
+	\[I_{d} = I_{a}\sin\left( \delta + \phi \right)\]
+	
+	\[I_{q} = I_{a}\cos\left( \delta + \phi \right)\]
+	
+	\[E_{0} = V_{t}\cos\left( \delta \right) + I_{a}X_{a}\]
+	
+	\[P_{d - 1\phi} = \frac{V_{t}E_{0}\sin\left( \delta \right)}{X_{d}} + \frac{V_{t}^{2}}{2}\left( \frac{1}{X_{q}} - \frac{1}{X_{d}} \right)\]
+\end{multicols}

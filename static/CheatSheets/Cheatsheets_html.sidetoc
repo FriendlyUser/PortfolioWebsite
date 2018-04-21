@@ -1,0 +1,66 @@
+\contentsline {chapter}{\numberline {1}{\ignorespaces Todo List\relax }}{10}
+\contentsline {chapter}{\numberline {2}{\ignorespaces ELEC 320: Tough Class\relax }}{12}
+\contentsline {subsection}{Bipolar Junction Transistor}{14}
+\contentsline {chapter}{\numberline {3}{\ignorespaces CENG242Cheat\relax }}{43}
+\contentsline {section}{Basic Graph Definitions}{44}
+\contentsline {subsection}{Representation}{45}
+\contentsline {section}{Graph traversal}{47}
+\contentsline {subsection}{Breadth-first search (BFS)}{48}
+\contentsline {subsection}{Depth-first search (DFS)}{49}
+\contentsline {section}{Topological sorting}{50}
+\contentsline {chapter}{\numberline {4}{\ignorespaces ELEC 220 CheatSheet\relax }}{52}
+\contentsline {section}{Ch.1 DC Conduction}{54}
+\contentsline {section}{Ch. 2 AC Conduction}{56}
+\contentsline {section}{Ch. 3 DC/AC Dielectrics}{57}
+\contentsline {section}{Ch. 4 AC Dielectrics Cont'd}{58}
+\contentsline {section}{Ch. 8 Schrodinger's Equation}{59}
+\contentsline {section}{Ch. 12 Free Electron Theory of Metals}{60}
+\contentsline {subsection}{Fermi Distribution}{61}
+\contentsline {section}{Ch. 13 Band Theory}{62}
+\contentsline {section}{Ch. 14 Metals and Insulators}{63}
+\contentsline {section}{Ch. 15 Semiconductors}{64}
+\contentsline {chapter}{\numberline {5}{\ignorespaces ELEC 403 CheatSheet\relax }}{66}
+\contentsline {section}{Ch.2}{68}
+\contentsline {section}{Ch. 4}{69}
+\contentsline {section}{Ch. 5}{70}
+\contentsline {section}{Ch. 7}{71}
+\contentsline {chapter}{\numberline {6}{\ignorespaces ELEC 360 CheatSheet\relax }}{73}
+\contentsline {section}{LAPLACE TRANSFORMS}{75}
+\contentsline {section}{SOLUTION OF LINEAR DIFFERENTIAL EQUATION}{76}
+\contentsline {section}{STATESPACE REPRESENTATIONS}{77}
+\contentsline {section}{SECOND ORDER SYSTEMS}{78}
+\contentsline {section}{ROUTH-HURWITZ STABILITY TEST}{79}
+\contentsline {section}{STEADY STATE ERROR ANALYSIS}{80}
+\contentsline {section}{ROOT LOCUS}{81}
+\contentsline {section}{BODE DIAGRAMS}{82}
+\contentsline {subsection}{1. Gain Factor K:}{83}
+\contentsline {subsection}{2. Integral or derivative factors}{84}
+\contentsline {subsection}{3. First Order Factors}{85}
+\contentsline {subsection}{4. Quadratic Factors}{86}
+\contentsline {section}{PHASE AND GAIN MARGINS}{87}
+\contentsline {chapter}{\numberline {7}{\ignorespaces ELEC 370 Cheatsheet\relax }}{89}
+\contentsline {section}{MAGNETIC CIRCUITS}{91}
+\contentsline {section}{TRANSFORMERS}{92}
+\contentsline {subsection}{OPEN CIRCUIT TEST}{93}
+\contentsline {subsection}{SHORT CIRCUIT TEST}{94}
+\contentsline {subsection}{PER-UNIT VALUES}{95}
+\contentsline {section}{DC-MACHINES}{96}
+\contentsline {subsection}{DC GENERATORS}{97}
+\contentsline {subsection}{SEPERATLY EXCITED}{98}
+\contentsline {subsection}{SHUNT}{99}
+\contentsline {subsection}{DC MOTORS}{100}
+\contentsline {subsection}{INDUCTION MOTORS}{101}
+\contentsline {section}{SYNCHRONOUS MACHINES}{102}
+\contentsline {chapter}{\numberline {8}{\ignorespaces CENG 355 CheatSheet\relax }}{104}
+\contentsline {section}{I/O}{106}
+\contentsline {section}{Interfacing}{107}
+\contentsline {section}{Memory}{108}
+\contentsline {subsubsection}{Blocked Matrix Code}{109}
+\contentsline {section}{Arithmetic}{111}
+\contentsline {section}{Concurrency}{112}
+\contentsline {chapter}{\numberline {9}{\ignorespaces Glossary\relax }}{114}
+\contentsline {chapter}{Glossary}{116}
+\contentsline {chapter}{\numberline {10}{\ignorespaces ELEC 460: Control Theory II\relax }}{119}
+\contentsline {subsection}{Stability Test for Digital Systems}{125}
+\contentsline {subsection}{Z-transform}{127}
+

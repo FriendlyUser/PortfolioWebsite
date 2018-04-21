@@ -1,0 +1,1381 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="author" content="David Li" />
+
+<meta name="generator" content="LaTeX lwarp package" />
+
+<meta name="description" content="A list of cheatsheets for courses at the University of Victoria" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--[if lt IE 9]>
+
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+
+<title>CheatSheets For Uvic University Courses — ELEC 320: Tough Class</title>
+
+<link rel="stylesheet" type="text/css" href="lwarp_sagebrush.css" />
+
+
+
+
+<!-- https://groups.google.com/forum/#!topic/
+                                                mathjax-users/jUtewUcE2bY -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX AMSmath Ready",function () {
+       var seteqsectionDefault = {name: "", num: 0};
+       var seteqsections = {}, seteqsection = seteqsectionDefault;
+       var TEX = MathJax.InputJax.TeX, PARSE = TEX.Parse;
+       var AMS = MathJax.Extension["TeX/AMSmath"];
+       TEX.Definitions.Add({
+       macros: {
+             seteqsection: "mySection",
+             seteqnumber: "mySetEqNumber"
+       }
+       });
+
+
+       PARSE.Augment({
+       mySection: function (name) {
+             seteqsection.num = AMS.number;
+             var n = this.GetArgument(name);
+             if (n === "") {
+             seteqsection = seteqsectionDefault;
+             } else {
+             if (!seteqsections["_"+n])
+                    seteqsections["_"+n] = {name:n, num:0};
+             seteqsection = seteqsections["_"+n];
+             }
+             AMS.number = seteqsection.num;
+       },
+       mySetEqNumber: function (name) {
+             var n = this.GetArgument(name);
+             if (!n || !n.match(/^ *[0-9]+ *$/))
+                    n = ""; else n = parseInt(n)-1;
+             <!-- $ syntax highlighting -->
+             if (n === "" || n < 1)
+                    TEX.Error
+                    ("Argument to "+name+" should be a positive integer");
+             AMS.number = n;
+       }
+       });
+       MathJax.Hub.Config({
+       TeX: {
+             equationNumbers: {
+             formatTag: function (n)
+                    {return "("+(seteqsection.name+"."+n).replace(/^\./,"")+")"},
+             formatID: function (n) {
+                    n = (seteqsection.name+'.'+n).replace
+                        (/[:"'<>&]/g,"").replace(/^\./,"");
+                    return 'mjx-eqn-' + n;
+             }
+             }
+       }
+       });
+});
+</script>
+
+
+<!-- http://docs.mathjax.org/en/latest/options/ThirdParty.html -->
+<script type="text/x-mathjax-config">
+   MathJax.Ajax.config.path["Contrib"] =
+       "https://cdn.mathjax.org/mathjax/contrib";
+</script>
+
+
+<!-- https://github.com/burnpanck/MathJax-siunitx -->
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[siunitx]/siunitx.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {
+             inlineMath: [["$","$"],["\\(","\\)"]] ,
+             processClass: "tabbing|verse"
+       },
+      TeX: {extensions: ["AMSmath.js","AMSsymbols.js", "sinuitx.js"]}
+ });
+ MathJax.Ajax.config.path['siunitx']                      = 'http://rawgit.com/burnpanck/MathJax-siunitx/master/';
+ </script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+       TeX: {
+       equationNumbers: {
+             autoNumber: "AMS"
+       }
+       }
+});
+</script>
+
+
+<!-- Alternative CDN provider: -->
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+
+
+<!-- No longer supported after April 30, 2017: -->
+<!--
+<script
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+-->
+
+</head>
+<body>
+
+
+<a id="autopage-11"></a> <nav class="topnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+<header>
+
+<p><span class="fbox" style="border:1pt solid black ; padding:3pt">
+<a href="uvic.png" target="_blank"
+><img src="uvic.png"
+style="width:173pt; "
+class="inlineimage"
+></a></span></p>
+
+
+</header>
+
+<h1>CheatSheets For Uvic University Courses</h1>
+<nav class="sidetoc">
+
+<div class="sidetoctitle">
+
+<p>Contents</p>
+
+
+</div>
+
+<div class="sidetoccontents">
+
+<p><a href="index.html" class="linkhome"
+>Home</a></p>
+
+
+<p><a href=" Todo-List.html#autosec-10" class="tocchapter"
+><span class="sectionnumber">1</span>&#x2001;Todo List</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autosec-12" class="tocchapter"
+><span class="sectionnumber">2</span>&#x2001;ELEC 320: Tough Class</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-43" class="tocchapter"
+><span class="sectionnumber">3</span>&#x2001;CENG242Cheat</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-44" class="tocsection"
+>Basic Graph Definitions</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-47" class="tocsection"
+>Graph traversal</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-50" class="tocsection"
+>Topological sorting</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-52" class="tocchapter"
+><span class="sectionnumber">4</span>&#x2001;ELEC 220 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-54" class="tocsection"
+>Ch.1 DC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-56" class="tocsection"
+>Ch. 2 AC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-57" class="tocsection"
+>Ch. 3 DC/AC Dielectrics</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-58" class="tocsection"
+>Ch. 4 AC Dielectrics Cont’d</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-59" class="tocsection"
+>Ch. 8 Schrodinger’s Equation</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-60" class="tocsection"
+>Ch. 12 Free Electron Theory of Metals</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-62" class="tocsection"
+>Ch. 13 Band Theory</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-63" class="tocsection"
+>Ch. 14 Metals and Insulators</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-64" class="tocsection"
+>Ch. 15 Semiconductors</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-66" class="tocchapter"
+><span class="sectionnumber">5</span>&#x2001;ELEC 403 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-68" class="tocsection"
+>Ch.2</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-69" class="tocsection"
+>Ch. 4</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-70" class="tocsection"
+>Ch. 5</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-71" class="tocsection"
+>Ch. 7</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-73" class="tocchapter"
+><span class="sectionnumber">6</span>&#x2001;ELEC 360 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-75" class="tocsection"
+>LAPLACE TRANSFORMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-76" class="tocsection"
+>SOLUTION OF LINEAR DIFFERENTIAL EQUATION</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-77" class="tocsection"
+>STATESPACE REPRESENTATIONS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-78" class="tocsection"
+>SECOND ORDER SYSTEMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-79" class="tocsection"
+>ROUTH-HURWITZ STABILITY TEST</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-80" class="tocsection"
+>STEADY STATE ERROR ANALYSIS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-81" class="tocsection"
+>ROOT LOCUS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-82" class="tocsection"
+>BODE DIAGRAMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-87" class="tocsection"
+>PHASE AND GAIN MARGINS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-89" class="tocchapter"
+><span class="sectionnumber">7</span>&#x2001;ELEC 370 Cheatsheet</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-91" class="tocsection"
+>MAGNETIC CIRCUITS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-92" class="tocsection"
+>TRANSFORMERS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-96" class="tocsection"
+>DC-MACHINES</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-102" class="tocsection"
+>SYNCHRONOUS MACHINES</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-104" class="tocchapter"
+><span class="sectionnumber">8</span>&#x2001;CENG 355 CheatSheet</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-106" class="tocsection"
+>I/O</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-107" class="tocsection"
+>Interfacing</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-108" class="tocsection"
+>Memory</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-111" class="tocsection"
+>Arithmetic</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-112" class="tocsection"
+>Concurrency</a></p>
+
+
+<p><a href=" Glossary.html#autosec-114" class="tocchapter"
+><span class="sectionnumber">9</span>&#x2001;Glossary</a></p>
+
+
+<p><a href=" Glossary.html#autosec-116" class="tocchapter"
+>Glossary</a></p>
+
+
+<p><a href=" ELEC-460-Control-Theory-II.html#autosec-119" class="tocchapter"
+><span class="sectionnumber">10</span>&#x2001;ELEC 460: Control Theory II</a></p>
+
+
+</div>
+
+</nav>
+
+<section class="textbody">
+
+<!--Nullify \ensuremath for MathJax:-->
+
+\(\newcommand \ensuremath [1]{#1}\)
+
+<!--Additional customizations for MathJax:-->
+
+<p><h3 id="autosec-12"> <span class="sectionnumber">2&#x2001;</span>ELEC 320: Tough Class</h3><a id="autopage-12"></a>
+<div class="multicols">
+
+<p><b>Solving Abrupt Silicon PN Junction Question</b></p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>1. Calculate \(V_{bi}\).</p>
+
+</li>
+<li>
+<p>2. Look up \(D_p\) on the diffusion coefficient chart. <a href=" ELEC-320-Tough-Class.html#fig:pictureonright">2.3</a></p>
+
+</li>
+<li>
+<p>3. Calculate the diffusion length: \(L_p = \sqrt {D_p \tau _p}\) (for \(p^+n\)) - or - \(L_n=\sqrt {D_n \tau _n}\) (for \(pn^+\))</p>
+
+</li>
+<li>
+<p>4. If: \(L_p &gt; x_p \) (for \(p^+n\)) - or - \(L_n &gt; x_n\) (for \(pn^+)\), the diode is short-base.</p>
+
+</li>
+</ul>
+<h5 id="autosec-14"> Bipolar Junction Transistor</h5><a id="autopage-14"></a>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(\beta _F = \frac {\alpha _F}{1-\alpha _F}\); \(\beta _{dc}=\frac {\alpha _{dc}}{1-\alpha _{dc}}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Gain</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\alpha _F = \gamma _F \alpha _T\); \(\alpha _{dc}=\gamma \alpha _T\) &#x2001;&#x2001;
+\(\alpha _R=\gamma _R \alpha _T\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Base Transport &#x2001;&#x2001;
+Factor (BTF)</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\alpha _{T(npn)}=\cfrac {I_{Cn}}{I_{En}}\); \(\alpha _{T(pnp)}= \cfrac {I_{Cp}}{I_{EP}}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>BTF (\(\approx 0.999\))</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\alpha _T= 1-\frac {x_B^2}{2D_n\tau _n}=1-\frac {x_B^2}{2Ln^2}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>BTF (\(D_n\). Fig 3,5)</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(I_{pE}= \frac {-qA_En_i^2 D_p}{N_{dE}x_E} \exp \left (\frac {qV_{BE}}{k_BT}-1\right )\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Short Emitter &#x2001;&#x2001;
+\(L_{pE}= \sqrt {D_{pE}\tau _n}&gt;x_E\)</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(I_{pE}= \frac {-qA_E n_i^2 D_p}{N_{dE}L_p} \exp \left (\frac {qV_{BE}}{k_BT}-1\right )\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Long Emitter &#x2001;&#x2001;
+\(L_{pE}= \sqrt {D_{pE}\tau _n}&lt;x_E\)</p>
+
+
+</td>
+</tr>
+
+</table>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(\gamma _F= \left [1+\frac {x_B N_{aB} D_{pE}}{x_E N_{dE} D_{nB}}\right ]^{-1}\) \(\gamma _R = \left [1+\frac {x_B N_{aB} D_{pC}}{x_E N_{dC} D_{nB}}\right ]^{-1}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Short Emitter Forward and &#x2001;&#x2001;
+Reverse Emitter Injection (REI) &#x2001;&#x2001;
+Efficiency (\(\gamma _R\) swap roles, E &amp; C)</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+
+</table>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(\gamma _F= \left [1+\frac {x_B N_{aB} D_{pE}}{L_{PE} N_{dE} D_{nB}}\right ]^{-1}\) \(\gamma _R = \left [1+\frac {x_B N_{aB} D_{pC}}{L_{PC} N_{dC} D_{nB}}\right ]^{-1}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Long Emitter Forward and &#x2001;&#x2001;
+(REI) Efficiency (for \(\gamma _R\) swap roles of E &amp; C)</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+
+</table>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(\gamma _{(npn)}= \cfrac {I_{En}}{I_E}= \cfrac {|I_{En}|}{|I_{En}|+|I_{Ep}|}\) &#x2001;&#x2001;
+\(\gamma _{(pnp)}= \cfrac {I_{Ep}}{I_E}= \cfrac {|I_{Ep}|}{|I_{En}|+|I_{Ep}|}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>&#x2001;&#x2001;
+Emitter injection &#x2001;&#x2001;
+Efficiency</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+
+</table>
+<table>
+
+<tr>
+<td class="tdl">\(I_E=I_{Ep}+I_{En}\) \(I_C = I_{Cp}+I_{Cn}\)</td>
+<td class="tdl">\(I_B = \cfrac {I_C-I_{CE0}}{\beta _{dc}}\)</td>
+</tr>
+<tr>
+<td class="tdl">\(I_C = \alpha _{dc}I_E+I_{CB0}\) \(I_C=\beta I_B+I_{CE0}\)</td>
+<td class="tdl">\(I_{Cn} \approx I_{BC0}\)</td>
+</tr>
+<tr>
+<td class="tdl"></td>
+<td class="tdl"></td>
+</tr>
+
+</table>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(I_{Cn} \approx I_{BC0}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Collector Reverse &#x2001;&#x2001;
+Saturation Current</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(I_{Cn} \approx I_{BC0}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Emitter-Collector &#x2001;&#x2001;
+Saturation Current</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+
+</table>
+
+<p>Electron Current Density (ECD) - constant base doping &#x2001;&#x2001;
+\(J_n= \frac {qD_n n_i^2}{x_B N_{aB}}\left [\exp \left (\frac {qV_{BC}}{k_BT}\right )-\exp \left (\frac {qV_{BE}}{k_BT}\right )\right ]\) (A/\(\text {cm}^2\))</p>
+
+
+<p>ECD - non-constant base doping (A/\(\text {cm}^2\)) &#x2001;&#x2001;
+\(J_n= J_0\left [\exp \left (\frac {qV_{BC}}{k_BT}\right )-\exp \left (\frac {qV_{BE}}{k_BT}\right )\right ]\) &#x2001;&#x2001;
+\(J_0= \frac {q^2n_i^2 \tilde {D}_n}{Q_B}\), \(\tilde {D}_n= \text {avg}(D_n)\) &#x2001;&#x2001;
+Collector Current Density (under active bias) &#x2001;&#x2001;
+\(J_C \approx J_0 \exp \left (\frac {qV_{BE}}{k_BT}\right )\) &#x2001;&#x2001;
+Recombination of excess minority carriers in the base &#x2001;&#x2001;
+\(I_{rB}=\frac {qA_gn_i^2x_B}{2N_{aB}\tau _n}\left [\exp \left (\frac {qV_{BE}}{k_BT}\right )-1\right ]\) &#x2001;&#x2001;
+Collector-Emitter Breakdown Voltage in terms of the Collector-Base Breakdown. Note that \(m \approx 4\) &#x2001;&#x2001;
+\(BV_{CE0}=\frac {BV_{CB0}}{\beta ^{1/m}}\) &#x2001;&#x2001;<b>Finding</b> \(\beta \) <b>Of a BJT</b> </p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>1. Look-up \(D_{pE}\) amd \(D_{pC}\) on chart</p>
+
+</li>
+<li>
+<p>2. Find \(L_{pE}=\sqrt {D_{pE}\tau _{pE}}\) and \(L_{pC}=\sqrt {D_{pC}\tau _{pC}}\)</p>
+
+</li>
+<li>
+<p>3. Check if emitter is long or short \(L_{pE}&gt;x_B \rightarrow \) long emitter or \(L_{pE}&lt;x_B \rightarrow \) short emitter.</p>
+
+</li>
+</ul>
+<div class="flushright">
+
+<p>4. Find \(\gamma _F\), (Short Emitter Forward Efficiency)
+5. Find \(\alpha _T\) (Base Transport Factor)
+6. Find \(\alpha _F\) (Base Transport Factor)
+7. Find \(\beta _F\) (Current Gain)</p>
+
+
+</div>
+<div class="flushright">
+
+<p><b>Designing an Prototype NPN<br />
+Structure for an Amplifier</b>
+1. Assume these doping levels:<br />
+\(N_{dC}=10^{16} \text {cm}^{-3}\) and \(N_{aB}=5 \times 10^{16} \text {cm}^{-3}\)<br />
+2. Calculate \(V_{bi}=\frac {k_BT}{q} \ln \left [\frac {N_dN_a}{n_i^2}\right ]\)<br />
+3. Use \(V_a\), desired punch through voltage. \(x_B= \left (\frac {N_{aB}}{N_{dC}}\right )^{-1}\left [\frac {2\epsilon _s}{q}\left (\frac {1}{N_{aB}}+\frac {1}{N_{dC}}\right )(V_A-V_{bi})\right ]^{1/2}\)<br />
+4. Calculate (shown as a design parameter) \(x_{p0}=\left (\frac {N_{aB}}{N_{dC}}\right )^{-1}\left [\frac {2\epsilon _s}{q}\left (\frac {1}{N_{aB}}+\frac {1}{N_{dC}}\right )(V_{bi})\right ]^{1/2}\)<br />
+5. Calculate \(\alpha _T=1-\frac {x_B^2}{2D_n \tau _n}\) use hole curve (\(D_n=23 \text {cm}^2 s^{-1})\) for doping levels above.<br />
+6. With these doping levels \(\alpha _t \cong 1\). Since \(\alpha _T \cong 1\), assume \(\alpha _F = \gamma _F\).<br />
+7. Find the ratio = \(\frac {N_{dE}}{D_{pE}} = \underbrace {\left (\frac {x_BN_{aB}}{x_ED_{nB}}\right )\left (\frac {1}{\gamma _F}-1\right )}_{ratio}\)<br />
+8. Using \(D_{pE}=\frac {N_{dE}}{ratio}\), find a good value for<br />
+\(N_{dE}\) that allows you to look up \(D_{pE}\) on the diffusion chart. Use the curve for holes.</p>
+
+
+</div>
+
+<p><b>Ebers-Moll Equations</b> &#x2001;&#x2001;
+</p>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(I_E=I_F-\alpha _RI_R\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Emitter Current</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(I_C=\alpha _FI_F-I_R\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Collector Current</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(I_B=I_E-I_C\)</p>
+
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(I_B=(1-\alpha _F)I_F+(1-\alpha _R)I_R \)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Base Current</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(I_{F0}=qA \left [\frac {D_En_{E0}}{L_e}+\frac {D_Bp_{B0}}{W}\right ]\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Forward Coefficient</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(I_F=I_{F0} \left [e^{(eV_{eB}/k_BT)}-1\right ]\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>For Curr Component</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(I_{R0}=qA \left [\frac {D_E N_{c0}}{L_C}+\frac {D_Bp_{B0}}{W}\right ]\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Reverse Coefficient</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(I_R=I_{R0}\left [e^{(qV_{cB}/k_BT)}-1\right ]\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Rev Cur Component</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\alpha _FI_{F0}=\alpha _R I_{R0}=I_S\)</p>
+
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\frac {I_{F0}}{I_{R0}}=\frac {\alpha _R}{\alpha _F}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>reciprocity Relation.</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\beta _f = \frac {\alpha _F}{1-\alpha _F}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Normal Forward \(\beta \)</p>
+
+
+</td>
+</tr>
+
+</table>
+
+<p>\(\alpha _R I_R = \frac {qAD_Bp_{B0}}{W} \left [ e^{(qV_{cB}/k_BT)-1}\right ]\) Ebers-Moll Eqns<br />
+</p>
+
+
+<p>\(\alpha _R I_R = \frac {qAD_Bp_{B0}}{W} \left [ e^{(qV_{cB}/k_BT)-1}\right ]\) Vol III - 47.</p>
+
+
+<p><b>Transit Time and Frequency Response</b> &#x2001;&#x2001;
+</p>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(\tau _1=r_e C_{jE}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Emitter-Base Capacitance Charging Time</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\tau _2=r_CC_{jC}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Collector Capacitance Charging Time</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\tau _B=\frac {x_B^2}{2D_{nB}}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Base Transit Time</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\tau _C = \cfrac {x_{dc}}{v_{sat}}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Collector Depletion Region Transit Time &#x2001;&#x2001;
+(\(x_{dc}\):Depletion region width of collector) &#x2001;&#x2001;
+(\(v_{sat}\): Saturation velocity, \(\approx 10^7\) m/s)</p>
+
+
+</td>
+</tr>
+
+</table>
+
+<p>\(\tau _{EC}=\tau _1+\tau _2+\tau _B+\tau _C\) \(\tau _{EC}=\tau _C+\tau _B+\tau _E\) &#x2001;&#x2001;
+Emitter to Collector Transit Time. \(f_T = \frac {1}{2 \pi \tau _{EC}}\) Cut-off Frequency.</p>
+
+
+<p><b>Amplification</b>: For amplifying BJTs, the thickness and resistivity of the collector are both large. Th is results in an increased breakdown voltage and reduces the early effect. &#x2001;&#x2001;
+</p>
+
+
+<p><b>Switching</b>: For switching BJT’s, saturation (On-State) resistance must be minimized, which requires a very thin collector layer with a resistivity of a few tenths of an \(\Omega \)-cm.</p>
+
+
+<p>The Early Effect results in an increase in \(I_C\) due to base-width modulation when \(V_{CB}\) is increased.</p>
+
+
+<p><b>Finding</b> \(V_T\): Using substrate resistivity \(\rho \rightarrow N_A \&amp; N_D\) (Vol I - pg 71) 2. Calculate \(\phi _p\) 3. Calculate \(Q_f\) from given data \(Q_f/q\) 4. Calculate \(C_{ox} \) 5. Find \(\phi
+_{MS}\) (depends on gate material, use Vol I - pg 96. 6. Calculate \(V_{FB}\) 7. Calculate \(V_T\).</p>
+
+
+<p><b>MOSFET’s</b> &#x2001;&#x2001;
+</p>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(K_s=11.8\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Dielectric Constant of Si (at 300 K)</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(K_o=3.9\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Dielectric Constant of Si\(O_2\) (at 300K)</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+
+</table>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(\epsilon _s=K_s\epsilon _0=1.1045 \times 10^{-12}\frac {F}{cm}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Permittivity of Si (at 300K)</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+
+</table>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(\epsilon _{ox}=K_0\epsilon _0=345.15 \times 10^{-15}\frac {F}{cm}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Permittivity Si\(O_2\) (300K)</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+
+</table>
+
+<p>P-type Si MOS Structure \(\rightarrow \) N-channel Device &#x2001;&#x2001;
+N-type Si MOS Structure \(\rightarrow \) P-channel Device &#x2001;&#x2001;
+Ref Voltage rel to the semicond doping concent. \(\phi _{F(p-type)}= \phi _p = \frac {kT}{q}\ln \left (\frac {N_A}{n_i}\right )\) &#x2001;&#x2001;
+\(\phi _{F(n-type)}= \phi _p = - \frac {kT}{q}\ln \left (\frac {N_D}{n_i}\right )\) Semicond Surf Pot at Depletion-Inversion Transition Point \(\phi _S = 2 \phi _F\) &#x2001;&#x2001;
+Flat-band voltage (voltage that produces flat energy bands in the oxide and silicon) &#x2001;&#x2001;
+\(V_{FB} = \phi _{MS}-\frac {Q_f}{C_{ox}}\) With a charge on the oxide layer. \(V_{FB}=\phi _M-\phi _S=\phi _{MS}\) oxide layer free of charge.</p>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(W_T=\left [\frac {2K_s\epsilon _0}{qN_A}(2\phi _p)\right ]^{1/2}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Depletion Width Iv p 43</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\phi (x)=\frac {1}{q}[E_f-E_i(x)]\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Potential in Silicon</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(\phi _S=\phi (0)=\frac {1}{q}(E_f-E_i(0))\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Surface Potential</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+<p>\(C_{ox}=\frac {\epsilon _{ox}}{x_{ox}}\) \(\dot {A} = 10^{-10} m\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Oxide Layer Capacitance</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+
+</table>
+<table>
+
+<tr>
+<td class="tdp">
+
+<p>\(Q_{d(max)}=\sqrt {4k_s\epsilon _0qN_A|\phi _P|}\)</p>
+
+
+</td>
+<td class="tdp">
+
+<p>Space Charge Density (max)</p>
+
+
+</td>
+</tr>
+<tr>
+<td class="tdp">
+
+</td>
+<td class="tdp">
+
+</td>
+</tr>
+
+</table>
+
+<p>\(V_T =V_{FB}+2|\phi _p| + \frac {|Q_{d(max)}|}{C_{ox}}\), Threshold Voltage(T.V.) &#x2001;&#x2001;<br />
+\(V_T=2\phi _F-\frac {K_s x_{ox}}{K_{ox}} \left [\frac {4qN_A}{K_S \epsilon _0}\phi _F\right ]\) &#x2001;&#x2001;
+\(\Delta V_G=V_T^\prime -V_T\) (Threshold Adjustment) \(\Delta V_G= \frac {-Q_l}{C_{ox}}\) \(Q_l=\pm qN_l \rightarrow N_l = \pm \frac {Q_l}{q}\) \(V_T^\prime \) Un-adjusted T.V. \(V_T\): Adjusted T.V.
+\(N_l\): # of implanted ions \(Q_l\): Implant-related charge/\(\text {cm}^2\) Donor{+} or Acceptor {-}</p>
+
+
+<p>\(I_D = \frac {Z \bar {\mu }_n C_{ox}}{L} \left [(V_G-V_T)V_D - \frac {V_D^2}{2}\right ]\) Square-law theory</p>
+
+
+<p>Z: Width of MOSFET \(\bar {\mu }_n\) Effe hole mobil Vol IV. Pg 73</p>
+
+
+<p><b>Long Channel MOSFET Equation</b> Bulk Charge Factor (\(\alpha \)) \(I_D= \mu C_{ox}\frac {W}{L} \left [\left (V_G-V_T-\frac {1}{2}V_D\right )V_D\right ]\) &#x2001;&#x2001;
+\(I_D= \mu C_{ox}\frac {W}{2\alpha L} \left [\left (V_G-V_T-\frac {1}{2}V_D\right )V_D\right ]\)</p>
+
+
+<p><b>Channel Carrier Velocity</b> (Using Long-Channel Theory) \(V=\cfrac {\mu _n C_{ox}\left [\left (V_G-V_T-\frac {1}{2}V_D\right )V_D\right ]}{Q_NL}\)</p>
+
+
+<p>Note: The saturation velocity of carriers in Silicon is: \(v_{sat} \approx 10^7\) cm/s. If this equation yields a velocity \(v &gt; v_{sat}\), long channel theory does not apply in this situation.
+\(Q_{n(source)}=C_{ox}(V_G-V_T)\), \(Q_{n(drain)}=C_{ox}(V_G-V_D-V_T)\).</p>
+
+
+<p><b>Drain Saturation Voltage</b> \(V_{D(sat)}=V_G-V_T\) \(V_{D(sat)}=\frac {V_G-V_T}{\alpha }\). </p>
+<div class="flushright">
+
+<p>\(g_d\), \(g_m\) Small Signal Parameters and Conductance \(f_{max}=\frac {g_m}{2\pi C_{ox}}=\frac {\bar {\mu }_nV_D}{2\pi L^2}\) Cutoff f \(V_D \leq V_{D(sat)}\)
+Using \(I_{D(sat)}=\mu _nC_{ox}\frac {W}{2L}(V_G-V_T)^2\)<br />
+Channel Dimensions \(\frac {W}{L}=\frac {2I_{D(sat)}}{\mu _nC_{ox}(V_G-V_T)^2}\)</p>
+
+
+</div>
+
+<p><b>MOSFET Integrated Circuit Applications</b> &#x2001;&#x2001;
+\(V_T=V_{FB}+2|\phi _p|+\cfrac {Q_{d(max)}}{\epsilon _{ox}}(d_1+d_2)+\cfrac {Q_{fg}}{\epsilon _{ox}}d_1\) Charge stored on a floating gate memory cell</p>
+
+
+<p>\(|Q_{fg}|=\frac {\epsilon _{ox}}{d_1}\left [V_T-V_{FB}-2\phi _P-\frac {Q_{d(max)}}{\epsilon _{ox}}(d_1+d_2)\right ]\), \(Q_{fg}=\) Floating Gate Charge Density \(V_{FB}=\phi _{MS}\)</p>
+
+
+<p>Step 1: Find \(V_{bi}\) (n-well to source/drain junction) using \(N_d\) from, the n-well and \(N_a\) from the p-channel source/drain. </p>
+<div class="flushright">
+
+<p>Step 2: Find \(x_d\) using the doping levels and \(V_{bi}\).
+Step 3: Find \(V_{bi}\) (n-well to p-substrate junction) using \(N_d\) from the n-well and \(N_a\) from the p-substrate.
+Step 4: Find \(x_n\) using \(V_{bi}\) and \(V_a=V_{DD}\), and the same doping level as step 3.
+Step 5: The minimum required n-well depth to prevent punchthrough at this voltage is: \(d_{n-well}=d_{p-channel src/drn}+x_{d(step 2)}+ x_{n(step 4)}\)</p>
+
+
+</div>
+
+<p>\(V_{bi}=\frac {k_BT}{q}\ln \left (\frac {N_dN_a}{n_i^2}\right )\) &#x2001;&#x2001;
+\(x_d=x_n+x_p=\left [\frac {2\epsilon _s}{q} \left (\frac {1}{N_a}+\frac {1}{N_d}\right )(V_a-V_{bi})\right ]^{1/2}\), &#x2001;&#x2001;
+\(x_n= \left \{\frac {2K_s\epsilon _0}{q}(V_{bi}+V_a)\left [\frac {N_a}{N_d(N_a+N_d)}\right ]\right \}^{1/2}\) Note: The p-channel source/drain depth \(d_{p-channel src/drn}\) should be given in the question.</p>
+
+
+<p>CMOS Well-Depth Design: Finding minimum well depth to prevent vertical punch through.</p>
+
+
+<p><b>CMOS Structures</b> P-Well: The substrate is N-Type. The N-Channel device is built into a P-Type well within the parent N-Type substrate. The P-channel device is built directly on the substrate.</p>
+
+
+<p>N-Well: The substrate is P-Type. The N-channel device is built directly on the substrate, while the P-channel device is built into a N-type well within the parent P-Type substrate.</p>
+
+
+<p>\(g_d=\frac {Z\bar {\mu }_n C_o}{L}(V_G-V_T) \ \ (V_D=0)\)</p>
+
+
+<p><b>Practise Test 2</b> 1) Which of the following can reduce the base transit time? c) Short base width.</p>
+
+
+<p>2) Design the doping levels and dimensions of a silicon npn bipolar transistor such that the dc current gain is 320 and the Gummel Number is \(10^{12} \text {cm}^{-2}\). Assume that \(\tau _n=10^{-7} s\) in the base, \(\tau
+_p=10^{-8}s\) in the collector.</p>
+
+
+<p>\(GN = Q_B = \int _0^{x_B}N_{aB} (x) dx\).</p>
+
+
+<p>\(\phi (S) = 4.05 - (4.05+E_g/2+E_f-E_i)\)</p>
+
+
+</div>
+<div class="multicols">
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p>
+<a href="MOSFETTable.png" target="_blank"
+><img src="MOSFETTable.png"
+style="width:434pt; "
+class="inlineimage"
+></a> <span style="width:8pt; display:inline-block"></span> </p>
+
+
+<div class="minipage" style="vertical-align:middle ; justify-content:flex-start ; width:289pt ; ">
+<figcaption>
+<p><a id="autoid-10"></a> Figure 2.1:&nbsp;Vol IV Mosfet table
+<p></p>
+
+</figcaption>
+<p>, <a id="fig:pictureonright"></a></p>
+
+
+</div>
+
+</div>
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p>
+<a href="MOSFETgraphdopants.PNG" target="_blank"
+><img src="MOSFETgraphdopants.PNG"
+style="width:434pt; "
+class="inlineimage"
+></a></p>
+
+
+<span style="width:8pt; display:inline-block"></span> <div class="minipage" style="vertical-align:middle ; justify-content:flex-start ; width:289pt ; ">
+<figcaption>
+<p><a id="autoid-11"></a> Figure 2.2:&nbsp;Doping dependence of the maximum equilibrium depletion width inside silicon devices maintained at 300 K.
+<p></p>
+
+</figcaption>
+<p>, <a id="fig:pictureonright"></a></p>
+
+
+</div>
+
+</div>
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p>
+<a href="NeamanTable12-1.png" target="_blank"
+><img src="NeamanTable12-1.png"
+style="width:434pt; "
+class="inlineimage"
+></a></p>
+
+
+<span style="width:8pt; display:inline-block"></span> <a id="fig:pictureonrigh8194"></a>
+
+</div>
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p>
+<a href="MOSFETgraphVd_0.PNG" target="_blank"
+><img src="MOSFETgraphVd_0.PNG"
+style="width:260pt; "
+class="inlineimage"
+></a></p>
+
+
+<span style="width:8pt; display:inline-block"></span> <div class="minipage" style="vertical-align:middle ; justify-content:flex-start ; width:289pt ; ">
+<figcaption>
+<p><a id="autoid-12"></a> Figure 2.3:&nbsp;Vol IV Mosfet Gate voltages
+<p></p>
+
+</figcaption>
+<p>, <a id="fig:pictureonright"></a></p>
+
+
+</div>
+
+</div>
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p>
+<a href="Fig43VolIV.png" target="_blank"
+><img src="Fig43VolIV.png"
+style="width:434pt; "
+class="inlineimage"
+></a></p>
+
+
+<span style="width:8pt; display:inline-block"></span> <div class="minipage" style="vertical-align:middle ; justify-content:flex-start ; width:289pt ; ">
+<figcaption>
+<p><a id="autoid-13"></a> Figure 2.4:&nbsp;Workfunction difference as a function of a n- and p-type dopant conecntration in \(n^+\) poly-Si-gate and Al-gate \(SiO_2-Si\) structures. (\(T=300 K\). \(\phi _M^\prime -\chi
+^\prime =-0.18 \ eV\) for the \(n^\prime \) poly-Si-gate structure; \(\phi _M^\prime -\chi ^\prime =0.03 eV\) for the Al-gate structure.)
+<p></p>
+
+</figcaption>
+<p>, <a id="fig:pictureonright78"></a></p>
+
+
+</div>
+
+</div>
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p>
+<a href="GroupIIIGroupV.png" target="_blank"
+><img src="GroupIIIGroupV.png"
+style="width:304pt; "
+class="inlineimage"
+></a> <a id="fig:59"></a></p>
+
+
+</div>
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p>
+<a href="boronChart.png" target="_blank"
+><img src="boronChart.png"
+style="width:304pt; "
+class="inlineimage"
+></a></p>
+
+
+<span style="width:8pt; display:inline-block"></span> <div class="minipage" style="vertical-align:middle ; justify-content:flex-start ; width:289pt ; ">
+<figcaption>
+<p><a id="autoid-14"></a> Figure 2.5:&nbsp;Boron Chart
+<p></p>
+
+</figcaption>
+<p>, <a id="fig:4"></a></p>
+
+
+</div>
+
+</div>
+
+</div>
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p>
+<a href="V1Figure3-5.png" target="_blank"
+><img src="V1Figure3-5.png"
+style="height:650pt ; "
+class="inlineimage"
+></a></p>
+
+
+</div>
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p>
+<a href="VIFigure3-7.png" target="_blank"
+><img src="VIFigure3-7.png"
+style="width:650pt; "
+class="inlineimage"
+></a></p>
+
+
+<span style="width:8pt; display:inline-block"></span> <a id="fig:pictureonrigh819"></a>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>Made by David Li</p>
+
+
+</footer>
+
+<nav class="botnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+</body>
+</html>

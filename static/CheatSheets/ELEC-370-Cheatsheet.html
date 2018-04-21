@@ -1,0 +1,1165 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="author" content="David Li" />
+
+<meta name="generator" content="LaTeX lwarp package" />
+
+<meta name="description" content="A list of cheatsheets for courses at the University of Victoria" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--[if lt IE 9]>
+
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+
+<title>CheatSheets For Uvic University Courses — ELEC 370 Cheatsheet</title>
+
+<link rel="stylesheet" type="text/css" href="lwarp_sagebrush.css" />
+
+
+
+
+<!-- https://groups.google.com/forum/#!topic/
+                                               mathjax-users/jUtewUcE2bY -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX AMSmath Ready",function () {
+       var seteqsectionDefault = {name: "", num: 0};
+       var seteqsections = {}, seteqsection = seteqsectionDefault;
+       var TEX = MathJax.InputJax.TeX, PARSE = TEX.Parse;
+       var AMS = MathJax.Extension["TeX/AMSmath"];
+       TEX.Definitions.Add({
+       macros: {
+             seteqsection: "mySection",
+             seteqnumber: "mySetEqNumber"
+       }
+       });
+
+
+       PARSE.Augment({
+       mySection: function (name) {
+             seteqsection.num = AMS.number;
+             var n = this.GetArgument(name);
+             if (n === "") {
+             seteqsection = seteqsectionDefault;
+             } else {
+             if (!seteqsections["_"+n])
+                    seteqsections["_"+n] = {name:n, num:0};
+             seteqsection = seteqsections["_"+n];
+             }
+             AMS.number = seteqsection.num;
+       },
+       mySetEqNumber: function (name) {
+             var n = this.GetArgument(name);
+             if (!n || !n.match(/^ *[0-9]+ *$/))
+                    n = ""; else n = parseInt(n)-1;
+             <!-- $ syntax highlighting -->
+             if (n === "" || n < 1)
+                    TEX.Error
+                    ("Argument to "+name+" should be a positive integer");
+             AMS.number = n;
+       }
+       });
+       MathJax.Hub.Config({
+       TeX: {
+             equationNumbers: {
+             formatTag: function (n)
+                    {return "("+(seteqsection.name+"."+n).replace(/^\./,"")+")"},
+             formatID: function (n) {
+                    n = (seteqsection.name+'.'+n).replace
+                        (/[:"'<>&]/g,"").replace(/^\./,"");
+                    return 'mjx-eqn-' + n;
+             }
+             }
+       }
+       });
+});
+</script>
+
+
+<!-- http://docs.mathjax.org/en/latest/options/ThirdParty.html -->
+<script type="text/x-mathjax-config">
+   MathJax.Ajax.config.path["Contrib"] =
+       "https://cdn.mathjax.org/mathjax/contrib";
+</script>
+
+
+<!-- https://github.com/burnpanck/MathJax-siunitx -->
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[siunitx]/siunitx.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {
+             inlineMath: [["$","$"],["\\(","\\)"]] ,
+             processClass: "tabbing|verse"
+       },
+      TeX: {extensions: ["AMSmath.js","AMSsymbols.js", "sinuitx.js"]}
+ });
+ MathJax.Ajax.config.path['siunitx']                      = 'http://rawgit.com/burnpanck/MathJax-siunitx/master/';
+ </script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+       TeX: {
+       equationNumbers: {
+             autoNumber: "AMS"
+       }
+       }
+});
+</script>
+
+
+<!-- Alternative CDN provider: -->
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+
+
+<!-- No longer supported after April 30, 2017: -->
+<!--
+<script
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+-->
+
+</head>
+<body>
+
+
+<a id="autopage-88"></a> <nav class="topnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+<header>
+
+<p><span class="fbox" style="border:1pt solid black ; padding:3pt">
+<a href="uvic.png" target="_blank"
+><img src="uvic.png"
+style="width:173pt; "
+class="inlineimage"
+></a></span></p>
+
+
+</header>
+
+<h1>CheatSheets For Uvic University Courses</h1>
+<nav class="sidetoc">
+
+<div class="sidetoctitle">
+
+<p>Contents</p>
+
+
+</div>
+
+<div class="sidetoccontents">
+
+<p><a href="index.html" class="linkhome"
+>Home</a></p>
+
+
+<p><a href=" Todo-List.html#autosec-10" class="tocchapter"
+><span class="sectionnumber">1</span>&#x2001;Todo List</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autosec-12" class="tocchapter"
+><span class="sectionnumber">2</span>&#x2001;ELEC 320: Tough Class</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-43" class="tocchapter"
+><span class="sectionnumber">3</span>&#x2001;CENG242Cheat</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-44" class="tocsection"
+>Basic Graph Definitions</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-47" class="tocsection"
+>Graph traversal</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-50" class="tocsection"
+>Topological sorting</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-52" class="tocchapter"
+><span class="sectionnumber">4</span>&#x2001;ELEC 220 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-54" class="tocsection"
+>Ch.1 DC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-56" class="tocsection"
+>Ch. 2 AC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-57" class="tocsection"
+>Ch. 3 DC/AC Dielectrics</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-58" class="tocsection"
+>Ch. 4 AC Dielectrics Cont’d</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-59" class="tocsection"
+>Ch. 8 Schrodinger’s Equation</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-60" class="tocsection"
+>Ch. 12 Free Electron Theory of Metals</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-62" class="tocsection"
+>Ch. 13 Band Theory</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-63" class="tocsection"
+>Ch. 14 Metals and Insulators</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-64" class="tocsection"
+>Ch. 15 Semiconductors</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-66" class="tocchapter"
+><span class="sectionnumber">5</span>&#x2001;ELEC 403 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-68" class="tocsection"
+>Ch.2</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-69" class="tocsection"
+>Ch. 4</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-70" class="tocsection"
+>Ch. 5</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-71" class="tocsection"
+>Ch. 7</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-73" class="tocchapter"
+><span class="sectionnumber">6</span>&#x2001;ELEC 360 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-75" class="tocsection"
+>LAPLACE TRANSFORMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-76" class="tocsection"
+>SOLUTION OF LINEAR DIFFERENTIAL EQUATION</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-77" class="tocsection"
+>STATESPACE REPRESENTATIONS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-78" class="tocsection"
+>SECOND ORDER SYSTEMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-79" class="tocsection"
+>ROUTH-HURWITZ STABILITY TEST</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-80" class="tocsection"
+>STEADY STATE ERROR ANALYSIS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-81" class="tocsection"
+>ROOT LOCUS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-82" class="tocsection"
+>BODE DIAGRAMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-87" class="tocsection"
+>PHASE AND GAIN MARGINS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-89" class="tocchapter"
+><span class="sectionnumber">7</span>&#x2001;ELEC 370 Cheatsheet</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-91" class="tocsection"
+>MAGNETIC CIRCUITS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-92" class="tocsection"
+>TRANSFORMERS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-96" class="tocsection"
+>DC-MACHINES</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-102" class="tocsection"
+>SYNCHRONOUS MACHINES</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-104" class="tocchapter"
+><span class="sectionnumber">8</span>&#x2001;CENG 355 CheatSheet</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-106" class="tocsection"
+>I/O</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-107" class="tocsection"
+>Interfacing</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-108" class="tocsection"
+>Memory</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-111" class="tocsection"
+>Arithmetic</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-112" class="tocsection"
+>Concurrency</a></p>
+
+
+<p><a href=" Glossary.html#autosec-114" class="tocchapter"
+><span class="sectionnumber">9</span>&#x2001;Glossary</a></p>
+
+
+<p><a href=" Glossary.html#autosec-116" class="tocchapter"
+>Glossary</a></p>
+
+
+<p><a href=" ELEC-460-Control-Theory-II.html#autosec-119" class="tocchapter"
+><span class="sectionnumber">10</span>&#x2001;ELEC 460: Control Theory II</a></p>
+
+
+</div>
+
+</nav>
+
+<section class="textbody">
+
+<!--Nullify \ensuremath for MathJax:-->
+
+\(\newcommand \ensuremath [1]{#1}\)
+
+<!--Additional customizations for MathJax:-->
+
+<p><h3 id="autosec-89"> <span class="sectionnumber">7&#x2001;</span>ELEC 370 Cheatsheet</h3><a id="autopage-89"></a>
+<div class="multicols">
+<h4 id="autosec-91"> MAGNETIC CIRCUITS</h4><a id="autopage-91"></a>
+
+<p>\[\mu = \ \mu _{o}\mu _{r}\text {\ where\ }\mu _{o} = 4\pi \times 10^{- 7}\ \lbrack \frac {H}{m}\rbrack \]</p>
+
+
+<p>Field Intensity: \(H = \ \frac {\text {Ni}}{l_{c}}\ \lbrack \frac {\text {At}}{m}\rbrack \)</p>
+
+
+<p>Flux Density: \(B = \ \mu H\ \lbrack \frac {\text {Wb}}{m^{2}}\rbrack \)</p>
+
+
+<p>Reluctance: \(\mathcal {R = \ }\frac {l_{c}}{\mu A}\ \left \lbrack \frac {\text {At}}{\text {Wb}} \right \rbrack \)</p>
+
+
+<p>Flux: \(\phi = B \times A = \ \frac {\mathcal {F}}{\mathcal {R}}\ \lbrack Wb\rbrack \)</p>
+
+
+<p>Flux: \(\phi = \ \frac {\mu \text {NiA}}{l_{c}}\ \lbrack Wb\rbrack \)</p>
+
+
+<p>Induced EMF: \(\varepsilon = N \times \frac {\text {d}\phi }{\text {dt}}\ \left \lbrack V \right \rbrack \)</p>
+
+
+<p>Flux linkage: \(\lambda = N\phi \ \left \lbrack \text {Wbt} \right \rbrack \)</p>
+
+
+<p>Eddy current loss: \(P_{e} = \ K_{e}\ f^{2}B_{m}^{2}\ \left \lbrack \frac {\text {Wb}}{\text {kg}} \right \rbrack \)</p>
+
+
+<p>\[B_{m} = \ B_{\max }\text {\ of\ core}\]</p>
+
+
+<p>Inductance: \(L = \ \frac {\text {N}\phi }{I} = \ \frac {N^{2}}{\mathcal {R}} = \ \frac {N^{2}\mu \text {A}}{l_{c}}\ \lbrack H\rbrack \)</p>
+
+
+<p>Leakage inductance: \(L_{l} = \ \frac {N\phi _{l}}{I}\ \lbrack H\rbrack \)</p>
+
+
+<p>Energy: \(\varepsilon = \ \frac {Li^{2}}{2} = \ \frac {\mathcal {R}\phi ^{2}}{2}\ \lbrack J\rbrack \)</p>
+<h4 id="autosec-92"> TRANSFORMERS</h4><a id="autopage-92"></a>
+
+<p>Turns ratio: \(\frac {V_{1}}{V_{2}} = \frac {i_{1}}{i_{2}} = \frac {N_{1}}{N_{2}} = k\)</p>
+
+
+<p>Load impedance as seen from primary:</p>
+
+
+<p>\({Z’}_{L} = {(\frac {N_{1}}{N_{2}})}^{2} \times Z_{L}\ \lbrack \Omega \rbrack \)</p>
+
+
+<p>Peak flux: \(\phi _{m}\)</p>
+
+
+<p>Peak voltage: \(V_{\text {pk}} = \varepsilon _{11p} = N_{1}\theta _{m}\omega \text {\ \ }\left \lbrack V \right \rbrack \)</p>
+
+
+<p>RMS voltage: \(V_{\text {RMS}} = \frac {V_{\text {peak}}}{\sqrt {2}}\text {\ \ }\left \lbrack V \right \rbrack \)</p>
+
+
+<p>\[L_{l1} = \frac {N_{1}\phi _{l1}}{i_{1}}\ \ ;\ \ L_{l2} = \frac {N_{2}\phi _{l2}}{i_{2}}\]</p>
+
+
+<p>\[{i^{’}}_{m} = i_{1} - \frac {N_{2}}{N_{1}}i_{2}\ \ ;\ \ {i^{”}}_{m} = i_{2} - \frac {N_{1}}{N_{2}}i_{1}\]</p>
+
+
+<p>\[{L^{’}}_{m} = \frac {N_{1}\varnothing _{m}}{{i^{’}}_{m}}\ \ ;\ \ {L^{”}}_{m} = \frac {N_{1}\varnothing _{m}}{{i^{”}}_{m}}\]</p>
+
+
+<p>\[\frac {{L^{’}}_{m}}{{L^{”}}_{m}} = \left ( \frac {N_{1}}{N_{2}} \right )^{2}\ \]</p>
+
+
+<p>\[{X^{’}}_{l2} = \left ( \frac {N_{1}}{N_{2}} \right )^{2}X_{l2}\ \ ;\ \ {R^{’}}_{2} = \left ( \frac {N_{1}}{N_{2}} \right )^{2}R_{2}\]</p>
+
+
+<p>\[{X^{”}}_{l1} = \left ( \frac {N_{2}}{N_{1}} \right )^{2}X_{l1}\ \ ;\ \ {R^{”}}_{1} = \left ( \frac {N_{2}}{N_{1}} \right )^{2}R_{1}\]</p>
+
+
+<p>\[{X^{”}}_{m} = \left ( \frac {N_{2}}{N_{1}} \right )^{2}{X^{’}}_{m}\ \ ;\ \ {R^{”}}_{c} = \left ( \frac {N_{2}}{N_{1}} \right )^{2}{R^{’}}_{c}\]</p>
+
+
+<p>\[\overline {{\varepsilon ”}_{1}} = \frac {N_{2}}{N_{1}}\overline {\varepsilon _{1}}\ \ ;\ \ \overline {{V”}_{1}} = \frac {N_{2}}{N_{1}}\overline {V_{1}}\text {\ \ }\]</p>
+
+
+<p>\[\overline {{I^{”}}_{1}} = \frac {N_{1}}{N_{2}}\overline {I_{1}}\ \ ;\ \ \overline {{I^{”}}_{m}} = \frac {N_{1}}{N_{2}}\overline {I_{m}}\]</p>
+
+
+<p>\[P_{c} = \frac {V_{1}^{2}}{{R’}_{c}}\ \ ;\ \ P_{w} = I_{1}^{2}R_{1} + I_{2}^{2}R_{2}\]</p>
+
+
+<p>\[\eta = \left ( \frac {V_{2}I_{2}\cos \theta _{2}}{V_{2}I_{2}\cos {\theta _{2} + P_{c} + P_{w}}} \right )*100\%\]</p>
+
+
+<p>Regulation: \(\frac {\left | \overline {V_{\text {NL}}} \right | - \left | \overline {V_{\text {FL}}} \right |}{\left | \overline {V_{\text {FL}}} \right |}\)</p>
+<h5 id="autosec-93"> OPEN CIRCUIT TEST</h5><a id="autopage-93"></a>
+
+<p>\[\cos \theta _{\text {OC}} = \frac {P_{\text {OC}}}{V_{\text {OC}}I_{\text {OC}}}\]</p>
+
+
+<p>\[{R^{’}}_{c} = \frac {V_{\text {OC}}}{I_{\text {OC}}\cos \theta _{\text {OC}}}\ \ ;\ \ {X^{’}}_{m} = \frac {V_{\text {OC}}}{I_{\text {OC}}\sin \theta _{\text {OC}}}\]</p>
+<h5 id="autosec-94"> SHORT CIRCUIT TEST</h5><a id="autopage-94"></a>
+
+<p>\[\left | Z_{\text {SC}} \right | = \frac {V_{\text {SC}}}{I_{\text {SC}}} = \sqrt {\left ( R_{1} + k^{2}R_{2} \right )^{2} + \left ( X_{l1} + k^{2}X_{l2} \right )^{2}}\]</p>
+
+
+<p>\[P_{\text {SC}} = I_{\text {SC}}^{2}(R_{1} + k^{2}R_{2})\]</p>
+
+
+<p>\[{R’}_{\text {eq}} = R_{1} + {R’}_{2} = R_{1} + k^{2}R_{2} = \frac {P_{\text {SC}}}{I_{\text {SC}}^{2}}\]</p>
+
+
+<p>\[{X^{’}}_{\text {leq}} = \sqrt {\left | Z_{\text {SC}} \right |^{2} - {R^{’}}_{\text {eq}}^{2}} = X_{l1} + {X^{’}}_{l2} = X_{l1} + k^{2}X_{l2}\]</p>
+
+
+<p>Assume: \(R_{1} = {R’}_{2}\ \ \&amp;\ \ X_{l1} = {X’}_{l2}\)</p>
+<h5 id="autosec-95"> PER-UNIT VALUES</h5><a id="autopage-95"></a>
+
+<p>\[I_{\text {BASE}} = \frac {S_{\text {BASE}}}{V_{\text {BASE}}}\ \ \lbrack per\ winding\rbrack \]</p>
+
+
+<p>\[R_{\text {BASE}} = X_{\text {BASE}} = Z_{\text {BASE}} = \frac {V_{\text {BASE}}}{I_{\text {BASE}}}\]</p>
+
+
+<p>\[P_{\text {BASE}} = Q_{\text {BASE}} = \left | S_{\text {BASE}} \right | = V_{\text {BASE}}I_{\text {BASE}}\]</p>
+
+
+<p>\[P.U.\ = \frac {\text {actual\ amount}}{\text {base\ amount}}\]</p>
+
+
+<p><b>AUTO-TRANSFORMER</b></p>
+
+
+<p>\[I_{x} = I_{2} - I_{1}\ \ \ ;\ \ \ \text {CU}_{\text {RATIO}} = 1 - \frac {N_{2}}{N_{1}}\]</p>
+<h4 id="autosec-96"> DC-MACHINES</h4><a id="autopage-96"></a>
+
+<p>Lossless Machine: \(vi = T_{e}\omega _{m}\ \ \ ;\ \ \ \overset {}{F} = i(\overset {}{l} \times \overset {}{B})\)</p>
+<h5 id="autosec-97"> DC GENERATORS</h5><a id="autopage-97"></a>
+
+<p><b>LAP WINDING</b></p>
+
+
+<p>\[a = P\ ;\ \ \varepsilon _{a} = \frac {\phi \text {Z}\Omega }{2\pi }\]</p>
+
+
+<p><b>WAVE WINDING</b></p>
+
+
+<p>\[a = 2\ ;\ \ \varepsilon _{a} = \frac {\phi \text {Z}\Omega P}{4\pi }\]</p>
+
+
+<p>Average Flux density per pole: \(B_{a} = \frac {\phi \text {P}}{\pi l_{a}D}\)</p>
+
+
+<p>\[\varepsilon _{a1} = \phi PN\ \left ( \text {per\ coil} \right );\ \ \varepsilon _{a} = \frac {\phi \text {Z}\Omega P}{2\pi a}\]</p>
+
+
+<p>\[K = \frac {\text {ZP}}{2\pi a}\]</p>
+
+
+<p>\[T_{d} = K\phi I_{a}\]</p>
+
+
+<p>Air gap power: \(P_{\text {ag}} = \varepsilon _{a}I_{a} = T_{d}\Omega \text {\ \ }\left \lbrack W \right \rbrack \)</p>
+
+
+<p>Where: \(\phi = \frac {\text {flux}}{\text {pole}}\)</p>
+
+
+<p>\[Z = total\ armature\ conductors\]</p>
+
+
+<p>\[\ \ \ \ = \# slots\frac {\# conductors}{\text {slot}}\]</p>
+
+
+<p>\[P = \# generator\ poles\ (always\ even)\]</p>
+
+
+<p>\[\Omega = \frac {2\pi N}{60} = angular\ velocity\ \left \lbrack \frac {\text {rads}}{s} \right \rbrack \]</p>
+
+
+<p>\[N = armature\ speed\ \lbrack rpm\rbrack \]</p>
+
+
+<p>\[a = \# parallel\ paths\ in\ armature\ winding\]</p>
+<h5 id="autosec-98"> SEPERATLY EXCITED</h5><a id="autopage-98"></a>
+
+<p>\[v_{f} = R_{f}i_{f} + L_{f}\frac {di_{f}}{\text {dt}}\ \ ;\ \ \ \ V_{f} = I_{f}R_{f}\]</p>
+
+
+<p>\[v_{t} = K\phi \Omega - L_{a}\frac {di_{a}}{\text {dt}} - i_{a}R_{a}\]</p>
+
+
+<p>\[V_{t} = K\phi \Omega - i_{a}R_{a}\]</p>
+
+
+<p>\[T_{\text {shaft}} = K\phi i_{a} + J\frac {d\Omega }{\text {dt}} + T_{\text {loss}}\]</p>
+
+
+<p>\[T_{\text {shaft}} = K\phi i_{a} + T_{\text {loss}}\]</p>
+
+
+<p>\[I_{f} = \frac {V_{\text {fs}}}{R_{e} + R_{f}}\ ;\ \ I_{l} = I_{a}\]</p>
+
+
+<p>\[I_{l} = \frac {V_{t}}{R_{L}} = \frac {\varepsilon _{a}}{R_{a} + R_{L}} = \frac {\text {K}\phi \Omega }{R_{a} + R_{L}}\]</p>
+
+
+<p>\[\varepsilon _{a} = V_{t} + I_{a}R_{a} = K\phi \Omega \]</p>
+
+
+<p>\[\text {K} \phi \text { depends\ on\ }I_{f}\]</p>
+
+
+<p>\[V_{t} = \varepsilon _{a} - I_{a}R_{a} = \varepsilon _{a} - I_{L}R_{a}\]</p>
+<h5 id="autosec-99"> SHUNT</h5><a id="autopage-99"></a>
+
+<p>No Load:</p>
+
+
+<p>\[\varepsilon _{a} = I_{f}(R_{a} + R_{e} + R_{f})\]</p>
+
+
+<p>\[V_{t} = I_{f}\left ( R_{e} + R_{f} \right ) \cong \varepsilon _{a} = f(I_{f})\]</p>
+
+
+<p>Loaded:</p>
+
+
+<p>\[V_{t} = I_{L}R_{L} = \varepsilon _{a} - I_{a}R_{a}\]</p>
+
+
+<p>\[I_{a} = I_{L} + I_{f}\]</p>
+
+
+<p>\[I_{L} = \frac {P_{L}}{I_{L}}\ \ ;\ \ I_{f} = \frac {V_{t}}{R_{f}}\]</p>
+
+
+<p>Voltage will not build if:</p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>1. There is no residual magnetism present</p>
+
+</li>
+<li>
+<p>2. Field connected opposes permanent magnetism</p>
+
+</li>
+<li>
+<p>3. \(R_{f} &gt; R_{\text {criti}\text {cal}}\)</p>
+
+</li>
+</ul>
+
+<p>\[\varepsilon _{a} = V_{t} + I_{a}R_{a} = I_{f}\left ( R_{e} + R_{f} \right ) + I_{a}R_{a}\]</p>
+
+
+<p><b>SERIES</b></p>
+
+
+<p>\[I_{a} = I_{L} = I_{f}\]</p>
+
+
+<p>\[V_{t} = \varepsilon _{a} - I_{L}(R_{a} + R_{s})\]</p>
+
+
+<p><b>EFFICIENCY</b></p>
+
+
+<p>\[P_{\text {in}} = T_{\text {applied}}\Omega + V_{f}I_{f}\]</p>
+
+
+<p>\[P_{\text {out}} = V_{t}I_{L}\]</p>
+
+
+<p>\[\eta = \frac {P_{\text {out}}}{P_{\text {in}}} = \frac {V_{t}I_{L}}{T_{\text {applied}}\Omega + V_{f}I_{f}}\]</p>
+
+
+<p><b>LOSSES</b></p>
+
+
+<p>\[P_{STRAY\_ LOSS}\]</p>
+
+
+<p>\[P_{MECHANICAL\_ LOSS} = winding\ \&amp;\ friction\]</p>
+
+
+<p>\[P_{MAGNETIG\_ LOSS} = core\ losses\]</p>
+
+
+<p>\[P_{ELECTRICAL\_ LOSS} = I_{a}^{2}R_{a} + I_{f}^{2}R_{f}\]</p>
+
+
+<p>\[P_{ARMATURE\_ LOSS} = \varepsilon _{a}I_{a} = T_{d}\Omega \]</p>
+
+
+<p>\[P_{ARMATURE\_ CU\_ LOSS} = P_{a} = I_{a}^{2}R_{a}\]</p>
+
+
+<p>\[P_{SHUNT\_ FIELD\_ CU\_ LOSS} = P_{f} = V_{t}I_{f}\]</p>
+
+
+<p>\[P_{BRUSH\_ LOSS} = V_{\text {BD}}I_{a}\]</p>
+
+
+<p>\[P_{\text {RO}T\_ LOSS} = P_{\text {CORE}} + P_{\text {MECH}} = E_{a}I_{a} = (V_{t} - I_{a}R_{a})I_{a}\]</p>
+
+
+<p>\[P_{\text {ROT}} - \text {calculated\ at\ no\ load\ conditions}\]</p>
+<h5 id="autosec-100"> DC MOTORS</h5><a id="autopage-100"></a>
+
+<p><b>SEPARATELY EXCITED</b></p>
+
+
+<p>\[v_{f} = R_{f}i_{f} + L_{f}\frac {di_{f}}{\text {dt}}\ ;\ V_{f} = I_{f}R_{f}\]</p>
+
+
+<p>\[v_{t} = K\phi \Omega + L_{a}\frac {di_{a}}{\text {dt}} + i_{a}R_{a}\]</p>
+
+
+<p>\[V_{t} = \varepsilon _{a} + I_{a}R_{a} = K\phi \Omega + I_{a}R_{a}\]</p>
+
+
+<p>\[T_{\text {LOAD}} = K\phi i_{a} - J\frac {d\Omega }{\text {dt}} - T_{\text {LOSS}} = K\phi i_{a} - T_{\text {LOSS}}\]</p>
+
+
+<p>\[\varepsilon _{a} = K\phi \Omega = f\left ( I_{f} \right )|_{\Omega = \Omega _{\text {RATED}}}\]</p>
+
+
+<p>\[T = T_{\text {internal}} = K\phi I_{a}\]</p>
+
+
+<p><b>SPEED CONTROL</b></p>
+
+
+<p>\[\Omega = \frac {V_{t} - I_{a}R_{a}}{\text {K}\phi } = \frac {V_{t}}{\text {K}\phi } - \frac {TR_{a}}{\left ( \text {K}\phi \right )^{2}}\]</p>
+
+
+<p>\[\Omega = \frac {V_{t}}{\text {K}\phi } - \frac {T(R_{a} + R_{d})}{\left ( \text {K}\phi \right )^{2}}\]</p>
+
+
+<p>\[T = T_{\text {LOSS}} + T_{\text {LOAD}}\]</p>
+
+
+<p><b>SHUNT</b></p>
+
+
+<p>\[V_{t} = I_{f}\left ( R_{e} + R_{f} \right ) = \varepsilon _{a} + I_{a}R_{a} = K\phi \Omega {+ i}_{a}R_{a}\]</p>
+
+
+<p>\[T_{\text {LOAD}} = K\phi I_{a} - T_{\text {LOSS}}\]</p>
+
+
+<p>\[\varepsilon _{a} = K\phi \Omega = f\left ( I_{f} \right )|_{\Omega = \Omega _{R}}\]</p>
+
+
+<p>\[T = T_{\text {INTERNAL}} = K\phi I_{a}\]</p>
+
+
+<p>\[\Omega = \frac {V_{t}}{\text {K}\phi } - \frac {TR_{a}}{\left ( \text {K}\phi \right )^{2}}\]</p>
+
+
+<p>\[\Omega = \frac {V_{t}}{\text {K}\phi } - \frac {T(R_{a} + R_{d})}{\left ( \text {K}\phi \right )^{2}}\]</p>
+
+
+<p><b>BLOCKED ROTOR</b></p>
+
+
+<p>\[R_{a} = \frac {V_{a}}{I_{a}}\ \ ;\ \ R_{f} = \frac {V_{f}}{I_{f}}\]</p>
+
+
+<p><b>SERIES</b></p>
+
+
+<p>\[T = K\phi I_{a} = \text {K}\phi I_{L}\]</p>
+
+
+<p>\[\varepsilon _{a} = K\phi \Omega = f(I_{f})|_{\Omega = \Omega _{R}}\]</p>
+
+
+<p>\[V_{t} = \varepsilon _{a} + I_{a}(R_{a} + R_{s}) = K\phi \Omega {+ I}_{a}(R_{a} + R_{s})\]</p>
+
+
+<p>\[T_{\text {LOAD}} = K\phi I_{L} - T_{\text {LOSS}}\]</p>
+
+
+<p>\[T = T_{\text {LOSS}} + T_{\text {LOAD}}\]</p>
+
+
+<p>\[\Omega = \frac {V_{t}}{\text {K}\phi } - \frac {T(R_{a} + R_{s})}{\left ( \text {K}\phi \right )^{2}}\]</p>
+
+
+<p>\[for\ liner\ range\ of\ mag\ curve:\ I_{L} &lt; I_{a(RATED)}\]</p>
+
+
+<p>\[K\varnothing = K_{f}I_{L}^{2}\]</p>
+
+
+<p>\[K\phi = \sqrt {K_{f}T}\]</p>
+
+
+<p>\[T = K_{f}I_{L}^{2}\]</p>
+
+
+<p>\[T_{\text {DEVELOPED}} = \frac {P_{\text {DEVELOPED}}}{\Omega }\]</p>
+<h5 id="autosec-101"> INDUCTION MOTORS</h5><a id="autopage-101"></a>
+
+<p>\[P = 2n\ ;where\ P = \# poles,\ n = \# stator\ slots\ or\ poles\ or\ phases\]</p>
+
+
+<p>Synchronous Speed: \(N_{s} = \frac {120f}{P}\)</p>
+
+
+<p>\[\omega _{s} = \frac {P}{2} \times \frac {2\pi N_{s}}{60}\]</p>
+
+
+<p>\[\% slip = \left ( \frac {N_{s} - N}{N_{s}} \right ) \times 100\%\]</p>
+
+
+<p>Rotor speed: \(N = (1 - s)N_{s}\)</p>
+
+
+<p>\[N_{r} = sN_{s}\]</p>
+
+
+<p>\[X_{2BR} = \omega _{s}L_{s}\ ;blocked\ rotor\ leakage\ L\]</p>
+
+
+<p>\[X_{2} = sX_{2BR}\]</p>
+
+
+<p>\[\varepsilon _{2BR} = 4.44f\phi _{m}N_{t}\ ;where:\ N_{t} = \# rotor\ tuns,\ \phi _{m} = \max \text {flux}\]</p>
+
+
+<p>\[\varepsilon _{2} = s\varepsilon _{2BR}\]</p>
+
+
+<p>\[\overset {\overline {}}{I_{2}} = \frac {\overset {\overline {}}{\varepsilon _{2BR}}}{\frac {R_{2}}{s} + jX_{2BR}} = \frac {s\overset {\overline {}}{\varepsilon _{2BR}}}{R_{2} + jsX_{2BR}}\]</p>
+
+
+<p>\[\frac {R_{2}}{s} = R_{2} + \frac {R_{2}}{s}(1 - s)\]</p>
+
+
+<p>\[{R^{’}}_{2} = \left ( \frac {N_{1}}{N_{2}} \right )^{2}{R^{’}}_{2}\ \ ;\ \ {X^{’}}_{2BR} = \left ( \frac {N_{1}}{N_{2}} \right )^{2}X_{2BR}\]</p>
+
+
+<p><b>EQUIVALENT CIRCUIT PARAMETERS</b></p>
+
+
+<p>\[P_{OC - 3\phi } = P_{\text {total}} = W_{1} + W_{2}\]</p>
+
+
+<p>\[P_{OC - 1\phi } = \frac {P_{OC - 3\phi }}{3}\]</p>
+
+
+<p>\[P_{OC - 1\phi } = \frac {P_{OC - 3\phi } - 3I_{\text {OC}}^{2}R_{1} - P_{\text {mech}}}{3}\]</p>
+
+
+<p>\[P_{NL - 1\phi } = P_{OC - 1\phi -}I_{\text {OC}}^{2}R_{1} - P_{mech - loss - 1\phi }\]</p>
+
+
+<p>\[R_{c} = \frac {V_{\text {OC}}^{2}}{P_{NL - 1\phi }}\ \ ;\ \ V_{OC - 1\phi } = \frac {V_{\text {NL}}}{\sqrt {3}}\]</p>
+
+
+<p>Where: \(V_{\text {OC}} = V\ line\ to\ neutral = V_{\text {RATED}}\)</p>
+
+
+<p>\[\cos {\theta _{\text {OC}} = \frac {P_{NL - 1\phi }}{V_{\text {OC}}I_{\text {OC}}}}\]</p>
+
+
+<p>\[X_{m} = \frac {V_{\text {OC}}}{I_{\text {OC}}\sin \theta _{\text {OC}}} = \frac {V_{\text {OC}}^{2}}{\sqrt {V_{\text {OC}}^{2}I_{\text {OC}}^{2} - P_{NL - 1\phi }^{2}}}\]</p>
+
+
+<p>\[k = \frac {N_{\text {stator}}}{N_{\text {rotor}}}\]</p>
+
+
+<p><b>WOUND ROTOR</b></p>
+
+
+<p>\[k = \sqrt {\frac {V_{\text {ss}}V_{\text {sm}}}{V_{rm}V_{\text {rs}}}}\ ;where\ \]</p>
+
+
+<p>\[V_{\text {sm}} = measured\ V_{\text {stator}}\text {for\ }V_{\text {rotor}} = V_{\text {rs}}\]</p>
+
+
+<p>\[V_{\text {rm}} = measured\ V_{\text {rotor}}\text {for\ }V_{\text {stator}} = V_{\text {ss}}\]</p>
+
+
+<p><b>BLOCKED ROTOR TEST</b></p>
+
+
+<p>\[R_{\text {eq}} = R_{1} + {R’}_{2} = R_{1} + k^{2}R_{2} = \frac {P_{SC - 1\phi }}{I_{\text {SC}}^{2}}\]</p>
+
+
+<p>\[\left | Z_{\text {SC}} \right | = \frac {V_{\text {SC}}}{I_{\text {SC}}}\ \ ;\ \ V_{SC - 1\phi } = \frac {V_{\text {SC}}}{\sqrt {3}}\]</p>
+
+
+<p>\[X_{\text {eq}} = X_{1} + k^{2}X_{2BR} = \sqrt {\left | Z_{\text {SC}} \right |^{2} - {R^{’}}_{\text {eq}}^{2}}\]</p>
+
+
+<p>\[X_{1} = {X’}_{2BR} \cong \frac {X_{\text {eq}}}{2}\]</p>
+
+
+<p>\(Y - Connected:\ R_{1} = \frac {R_{m}}{2}\)</p>
+
+
+<p>\[\Delta - Connected:R_{1} = \frac {3R_{m}}{2}\]</p>
+
+
+<p>\[P_{CU - LOSS} = 3I_{1}^{2}R_{1}\]</p>
+
+
+<p>\[P_{AG - 3\phi } = P_{i - 3\phi } - P_{CU - LOSS} - P_{CORE - LOSS} = 3{I^{’}}_{2}^{2}\frac {{R^{’}}_{2}}{s}\]</p>
+
+
+<p>\[P_{d - 3\phi } = 3{I^{’}}_{2}^{2}{R^{’}}_{2}\frac {(1 - s)}{s} = P_{ag - 3\phi }(1 - s)\]</p>
+
+
+<p>\[P_{o - 3\phi } = P_{d - 3\phi } - P_{\text {MECH}} - P_{CORE - LOSS}\]</p>
+
+
+<p>\[\frac {P_{R - CU - LOSS}}{P_{d - MECH}} = \frac {s}{1 - s}\]</p>
+
+
+<p><b>SPEED TORQUE CHARACTERISTIC</b></p>
+
+
+<p>\[T_{e} = \frac {P_{d - 3\phi }}{\Omega _{m}}\ ;\ \Omega _{m} = \Omega _{s}(1 - s)\]</p>
+
+
+<p>\[T_{e} = \frac {3}{\Omega _{s}} \times \frac {{I^{’}}_{2}^{2}{R^{’}}_{2}}{s}\ \ ;\ \ T_{e - start} = \frac {3}{\Omega _{s}} \times {I^{’}}_{2}^{2}{R^{’}}_{2}\]</p>
+
+
+<p>\[{I’}_{2} = \frac {\overset {\overline {}}{V_{1}}}{\left ( R_{1} + \frac {{R^{’}}_{2}}{s} \right ) + j\left ( X_{1} + X_{2BR} \right )}\]</p>
+
+
+<p>\[T_{e - normal\ } = \frac {3V_{1}^{2}s}{\Omega _{s}{R^{’}}_{2}}\]</p>
+
+
+<p><b>THEVENIN EQUIVALENT</b></p>
+
+
+<p>\[\overset {\overline {}}{V_{\text {TH}}} = \frac {jX_{m}\overset {\overline {}}{V_{1}}}{R_{1} + j\left ( X_{1} + X_{m} \right )}\]</p>
+
+
+<p>\[Z_{\text {TH}} = R_{\text {TH}} + jX_{\text {TH}} = \frac {jX_{m}\left ( R_{1} + jX_{1} \right )}{R_{1} + j\left ( X_{1} + X_{m} \right )}\]</p>
+
+
+<p>\[T_{e - start} = \frac {3V_{1}^{2}{R^{’}}_{2}}{{\Omega _{s}\left ( X_{1} + {X^{’}}_{2BR} \right )}^{2}}\]</p>
+
+
+<p>\[s_{m} = \frac {{R’}_{2}}{\sqrt {R_{1}^{2} + {(X_{1} + {X^{’}}_{2BR})}^{2}}}\]</p>
+
+
+<p>\[T_{e - max} = \frac {3V_{1}^{2}}{2\Omega _{s}\left ( R_{1} + \sqrt {R_{1}^{2} + \left ( X_{1} + {X^{’}}_{2BR} \right )^{2}} \right )}\]</p>
+
+
+<p><b>INDUCTION MOTOR PERFORMANCE</b></p>
+
+
+<p>Neglecting mechanical and core losses:</p>
+
+
+<p>\[P_{o - 3\phi } = P_{d - 3\phi }\ \ ;\ \ \eta \cong 1 - s\]</p>
+
+
+<p><b>THREE PHASE THEORY</b></p>
+
+
+<p>\[V_{L} = Line\ Voltage = line\ to\ line\ voltage\]</p>
+
+
+<p>\[V_{P} = Phase\ Voltage = line\ to\ neutral\ voltage\]</p>
+
+
+<p>\[Y - Connected\]</p>
+
+
+<p>\[V_{L} = \sqrt {3}V_{P}\]</p>
+
+
+<p>\[P_{T} = \sqrt {3}V_{L}I_{L}\cos \theta \]</p>
+
+
+<p>\[P_{P} = V_{P}I_{P}\cos \theta \]</p>
+
+
+<p>\[\Delta - Connected\]</p>
+
+
+<p>\[I_{L} = \sqrt {3}I_{P}\]</p>
+
+
+<p>\[V_{L} = V_{P}\]</p>
+
+
+<p>\[P_{T} = \sqrt {3}V_{L}I_{L}\cos \theta \]</p>
+<h4 id="autosec-102"> SYNCHRONOUS MACHINES</h4><a id="autopage-102"></a>
+
+<p><b>SYNCHRONOUS GENERATOR</b></p>
+
+
+<p>Open Circuit Characteristic:</p>
+
+
+<p>\[\text {Plot\ }V_{\text {OC}}\text {\ vs.\ }I_{f}\]</p>
+
+
+<p>\[I_{f0} \rightarrow E_{0}\]</p>
+
+
+<p>Short Circuit Characteristic:</p>
+
+
+<p>\[short\ armature,\ keep\ I_{f0}\text {\ constant}\]</p>
+
+
+<p>\[\text {measure\ }I_{a}\]</p>
+
+
+<p>\[\left | Z_{s} \right | = \frac {E_{0}}{I_{a}}\]</p>
+
+
+<p>Resistance Measurement:</p>
+
+
+<p>\[Y - connected\]</p>
+
+
+<p>\[R_{a\left ( \text {DC} \right )} = \frac {R_{\text {measured}}}{2}\]</p>
+
+
+<p>\[- connected\]</p>
+
+
+<p>\[R_{a\left ( \text {DC} \right )} = \frac {3R_{\text {measured}}}{2}\]</p>
+
+
+<p>\[R_{\text {eff}} = 1.4R_{a\left ( \text {DC} \right )}\]</p>
+
+
+<p>\[Voltage\ induced\ in\ phase\ a:\ \]</p>
+
+
+<p>\[\varepsilon _{a} = E_{m}\operatorname {sin(}{\omega t)}\]</p>
+
+
+<p>Where:</p>
+
+
+<p>\[E_{m} = 2\pi fN\phi \]</p>
+
+
+<p>\[\phi = flux\ per\ po\text {le}\]</p>
+
+
+<p>\[\omega = 2\pi f\]</p>
+
+
+<p>\[f = frequency\ of\ induced\ voltage\]</p>
+
+
+<p>\[\varepsilon _{b} = E_{m}\operatorname {sin(}{\omega t - 120)}\]</p>
+
+
+<p>\[\varepsilon _{c} = E_{m}\operatorname {sin(}{\omega t - 240)}\]</p>
+
+
+<p>\[E_{0} = K\phi f\ (rms\ or\ peak)\]</p>
+
+
+<p><b>PER-PHASE</b></p>
+
+
+<p>\[\overset {\overline {}}{E_{0}} = \overset {\overline {}}{V_{t}} + \overset {\overline {}}{I_{a}}\left ( R_{a} + jX_{s} \right )\]</p>
+
+
+<p>\[\% VR = \frac {\left | \overset {\overline {}}{E_{0}} \right | - \left | \overset {\overline {}}{V_{t}} \right |}{\left | \overset {\overline {}}{V_{t}} \right |} \times 100\%\]</p>
+
+
+<p>\[\delta = \angle between\ \overset {\overline {}}{E_{0}}\ \&amp;\ \overset {\overline {}}{V_{t}} = power\ angle\]</p>
+
+
+<p>\[\phi = \angle between\ \overset {\overline {}}{I_{a}}\ \&amp;\ \overset {\overline {}}{V_{t}}\]</p>
+
+
+<p>\[\text {gennerally\ }X_{s} \gg R_{a}\ \therefore \ Z_{s} \cong jX_{s}\]</p>
+
+
+<p>\[\mathbf {\text {Neglecting\ }}\mathbf {R}_{\mathbf {0}}\mathbf {:}\]</p>
+
+
+<p>\[E_{0}\sin \delta = X_{s}I_{a}\cos \phi \]</p>
+
+
+<p>\[P_{d - 1\phi } = V_{t}I_{d}\cos {\phi =}V_{t}\left ( \frac {E_{0}\sin \delta }{X_{s}} \right )\]</p>
+
+
+<p>\[\mathbf {\text {Including\ }}\mathbf {R}_{\mathbf {0}}\mathbf {:}\]</p>
+
+
+<p>Unity PF Load:</p>
+
+
+<p>\[E_{0} = \sqrt {\left ( V_{t} + I_{a}R_{a} \right )^{2} + \left ( I_{a}X_{s} \right )^{2}}\]</p>
+
+
+<p>Lagging PF Load:</p>
+
+
+<p>\[E_{0} = \sqrt {{\left ( V_{t}\operatorname {cos(}\phi \right ) + I_{a}R_{a})}^{2} + {\left ( V_{t}\operatorname {sin(}\phi \right ) + I_{a}X_{s})}^{2}}\]</p>
+
+
+<p>Leading PF Load:</p>
+
+
+<p>\[E_{0} = \sqrt {{\left ( V_{t}\operatorname {cos(}\phi \right ) + I_{a}R_{a})}^{2} + {\left ( V_{t}\operatorname {sin(}\phi \right ) - I_{a}X_{s})}^{2}}\]</p>
+
+
+<p>Active and Reactive Power:</p>
+
+
+<p>\[\overset {\overline {}}{E_{0}} = \overset {\overline {}}{V_{t}} + \overset {\overline {}}{I_{a}}\left ( R_{a} + jX_{s} \right ) = E_{0}(\cos \delta + j\sin \delta )\]</p>
+
+
+<p>\[I_{a} = \frac {1}{\left | Z_{s} \right |^{2}}\left \lbrack R_{a}\left ( E_{0}\cos \left ( \delta \right ) - V_{t} \right ) + X_{s}E_{0}\sin \left ( \delta \right ) + jR_{a}E_{0}\sin \left ( \delta \right ) - jX_{s}\left (
+E_{0}\cos \left ( \delta \right ) - V_{t} \right ) \right \rbrack \]</p>
+
+
+<p>\[where:\ \left | Z_{S} \right |^{2} = R_{a}^{2} + X_{s}^{2}\]</p>
+
+
+<p>\[\overset {\overline {}}{S} = \overset {\overline {}}{V_{t}}\overset {\overline {}}{I_{a}} = P + jQ\]</p>
+
+
+<p>\[P = \frac {1}{\left | Z_{s} \right |^{2}}\left \lbrack R_{a}\left ( V_{t}E_{0}\cos \left ( \delta \right ) - {V_{t}}^{2} \right ) + X_{s}{V_{t}E}_{0}\sin \left ( \delta \right ) \right \rbrack \]</p>
+
+
+<p>\[Q = \frac {1}{\left | Z_{s} \right |^{2}}\left \lbrack - R_{a}V_{t}E_{0}\sin \left ( \delta \right ) + X_{s}\left ( V_{t}E_{0}\cos \left ( \delta \right ) - V_{t}^{2} \right ) \right \rbrack \]</p>
+
+
+<p>\[\text {Neglecting\ }R_{a}:\]</p>
+
+
+<p>\[P \cong \frac {V_{t}E_{0}\sin \left ( \delta \right )}{X_{s}}\ \ ;\ Q \cong \frac {{- V}_{t}^{2} + V_{t}E_{0}\cos \left ( \delta \right )}{X_{s}}\]</p>
+
+
+<p>\[T \cong \frac {V_{t}E_{0}\sin \left ( \delta \right )}{\Omega _{s}X_{s}}\]</p>
+
+
+<p><b>SYNCHRONOUS MOTOR</b></p>
+
+
+<p>\[T_{d} \cong \frac {3V_{t}E_{0}\sin \left ( \delta \right )}{\Omega _{s}X_{s}}\]</p>
+
+
+<p><b>PER-PHASE</b></p>
+
+
+<p>\[\text {neglecting\ }R_{a}:\]</p>
+
+
+<p>\[P_{d - 1\phi } = \frac {V_{t}E_{0}\sin {(\delta )}}{X_{s}} = constant\]</p>
+
+
+<p>\[I_{a}X_{s}\cos \left ( \phi \right ) = E_{0}\sin \left ( \delta \right ) = constant\]</p>
+
+
+<p><b>SALIENT-POLE MACHINES</b></p>
+
+
+<p>\[I_{d} = I_{a}\sin \left ( \delta + \phi \right )\]</p>
+
+
+<p>\[I_{q} = I_{a}\cos \left ( \delta + \phi \right )\]</p>
+
+
+<p>\[E_{0} = V_{t}\cos \left ( \delta \right ) + I_{a}X_{a}\]</p>
+
+
+<p>\[P_{d - 1\phi } = \frac {V_{t}E_{0}\sin \left ( \delta \right )}{X_{d}} + \frac {V_{t}^{2}}{2}\left ( \frac {1}{X_{q}} - \frac {1}{X_{d}} \right )\]</p>
+
+
+</div>
+
+</section>
+
+<footer>
+
+<p>Made by David Li</p>
+
+
+</footer>
+
+<nav class="botnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+</body>
+</html>

@@ -1,0 +1,827 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="author" content="David Li" />
+
+<meta name="generator" content="LaTeX lwarp package" />
+
+<meta name="description" content="A list of cheatsheets for courses at the University of Victoria" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--[if lt IE 9]>
+
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+
+<title>CheatSheets For Uvic University Courses — ELEC 220 CheatSheet</title>
+
+<link rel="stylesheet" type="text/css" href="lwarp_sagebrush.css" />
+
+
+
+
+<!-- https://groups.google.com/forum/#!topic/
+                                               mathjax-users/jUtewUcE2bY -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX AMSmath Ready",function () {
+       var seteqsectionDefault = {name: "", num: 0};
+       var seteqsections = {}, seteqsection = seteqsectionDefault;
+       var TEX = MathJax.InputJax.TeX, PARSE = TEX.Parse;
+       var AMS = MathJax.Extension["TeX/AMSmath"];
+       TEX.Definitions.Add({
+       macros: {
+             seteqsection: "mySection",
+             seteqnumber: "mySetEqNumber"
+       }
+       });
+
+
+       PARSE.Augment({
+       mySection: function (name) {
+             seteqsection.num = AMS.number;
+             var n = this.GetArgument(name);
+             if (n === "") {
+             seteqsection = seteqsectionDefault;
+             } else {
+             if (!seteqsections["_"+n])
+                    seteqsections["_"+n] = {name:n, num:0};
+             seteqsection = seteqsections["_"+n];
+             }
+             AMS.number = seteqsection.num;
+       },
+       mySetEqNumber: function (name) {
+             var n = this.GetArgument(name);
+             if (!n || !n.match(/^ *[0-9]+ *$/))
+                    n = ""; else n = parseInt(n)-1;
+             <!-- $ syntax highlighting -->
+             if (n === "" || n < 1)
+                    TEX.Error
+                    ("Argument to "+name+" should be a positive integer");
+             AMS.number = n;
+       }
+       });
+       MathJax.Hub.Config({
+       TeX: {
+             equationNumbers: {
+             formatTag: function (n)
+                    {return "("+(seteqsection.name+"."+n).replace(/^\./,"")+")"},
+             formatID: function (n) {
+                    n = (seteqsection.name+'.'+n).replace
+                        (/[:"'<>&]/g,"").replace(/^\./,"");
+                    return 'mjx-eqn-' + n;
+             }
+             }
+       }
+       });
+});
+</script>
+
+
+<!-- http://docs.mathjax.org/en/latest/options/ThirdParty.html -->
+<script type="text/x-mathjax-config">
+   MathJax.Ajax.config.path["Contrib"] =
+       "https://cdn.mathjax.org/mathjax/contrib";
+</script>
+
+
+<!-- https://github.com/burnpanck/MathJax-siunitx -->
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[siunitx]/siunitx.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {
+             inlineMath: [["$","$"],["\\(","\\)"]] ,
+             processClass: "tabbing|verse"
+       },
+      TeX: {extensions: ["AMSmath.js","AMSsymbols.js", "sinuitx.js"]}
+ });
+ MathJax.Ajax.config.path['siunitx']                      = 'http://rawgit.com/burnpanck/MathJax-siunitx/master/';
+ </script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+       TeX: {
+       equationNumbers: {
+             autoNumber: "AMS"
+       }
+       }
+});
+</script>
+
+
+<!-- Alternative CDN provider: -->
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+
+
+<!-- No longer supported after April 30, 2017: -->
+<!--
+<script
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+-->
+
+</head>
+<body>
+
+
+<a id="autopage-51"></a> <nav class="topnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+<header>
+
+<p><span class="fbox" style="border:1pt solid black ; padding:3pt">
+<a href="uvic.png" target="_blank"
+><img src="uvic.png"
+style="width:173pt; "
+class="inlineimage"
+></a></span></p>
+
+
+</header>
+
+<h1>CheatSheets For Uvic University Courses</h1>
+<nav class="sidetoc">
+
+<div class="sidetoctitle">
+
+<p>Contents</p>
+
+
+</div>
+
+<div class="sidetoccontents">
+
+<p><a href="index.html" class="linkhome"
+>Home</a></p>
+
+
+<p><a href=" Todo-List.html#autosec-10" class="tocchapter"
+><span class="sectionnumber">1</span>&#x2001;Todo List</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autosec-12" class="tocchapter"
+><span class="sectionnumber">2</span>&#x2001;ELEC 320: Tough Class</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-43" class="tocchapter"
+><span class="sectionnumber">3</span>&#x2001;CENG242Cheat</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-44" class="tocsection"
+>Basic Graph Definitions</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-47" class="tocsection"
+>Graph traversal</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-50" class="tocsection"
+>Topological sorting</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-52" class="tocchapter"
+><span class="sectionnumber">4</span>&#x2001;ELEC 220 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-54" class="tocsection"
+>Ch.1 DC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-56" class="tocsection"
+>Ch. 2 AC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-57" class="tocsection"
+>Ch. 3 DC/AC Dielectrics</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-58" class="tocsection"
+>Ch. 4 AC Dielectrics Cont’d</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-59" class="tocsection"
+>Ch. 8 Schrodinger’s Equation</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-60" class="tocsection"
+>Ch. 12 Free Electron Theory of Metals</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-62" class="tocsection"
+>Ch. 13 Band Theory</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-63" class="tocsection"
+>Ch. 14 Metals and Insulators</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-64" class="tocsection"
+>Ch. 15 Semiconductors</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-66" class="tocchapter"
+><span class="sectionnumber">5</span>&#x2001;ELEC 403 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-68" class="tocsection"
+>Ch.2</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-69" class="tocsection"
+>Ch. 4</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-70" class="tocsection"
+>Ch. 5</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-71" class="tocsection"
+>Ch. 7</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-73" class="tocchapter"
+><span class="sectionnumber">6</span>&#x2001;ELEC 360 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-75" class="tocsection"
+>LAPLACE TRANSFORMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-76" class="tocsection"
+>SOLUTION OF LINEAR DIFFERENTIAL EQUATION</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-77" class="tocsection"
+>STATESPACE REPRESENTATIONS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-78" class="tocsection"
+>SECOND ORDER SYSTEMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-79" class="tocsection"
+>ROUTH-HURWITZ STABILITY TEST</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-80" class="tocsection"
+>STEADY STATE ERROR ANALYSIS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-81" class="tocsection"
+>ROOT LOCUS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-82" class="tocsection"
+>BODE DIAGRAMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-87" class="tocsection"
+>PHASE AND GAIN MARGINS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-89" class="tocchapter"
+><span class="sectionnumber">7</span>&#x2001;ELEC 370 Cheatsheet</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-91" class="tocsection"
+>MAGNETIC CIRCUITS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-92" class="tocsection"
+>TRANSFORMERS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-96" class="tocsection"
+>DC-MACHINES</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-102" class="tocsection"
+>SYNCHRONOUS MACHINES</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-104" class="tocchapter"
+><span class="sectionnumber">8</span>&#x2001;CENG 355 CheatSheet</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-106" class="tocsection"
+>I/O</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-107" class="tocsection"
+>Interfacing</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-108" class="tocsection"
+>Memory</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-111" class="tocsection"
+>Arithmetic</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-112" class="tocsection"
+>Concurrency</a></p>
+
+
+<p><a href=" Glossary.html#autosec-114" class="tocchapter"
+><span class="sectionnumber">9</span>&#x2001;Glossary</a></p>
+
+
+<p><a href=" Glossary.html#autosec-116" class="tocchapter"
+>Glossary</a></p>
+
+
+<p><a href=" ELEC-460-Control-Theory-II.html#autosec-119" class="tocchapter"
+><span class="sectionnumber">10</span>&#x2001;ELEC 460: Control Theory II</a></p>
+
+
+</div>
+
+</nav>
+
+<section class="textbody">
+
+<!--Nullify \ensuremath for MathJax:-->
+
+\(\newcommand \ensuremath [1]{#1}\)
+
+<!--Additional customizations for MathJax:-->
+
+<p><h3 id="autosec-52"> <span class="sectionnumber">4&#x2001;</span>ELEC 220 CheatSheet</h3><a id="autopage-52"></a>
+<div class="multicols">
+<h4 id="autosec-54"> Ch.1 DC Conduction</h4><a id="autopage-54"></a>
+
+<p>\(\sigma \) = conductivity (S/m) and \(\rho \) = resistivity (\(\Omega \)m). \(\sigma = 1 /\ \rho \).</p>
+
+
+<figure id="autoid-18" class="table">
+<table>
+
+<tr>
+<td class="tdc tvertbarr" style="border-right: 1px solid #">Hall coefficient</td>
+<td class="tdc">\(R_H= \frac {v_D}{J}=\frac {-1}{eN_e}=(-eN_e)^{-1}\)</td>
+</tr>
+<tr>
+<td class="tdc tvertbarr" style="border-right: 1px solid #">Ohm’s Law</td>
+<td class="tdc">\(J = \sigma \cdot E \quad A /\ m^{2}\)</td>
+</tr>
+<tr>
+<td class="tdc tvertbarr" style="border-right: 1px solid #">Resistance</td>
+<td class="tdc">\(R= \frac {\rho \cdot L}{A}= \frac {L}{\sigma \cdot A}\)</td>
+</tr>
+<tr>
+<td class="tdc tvertbarr" style="border-right: 1px solid #">Drude Model</td>
+<td class="tdc">\(J = -eN_ev_D\)</td>
+</tr>
+<tr>
+<td class="tdc tvertbarr" style="border-right: 1px solid #">Viscosity Model</td>
+<td class="tdc">\(v_D=\frac {-e\tau }{m_e}E\)</td>
+</tr>
+
+</table>
+
+<figcaption>
+<p>Table 4.1:&nbsp;Some Equations for DC Conduction</p>
+
+
+</figcaption>
+
+</figure>
+
+<p>\[\textbf {Scattering time Formula:} \quad \sigma = \frac {e^2N_e\tau }{m_e} \]</p>
+<h4 id="autosec-56"> Ch. 2 AC Conduction</h4><a id="autopage-56"></a>
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span> </p>
+
+
+
+<!--
+
+
+                                                                                                                                 1/2
+                                                                                                                            2
+                                                                                                                       
+                                                                                                Skin Depth:       δ=                                                                                                      (4.1)
+                                                                                                                           ωµσ
+                                                                                                    E = E0 e−i(wt−z/       δ) −z/ δ
+                                                                                                                             e                                                                                            (4.2)
+                                                                                                                       I ∼ e−2z/     δ
+                                                                                                                                                                                                                          (4.3)
+                                                                                                                           I ∝ |E|   2
+                                                                                                                                                                                                                          (4.4)
+                                                                                                                              2πc
+                                                                                                                           ω=                                                                                             (4.5)
+                                                                                                                              λo
+
+
+-->
+
+
+<p>
+\begin{align} \textbf {Skin Depth:} \quad \delta = \left (\frac {2}{\omega \mu \sigma }\right )^{1/2} \\ E= E_0e^{-i(wt-z/\ \delta )}e^{-z/\ \delta } \\ I \sim e^{-2z /\ \delta } \\ I \propto |E|^{2} \\ \omega = \frac {2\pi
+c}{\lambda _o} \end{align}
+</p>
+
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span>    <span class="hidden"> \( \seteqnumber {6} \) </span> </p>
+
+
+
+<!--
+
+
+                                                                                                                                        1/2
+                                                                                                                                 Ne e2
+                                                                                           Plasma Frequency:         ωp =                                                                                                 (4.6)
+                                                                                                                                  m
+                                                                                                                                         2
+                                                                                                                                            
+                                                                                                             Ne e2 µ                     ωp
+                                                                                             k2 = ω 2 µ −           = ω 2 µ     1−                                                                                      (4.7)
+                                                                                                              m                          ω2
+
+
+
+-->
+
+
+<p>
+\begin{align} \textbf {Plasma Frequency:} \quad \omega _p= \left (\frac {N_ee^2}{m \epsilon }\right )^{1/2} \\ k^2= \omega ^2 \mu \epsilon - \frac {N_ee^2\mu }{m}= \omega ^2\mu \epsilon \left (1-\frac {\omega
+_p^2}{\omega ^2}\right ) \end{align}
+</p>
+<h4 id="autosec-57"> Ch. 3 DC/AC Dielectrics</h4><a id="autopage-57"></a>
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span>   <span class="hidden"> \( \seteqnumber {8} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                             C0   Q0
+                                                                                       Relative Permittivity:            =      =    = r                                                                          (4.8)
+                                                                                                                             C    Q
+                                                                                                     0            0
+                                                                                          P A = Q − Q = C V − CV = CV (r − 1)                                                                                     (4.9)
+                                                                                                                       P
+                                                                                        P = 0 E(r − 1) and r = 1 +      =1+χ                                                                                 (4.10)
+                                                                                                                      0 E
+                                                                                                       D = E = 0 r E = 0 E + P                                                                              (4.11)
+                                                                                                                           P = N p = N qd                                                                       (4.12)
+                                                                                                                             N αe
+                                                                                                                      = 1 +      =1+χ                                                                          (4.13)
+                                                                                                                              0
+
+
+-->
+
+
+<p>
+\begin{align} \textbf {Relative Permittivity:} \quad = \frac {C^\prime }{C}=\frac {Q^\prime }{Q} = \epsilon _r \\ PA=Q^\prime - Q = C^\prime V - CV= CV(\epsilon _r-1) \\ P= \epsilon _0E(\epsilon _r-1) \ and \
+\epsilon _r=1+\frac {P}{\epsilon _0E}= 1+\chi \\ D = \epsilon E = \epsilon _0 \epsilon _r E = \epsilon _0 E+ P \\ P = Np = Nqd \\ \epsilon _= 1 + \frac {N \alpha _e}{\epsilon _0}=1+\chi \end{align}
+</p>
+
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span>   <span class="hidden"> \( \seteqnumber {14} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                        d (0)
+                                                                                      Debye Model: d (ω) =                       = 0d + i00
+                                                                                                                                             d                                                                  (4.14)
+                                                                                                                      1 − iωτr
+                                                                                                  d (0)                           (0)
+                                                                                                                                                                                                                (4.15)
+                                                                                                                                  d
+                                                                                        0d =                 and 00
+                                                                                                                   d (ω) =                 ωτr
+                                                                                                1 + ω 2 τr2                    1 + ω 2 τr2
+
+
+-->
+
+
+<p>
+\begin{align} \textbf {Debye Model:} \quad \epsilon _d(\omega )= \frac {\epsilon _d(0)}{1-i\omega \tau _r}=\epsilon _d^\prime +i\epsilon _d^{\prime \prime }\\ \epsilon _d^\prime = \frac {\epsilon _d(0)}{1+\omega ^2
+\tau _r^2} \quad and \quad \epsilon _d^{\prime \prime }(\omega )= \frac {\epsilon _d(0)}{1+\omega ^2 \tau _r^2}\omega \tau _r \end{align}
+</p>
+
+
+<p>Different Polarization Mechanisms(Decreasing Speed) Electronic<br />
+Ionic<br />
+Dipolar (Orientational)<br />
+Space Charge (Interfacial)<br />
+Ferroelectric </p>
+<h4 id="autosec-58"> Ch. 4 AC Dielectrics Cont’d</h4><a id="autopage-58"></a>
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span>   <span class="hidden"> \( \seteqnumber {16} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                    c       1
+                                                                                                               ν=     = √                                                                                             (4.16)
+                                                                                                                    n     r o µo
+                                                                                                           √
+                                                                                                      n=      reflactive index
+                                                                                                               r                                                                                                     (4.17)
+                                                                                                                            n1
+                                                                                                                 sin(θc ) =                                                                                           (4.18)
+                                                                                                                            n2
+                                                                                                        ω00      ωp 0
+                                                                                              kimag   = pr =           r tan δ                                                                                       (4.19)
+                                                                                                       2c 0r     2c
+
+                                                                                                               dB = 8.69 × kimag                                                                                      (4.20)
+
+
+
+-->
+
+
+<p>
+\begin{align} \nu =\frac {c}{n}= \frac {1}{\sqrt {\epsilon _r \epsilon _o \mu _o}} \\ n = \sqrt {\epsilon _r} \quad \text {reflactive index} \\ \sin (\theta _c)=\frac {n_1}{n2} \\ k_{imag}=\frac {\omega \epsilon
+_r^{\prime \prime }}{2c\sqrt {\epsilon _r^\prime }}= \frac {\omega }{2c}\sqrt {\epsilon _r^\prime }\tan {\delta } \\ dB = 8.69 \times k_{imag} \end{align}
+</p>
+<h4 id="autosec-59"> Ch. 8 Schrodinger’s Equation</h4><a id="autopage-59"></a>
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span>       <span class="hidden"> \( \seteqnumber {21} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                                                      h
+                                                                                                                    Planck’s constant ~ =                                                                                           (4.21)
+                                                                                                                                                     2π
+                                                                                                                                    1.6 × 10−19 J = 1eV                                                                             (4.22)
+                                                                                                                                                    h
+                                                                                                                                                p=                                                                                  (4.23)
+                                                                                                                                                    λ
+                                                                                                                                        ~2 k2   n2 h2
+                                                                                                                                    E=        =                                                                                     (4.24)
+                                                                                                                                         2m     8mL2
+                                                                                                                                     k = (2mE)1/2 h−1                                                                               (4.25)
+                                                                                            Z     L                      Z   L
+                                                                                                                                                      A2n
+                                                                                                      ψ 2 dz = 1 = A2n           sin2 (nπz/L)dz =         L                                                                         (4.26)
+                                                                                              0                          0
+                                                                                                                                                       2
+                                                                                                                             R ∗               Z
+                                                                                                                                ψ SψdV
+                                                                                                              < S >=          R            =       ψ ∗ SψdV                                                                         (4.27)
+                                                                                                                                 ψ ∗ ψdV
+
+
+
+-->
+
+
+<p>
+\begin{align} \textbf {Planck’s constant} \quad \hbar = \frac {h}{2 \pi } \\ 1.6 \times 10^{-19}J= 1 eV \\ p = \frac {h}{\lambda } \\ E = \frac {\hbar ^2 k^2}{2m}= \frac {n^2h^2}{8mL^2} \\ k=(2mE)^{1/2}h^{-1} \\ \int
+_{0}^{L} \psi ^2 dz = 1 = A_n^2 \int _{0}^{L} sin^2(n \pi z /L) dz = \frac {A_n^2}{2}L \\ &lt;S&gt; = \frac {\int \psi ^*S\psi dV}{\int \psi ^*\psi dV}=\int \psi ^*S\psi dV \end{align}
+</p>
+
+
+<p>The wavefunction y is complex valued • We interpret the absolute value of y squared (i.e., \(\psi \times \psi ^*\)) as the probability that the particle is in a given position • This requires appropriate normalization over space so
+that the total probability that the particle is anywhere is 1 (i.e., the particle exists) </p>
+<h4 id="autosec-60"> Ch. 12 Free Electron Theory of Metals</h4><a id="autopage-60"></a>
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span>   <span class="hidden"> \( \seteqnumber {28} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                                      Nπ
+                                                                                                                 1D Box:     kF =                                                                          (4.28)
+                                                                                                                                      2L
+                                                                                                                      2
+                                                                                                                  ~2 kF
+                                                                                                                                   2
+                                                                                                                             h2     N
+                                                                                                           EF =          =                                                                                 (4.29)
+                                                                                                                   2m       32m L
+                                                                                                                     dN (E)
+                                                                                                           Z(E) =            = CE −1/2                                                                     (4.30)
+                                                                                                                       dE
+                                                                                                                                       N
+                                                                                                              2D Box: kF      2
+                                                                                                                                 = 2π 2                                                                    (4.31)
+                                                                                                                                      L
+                                                                                                                          2
+                                                                                                                      ~2 kF       h2 N
+                                                                                                              EF =           =                                                                             (4.32)
+                                                                                                                        2m       4πm L2
+                                                                                                                            dN (E)
+                                                                                                                  Z(E) =             =C                                                                    (4.33)
+                                                                                                                              dE
+                                                                                                                                       N
+                                                                                                             3D Box: kF     3
+                                                                                                                                = 3π 2 3                                                                   (4.34)
+                                                                                                                                      L
+                                                                                                                 2
+                                                                                                             ~2 kF      h2      3N 2/3
+                                                                                                                                   
+                                                                                                      EF   =        =                                                                                      (4.35)
+                                                                                                              2m        2m 8πL3
+                                                                                                dN (E)   4πL3 (2m)3/2 1/2
+                                                                                       Z(E) =          =             E    = CE 1/2                                                                         (4.36)
+                                                                                                 dE           h3
+
+
+-->
+
+
+<p>
+\begin{align} \textbf {1D Box:} \quad k_F = \frac {N \pi }{2 L} \\ E_F=\frac {\hbar ^2k_F^2}{2m}= \frac {h^2}{32m}\left (\frac {N}{L}\right )^2 \\ Z(E)=\frac {dN(E)}{dE}= CE^{-1/2} \\ \textbf {2D Box:} \quad
+k_F^2 = 2 \pi \frac {N}{L^2} \\ E_F=\frac {\hbar ^2k_F^2}{2m}= \frac {h^2}{4 \pi m}\frac {N}{L^2} \\ Z(E)=\frac {dN(E)}{dE}= C \\ \textbf {3D Box:} \quad k_F^3 = 3 \pi ^2 \frac {N}{L^3} \\ E_F=\frac {\hbar
+^2k_F^2}{2m}= \frac {h^2}{2m}\left (\frac {3N}{8 \pi L^3}\right )^{2/3} \\ \quad Z(E)=\frac {dN(E)}{dE}= \frac {4\pi L^3 (2m)^{3/2}}{h^3} E^{1/2}=CE^{1/2} \end{align}
+</p>
+<h5 id="autosec-61"> Fermi Distribution</h5><a id="autopage-61"></a>
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span>   <span class="hidden"> \( \seteqnumber {37} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                   F (E) = 1 if E < EF                                        (4.37)
+                                                                                                   F (E) = 0 if E > EF                                        (4.38)
+                                                                                                                    1
+                                                                                                    F (E) =         E−EF
+                                                                                                                                                              (4.39)
+                                                                                                                     kB T
+                                                                                                              1+e
+                                                                                                        Z
+                                                                                               Etot =       EZ(E)F (E)dE                                      (4.40)
+
+
+
+-->
+
+
+<p>
+\begin{align} F(E)= 1 \ if \ E &lt; E_F \\ F(E)= 0 \ if \ E &gt; E_F \\ F(E)= \frac {1}{1+e^{\frac {E-E_F}{k_BT}}} \\ E_{tot}= \int EZ(E)F(E)dE \end{align}
+</p>
+<h4 id="autosec-62"> Ch. 13 Band Theory</h4><a id="autopage-62"></a>
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span>     <span class="hidden"> \( \seteqnumber {41} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                       2πx
+                                                                                                                              
+                                                                                                         V = V0 cos                                                                                                          (4.41)
+                                                                                                                         a
+                                                                                                                ∂ω      1 ∂E
+                                                                                                          vg =      =                                                                                                        (4.42)
+                                                                                                                ∂k     ~ ∂k
+                                                                                                           dvg    1 ∂ 2 E dk
+                                                                                                       a=      =                                                                                                             (4.43)
+                                                                                                            dt    ~ ∂k2 dt
+                                                                                                                   dp       k
+                                                                                                              F =      =~                                                                                                    (4.44)
+                                                                                                                   dt        t
+                                                                                                                 F        ~2
+                                                                                                             ∗
+                                                                                                           m =      = 2                                                                                                      (4.45)
+                                                                                                                 a       ∂ E
+                                                                                                                          ∂k2
+
+
+
+
+-->
+
+
+<p>
+\begin{align} V= V_0 \cos \left ( \frac {2 \pi x}{a}\right ) \\ v_g = \frac { \partial \omega }{ \partial k} =\frac {1}{\hbar } \frac { \partial E}{\partial k} \\ a = \frac {d v_g}{ d t}= \frac {1}{\hbar } \frac { \partial ^2
+E}{ \partial k^2} \frac {d k}{d t} \\ F = \frac {dp}{dt}= \hbar \frac {k}{t} \\ m^*=\frac {F}{a}=\frac {\hbar ^2} {\frac {\partial ^2 E}{\partial k^2}} \end{align}
+</p>
+<h4 id="autosec-63"> Ch. 14 Metals and Insulators</h4><a id="autopage-63"></a>
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span>   <span class="hidden"> \( \seteqnumber {46} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                        2 Z(E )
+                                                                                                       vF    F
+                                                                                                  σ=              e 2 τF   (4.46)
+                                                                                                          3
+                                                                                                                    Eg
+                                                                                                              ν=           (4.47)
+                                                                                                                    h
+
+
+-->
+
+
+<p>
+\begin{align} \sigma = \frac {v_F^2Z(E_F)}{3}e^2\tau _F \\ \nu = \frac {E_g}{h} \end{align}
+</p>
+<h4 id="autosec-64"> Ch. 15 Semiconductors</h4><a id="autopage-64"></a>
+
+<p><span class="hidden"> \( \seteqsection {4} \) </span>   <span class="hidden"> \( \seteqnumber {48} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                                               Ec −EF
+                                                                                                                                                            
+                                                                            Total # of Electrons in Conduction Band:Ne = Nc · e                 kB T
+
+                                                                                                                                                           
+                                                                                                                                          2πm∗e kT 3/2
+                                                                                                                             Nc = 2
+                                                                                                                                            h2
+                                                                                                                                               EF −Ev
+                                                                                                                                                            
+                                                                                   Total # of Hole in Valence Band: Nh = Nv · e                 kB T
+
+                                                                                                                                                           
+                                                                                                                                          2πm∗h kT 3/2
+                                                                                                                             Nv = 2
+                                                                                                                                             h2
+                                                                                                                                                           
+                                                                                            Eg  1             Nc                 Eg  3                m∗e
+                                                                                                                   
+                                                                                Ef = Ev +      − kT ln                  = Ev +      − kT ln
+                                                                                             2  2            N −V                 2  4                m∗h
+                                                                                   Total Conductivity: σ = e(Ne µe + Nh µh ) = eNe (µe + µh )
+                                                                                                                                            Dh   kb T
+                                                                                     Einstein’s Relation(Ch.16.3 Diffusion Current)            =
+                                                                                                                                            µh    e
+
+
+-->
+
+
+<p>
+\begin{align*} \textbf {Total \# of Electrons in Conduction Band:} N_e = N_c \cdot e^{\left (\frac {E_c-E_F}{k_BT}\right )} \\ N_c = 2 \left [\frac {2\pi m_e^*kT}{h^2}^{3/2}\right ] \\ \textbf {Total \# of Hole in
+Valence Band:} \quad N_h = N_v \cdot e^{\left (\frac {E_F-E_v}{k_BT}\right )} \\ N_v = 2 \left [\frac {2\pi m_h^*kT}{h^2}^{3/2}\right ] \\ E_f=E_v+\frac {E_g}{2}-\frac {1}{2}kTln\left (\frac {N_c}{N-V}\right )=
+E_v+\frac {E_g}{2}-\frac {3}{4}kTln\left (\frac {m_e^*}{m_h^*}\right ) \\ \textbf {Total Conductivity:} \quad \sigma =e(N_e\mu _e+ N_h\mu _h)=eN_e(\mu _e+\mu _h) \\ \text {Einstein’s Relation(Ch.16.3 Diffusion
+Current)} \quad \frac {D_h}{\mu _h} = \frac {k_bT}{e} \end{align*}
+</p>
+
+
+<p>\(N_i\) = Intrinsic Carrier Density. For an Intrinsic semiconductor holes = electrons \(N_i^2=N_vN_c\exp (-E_g/(kT))\).<br />
+n-type: \(N_e \approx N_D \quad and \quad N_h \approx \frac {N_i^2}{N_D}\) Minority carrier in holes<br />
+p-type: \(N_h \approx N_A \ \ and \ \ N_e \approx \frac {N_i^2}{N_A}\) Minority carrier is electrons</p>
+
+
+</div>
+
+</section>
+
+<footer>
+
+<p>Made by David Li</p>
+
+
+</footer>
+
+<nav class="botnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+</body>
+</html>

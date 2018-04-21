@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="author" content="David Li" />
+
+<meta name="generator" content="LaTeX lwarp package" />
+
+<meta name="description" content="A list of cheatsheets for courses at the University of Victoria" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--[if lt IE 9]>
+
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+
+<title>CheatSheets For Uvic University Courses — CENG 355 CheatSheet</title>
+
+<link rel="stylesheet" type="text/css" href="lwarp_sagebrush.css" />
+
+
+
+
+<!-- https://groups.google.com/forum/#!topic/
+                                               mathjax-users/jUtewUcE2bY -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX AMSmath Ready",function () {
+       var seteqsectionDefault = {name: "", num: 0};
+       var seteqsections = {}, seteqsection = seteqsectionDefault;
+       var TEX = MathJax.InputJax.TeX, PARSE = TEX.Parse;
+       var AMS = MathJax.Extension["TeX/AMSmath"];
+       TEX.Definitions.Add({
+       macros: {
+             seteqsection: "mySection",
+             seteqnumber: "mySetEqNumber"
+       }
+       });
+
+
+       PARSE.Augment({
+       mySection: function (name) {
+             seteqsection.num = AMS.number;
+             var n = this.GetArgument(name);
+             if (n === "") {
+             seteqsection = seteqsectionDefault;
+             } else {
+             if (!seteqsections["_"+n])
+                    seteqsections["_"+n] = {name:n, num:0};
+             seteqsection = seteqsections["_"+n];
+             }
+             AMS.number = seteqsection.num;
+       },
+       mySetEqNumber: function (name) {
+             var n = this.GetArgument(name);
+             if (!n || !n.match(/^ *[0-9]+ *$/))
+                    n = ""; else n = parseInt(n)-1;
+             <!-- $ syntax highlighting -->
+             if (n === "" || n < 1)
+                    TEX.Error
+                    ("Argument to "+name+" should be a positive integer");
+             AMS.number = n;
+       }
+       });
+       MathJax.Hub.Config({
+       TeX: {
+             equationNumbers: {
+             formatTag: function (n)
+                    {return "("+(seteqsection.name+"."+n).replace(/^\./,"")+")"},
+             formatID: function (n) {
+                    n = (seteqsection.name+'.'+n).replace
+                        (/[:"'<>&]/g,"").replace(/^\./,"");
+                    return 'mjx-eqn-' + n;
+             }
+             }
+       }
+       });
+});
+</script>
+
+
+<!-- http://docs.mathjax.org/en/latest/options/ThirdParty.html -->
+<script type="text/x-mathjax-config">
+   MathJax.Ajax.config.path["Contrib"] =
+       "https://cdn.mathjax.org/mathjax/contrib";
+</script>
+
+
+<!-- https://github.com/burnpanck/MathJax-siunitx -->
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[siunitx]/siunitx.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {
+             inlineMath: [["$","$"],["\\(","\\)"]] ,
+             processClass: "tabbing|verse"
+       },
+      TeX: {extensions: ["AMSmath.js","AMSsymbols.js", "sinuitx.js"]}
+ });
+ MathJax.Ajax.config.path['siunitx']                      = 'http://rawgit.com/burnpanck/MathJax-siunitx/master/';
+ </script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+       TeX: {
+       equationNumbers: {
+             autoNumber: "AMS"
+       }
+       }
+});
+</script>
+
+
+<!-- Alternative CDN provider: -->
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+
+
+<!-- No longer supported after April 30, 2017: -->
+<!--
+<script
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+-->
+
+</head>
+<body>
+
+
+<a id="autopage-103"></a> <nav class="topnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+<header>
+
+<p><span class="fbox" style="border:1pt solid black ; padding:3pt">
+<a href="uvic.png" target="_blank"
+><img src="uvic.png"
+style="width:173pt; "
+class="inlineimage"
+></a></span></p>
+
+
+</header>
+
+<h1>CheatSheets For Uvic University Courses</h1>
+<nav class="sidetoc">
+
+<div class="sidetoctitle">
+
+<p>Contents</p>
+
+
+</div>
+
+<div class="sidetoccontents">
+
+<p><a href="index.html" class="linkhome"
+>Home</a></p>
+
+
+<p><a href=" Todo-List.html#autosec-10" class="tocchapter"
+><span class="sectionnumber">1</span>&#x2001;Todo List</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autosec-12" class="tocchapter"
+><span class="sectionnumber">2</span>&#x2001;ELEC 320: Tough Class</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-43" class="tocchapter"
+><span class="sectionnumber">3</span>&#x2001;CENG242Cheat</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-44" class="tocsection"
+>Basic Graph Definitions</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-47" class="tocsection"
+>Graph traversal</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-50" class="tocsection"
+>Topological sorting</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-52" class="tocchapter"
+><span class="sectionnumber">4</span>&#x2001;ELEC 220 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-54" class="tocsection"
+>Ch.1 DC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-56" class="tocsection"
+>Ch. 2 AC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-57" class="tocsection"
+>Ch. 3 DC/AC Dielectrics</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-58" class="tocsection"
+>Ch. 4 AC Dielectrics Cont’d</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-59" class="tocsection"
+>Ch. 8 Schrodinger’s Equation</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-60" class="tocsection"
+>Ch. 12 Free Electron Theory of Metals</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-62" class="tocsection"
+>Ch. 13 Band Theory</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-63" class="tocsection"
+>Ch. 14 Metals and Insulators</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-64" class="tocsection"
+>Ch. 15 Semiconductors</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-66" class="tocchapter"
+><span class="sectionnumber">5</span>&#x2001;ELEC 403 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-68" class="tocsection"
+>Ch.2</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-69" class="tocsection"
+>Ch. 4</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-70" class="tocsection"
+>Ch. 5</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-71" class="tocsection"
+>Ch. 7</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-73" class="tocchapter"
+><span class="sectionnumber">6</span>&#x2001;ELEC 360 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-75" class="tocsection"
+>LAPLACE TRANSFORMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-76" class="tocsection"
+>SOLUTION OF LINEAR DIFFERENTIAL EQUATION</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-77" class="tocsection"
+>STATESPACE REPRESENTATIONS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-78" class="tocsection"
+>SECOND ORDER SYSTEMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-79" class="tocsection"
+>ROUTH-HURWITZ STABILITY TEST</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-80" class="tocsection"
+>STEADY STATE ERROR ANALYSIS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-81" class="tocsection"
+>ROOT LOCUS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-82" class="tocsection"
+>BODE DIAGRAMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-87" class="tocsection"
+>PHASE AND GAIN MARGINS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-89" class="tocchapter"
+><span class="sectionnumber">7</span>&#x2001;ELEC 370 Cheatsheet</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-91" class="tocsection"
+>MAGNETIC CIRCUITS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-92" class="tocsection"
+>TRANSFORMERS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-96" class="tocsection"
+>DC-MACHINES</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-102" class="tocsection"
+>SYNCHRONOUS MACHINES</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-104" class="tocchapter"
+><span class="sectionnumber">8</span>&#x2001;CENG 355 CheatSheet</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-106" class="tocsection"
+>I/O</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-107" class="tocsection"
+>Interfacing</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-108" class="tocsection"
+>Memory</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-111" class="tocsection"
+>Arithmetic</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-112" class="tocsection"
+>Concurrency</a></p>
+
+
+<p><a href=" Glossary.html#autosec-114" class="tocchapter"
+><span class="sectionnumber">9</span>&#x2001;Glossary</a></p>
+
+
+<p><a href=" Glossary.html#autosec-116" class="tocchapter"
+>Glossary</a></p>
+
+
+<p><a href=" ELEC-460-Control-Theory-II.html#autosec-119" class="tocchapter"
+><span class="sectionnumber">10</span>&#x2001;ELEC 460: Control Theory II</a></p>
+
+
+</div>
+
+</nav>
+
+<section class="textbody">
+
+<!--Nullify \ensuremath for MathJax:-->
+
+\(\newcommand \ensuremath [1]{#1}\)
+
+<!--Additional customizations for MathJax:-->
+
+<p><h3 id="autosec-104"> <span class="sectionnumber">8&#x2001;</span>CENG 355 CheatSheet</h3><a id="autopage-104"></a>
+
+<figure id="autoid-20" class="figure">
+
+<p>
+<a href="CENG355/Ceng355-0.png" target="_blank"
+><img src="CENG355/Ceng355-0.png"
+style="width:434pt; "
+class="inlineimage"
+></a></p>
+
+
+<figcaption>
+<p>Figure 8.1:&nbsp;Cheatsheet Part 1</p>
+
+
+</figcaption>
+
+<a id="fig:ceng355-0"></a>
+
+</figure>
+
+<figure id="autoid-21" class="figure">
+
+<p>
+<a href="CENG355/Ceng355-1.png" target="_blank"
+><img src="CENG355/Ceng355-1.png"
+style="width:434pt; "
+class="inlineimage"
+></a></p>
+
+
+<figcaption>
+<p>Figure 8.2:&nbsp;CheatSheet Part 2</p>
+
+
+</figcaption>
+
+<a id="fig:ceng355-1"></a>
+
+</figure>
+<div class="multicols">
+<h4 id="autosec-106"> I/O</h4><a id="autopage-106"></a>
+<h4 id="autosec-107"> Interfacing</h4><a id="autopage-107"></a>
+<h4 id="autosec-108"> Memory</h4><a id="autopage-108"></a>
+
+<p><b><span class="underline">Principle of Locality</span></b>:</p>
+
+<p>Programs tend to reuse data and instructions near those they have used recently, or that were recently referenced themselves.<br />
+<b>Temporal locality</b>: <span class="fcolorbox" style="border:2pt solid #E1A3D6 ; padding:3pt ; background:#BFEFFF">Recently referenced items are likely to be referenced again in the near future</span> <b>Spatial
+locality</b>: <span class="fcolorbox" style="border:2pt solid #B7E9F0 ; padding:3pt ; background:#F7EDE1">Items with nearby addresses tend to be referenced close together in time.</span> <b>Data:</b> </p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>— Reference array elements in succession: spatial locality</p>
+
+</li>
+<li>
+<p>— Reference sum each iteration: temporal locality</p>
+
+</li>
+</ul>
+
+<p><b>Instructions:</b> </p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>— Reference instructions in sequence: spatial locality.</p>
+
+</li>
+<li>
+<p>— Cycle through loop repeatedly: temporal locality.</p>
+
+</li>
+</ul>
+<h6 id="autosec-109"> Blocked Matrix Code</h6><a id="autopage-109"></a>
+
+<figcaption>
+
+</figcaption>
+<pre class="programlisting" >
+void bijk(array A, array B, array C, int n, int bsize)
+{
+         int i, j, k, kk, jj;
+         double sum;
+         int en = bsize * (n/bsize); /* Amount that fits evenly into blocks */
+
+
+         for (i = 0; i < n; i++)
+         for (j = 0; j < n; j++)
+         C[i][j] = 0.0;
+
+
+         for (kk = 0; kk < en; kk += bsize) {
+                for (jj = 0; jj < en; jj += bsize) {
+                     for (i = 0; i < n; i++) {
+                             for (j = jj; j < jj + bsize; j++) {
+                                    sum = C[i][j];
+                                    for (k = kk; k < kk + bsize; k++) {
+                                           sum += A[i][k]*B[k][j];
+                                    }
+                                    C[i][j] = sum;
+                             }
+                     }
+                }
+         }
+}
+</pre>
+<figcaption>
+</figcaption>
+
+<p>Copy-paste code here to remove the line numbers.</p>
+
+
+</div>
+<h4 id="autosec-111"> Arithmetic</h4><a id="autopage-111"></a>
+
+<figure id="autoid-22" class="figure">
+
+<p>
+<a href="CENG355/Exponent.png" target="_blank"
+><img src="CENG355/Exponent.png"
+style="width:434pt; "
+class="inlineimage"
+></a></p>
+
+
+<figcaption>
+<p>Figure 8.3:&nbsp;IEEE 754 floating point (correct later)</p>
+
+
+</figcaption>
+
+<a id="fig:exponent"></a>
+
+</figure>
+
+<p><span class="hidden"> \( \seteqsection {8} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                         tavg = h1 C1 + (1 − h1 )(h2 C2 + (1 − h2 )M )   (8.1)
+                                                                                           where
+
+
+
+-->
+
+
+<p>
+\begin{align} &amp; t_{avg} = h_1C_1 + (1-h_1)(h_2C_2 + (1-h_2)M) \\ &amp; \quad \text {where} \notag \end{align}
+</p>
+
+
+<p>\(h_1\) <i>is the hit rate in the </i> \(L_1\) <i>caches.</i><br />
+\(h_2\) <i>is the hit rate in the </i> \(L_2\) <i> cache.</i><br />
+\(C_1\) <i>is the time to access information in the </i> \(L_1\) <i>caches.</i><br />
+\(C_2\) <i>is the miss penalty to transfer information from the </i> \(L_2\) cache to an \(L_1\) <i> cache.</i><br />
+<i>M is the miss penalty to transfer information from the main memory to the </i> \(L_2\) <i>cache.</i></p>
+<h4 id="autosec-112"> Concurrency</h4><a id="autopage-112"></a>
+
+<p><span class="colorbox" style="background:#26C9FF ; padding:3pt"><span class="textcolor" style="color:#FFFFFF">This better work rofl, why is this so damn hard</span></span> <span class="fcolorbox"
+style="border:6pt solid #B7E9F0 ; padding:3pt ; background:#F0A242">Fun with colour</span></p>
+
+
+<p><span class="hidden"> \( \seteqsection {8} \) </span>   <span class="hidden"> \( \seteqnumber {2} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                   1
+                                                                                           Amdahl’s Law =
+                                                                                                            funenh + fenh /p
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; \text {Amdahl’s Law} = \frac {1}{f_{unenh} + f_{enh}/p} \end{align*}
+</p>
+
+
+<figure id="autoid-23" class="figure">
+
+<p>
+<a href="CENG355/Pipeline.png" target="_blank"
+><img src="CENG355/Pipeline.png"
+style="width:434pt; "
+class="inlineimage"
+></a></p>
+
+
+<figcaption>
+<p>Figure 8.4:&nbsp;Pipeline for Question 2</p>
+
+
+</figcaption>
+
+<a id="fig:q2diagram"></a>
+
+</figure>
+
+</section>
+
+<footer>
+
+<p>Made by David Li</p>
+
+
+</footer>
+
+<nav class="botnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+</body>
+</html>

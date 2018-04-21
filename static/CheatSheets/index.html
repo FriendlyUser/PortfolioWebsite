@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="author" content="David Li" />
+
+<meta name="generator" content="LaTeX lwarp package" />
+
+<meta name="description" content="A list of cheatsheets for courses at the University of Victoria" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--[if lt IE 9]>
+
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+
+<title>CheatSheets For Uvic University Courses</title>
+
+<link rel="stylesheet" type="text/css" href="lwarp_sagebrush.css" />
+
+
+
+
+<!-- https://groups.google.com/forum/#!topic/
+                                                mathjax-users/jUtewUcE2bY -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX AMSmath Ready",function () {
+       var seteqsectionDefault = {name: "", num: 0};
+       var seteqsections = {}, seteqsection = seteqsectionDefault;
+       var TEX = MathJax.InputJax.TeX, PARSE = TEX.Parse;
+       var AMS = MathJax.Extension["TeX/AMSmath"];
+       TEX.Definitions.Add({
+       macros: {
+             seteqsection: "mySection",
+             seteqnumber: "mySetEqNumber"
+       }
+       });
+
+
+       PARSE.Augment({
+       mySection: function (name) {
+             seteqsection.num = AMS.number;
+             var n = this.GetArgument(name);
+             if (n === "") {
+             seteqsection = seteqsectionDefault;
+             } else {
+             if (!seteqsections["_"+n])
+                    seteqsections["_"+n] = {name:n, num:0};
+             seteqsection = seteqsections["_"+n];
+             }
+             AMS.number = seteqsection.num;
+       },
+       mySetEqNumber: function (name) {
+             var n = this.GetArgument(name);
+             if (!n || !n.match(/^ *[0-9]+ *$/))
+                    n = ""; else n = parseInt(n)-1;
+             <!-- $ syntax highlighting -->
+             if (n === "" || n < 1)
+                    TEX.Error
+                    ("Argument to "+name+" should be a positive integer");
+             AMS.number = n;
+       }
+       });
+       MathJax.Hub.Config({
+       TeX: {
+             equationNumbers: {
+             formatTag: function (n)
+                    {return "("+(seteqsection.name+"."+n).replace(/^\./,"")+")"},
+             formatID: function (n) {
+                    n = (seteqsection.name+'.'+n).replace
+                        (/[:"'<>&]/g,"").replace(/^\./,"");
+                    return 'mjx-eqn-' + n;
+             }
+             }
+       }
+       });
+});
+</script>
+
+
+<!-- http://docs.mathjax.org/en/latest/options/ThirdParty.html -->
+<script type="text/x-mathjax-config">
+   MathJax.Ajax.config.path["Contrib"] =
+       "https://cdn.mathjax.org/mathjax/contrib";
+</script>
+
+
+<!-- https://github.com/burnpanck/MathJax-siunitx -->
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[siunitx]/siunitx.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {
+             inlineMath: [["$","$"],["\\(","\\)"]] ,
+             processClass: "tabbing|verse"
+       },
+      TeX: {extensions: ["AMSmath.js","AMSsymbols.js", "sinuitx.js"]}
+ });
+ MathJax.Ajax.config.path['siunitx']                      = 'http://rawgit.com/burnpanck/MathJax-siunitx/master/';
+ </script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+       TeX: {
+       equationNumbers: {
+             autoNumber: "AMS"
+       }
+       }
+});
+</script>
+
+
+<!-- Alternative CDN provider: -->
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+
+
+<!-- No longer supported after April 30, 2017: -->
+<!--
+<script
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+-->
+
+</head>
+<body>
+<header>
+
+
+<p>CheatSheets <span class="fbox" style="border:1pt solid black ; padding:3pt">
+<a href="uvic.png" target="_blank"
+><img src="uvic.png"
+style="width:173pt; "
+class="inlineimage"
+></a></span></p>
+
+
+</header>
+<section class="textbody">
+
+<!--Nullify \ensuremath for MathJax:-->
+
+\(\newcommand \ensuremath [1]{#1}\)
+
+<!--Additional customizations for MathJax:-->
+<div class="titlepage">
+
+<h1> CheatSheets For Uvic University Courses</h1>
+
+<div class="author">
+
+<div class="oneauthor">
+
+<p>David Li</p>
+
+
+</div>
+
+</div>
+
+<div class="titledate">
+
+<p>April 21, 2018</p>
+
+
+</div>
+
+</div>
+
+<p>This is my list of cheat-sheets created over the course of my computer engineering degree at Uvic. The reason I decided to create a web-page, is because I was making too much cheat-sheet and it was hard to find them all, perhaps
+I will modify the css, to create something that’s easier to print, although it is not bad looking at the moment.</p>
+
+
+<p>See <a href=" index.html#??">??</a>.</p>
+
+
+<figure id="autoid-1" class="table">
+
+<figcaption>
+<p>Table 1:&nbsp;Time log for ELEC 360 — Assignment 2</p>
+
+
+</figcaption>
+<table>
+
+<tr>
+<td class="tdc">Week of Oct 8</td>
+<td class="tdc">Week of Oct 15</td>
+<td class="tdc">Week of Oct 22</td>
+<td class="tdc">Week of Nov 5</td>
+<td class="tdc">Week of Nov 12</td>
+</tr>
+<tr>
+<td class="tdc">5 hours Prepared for ELEC 360 Lab and completed it</td>
+<td class="tdc">2 hours working on lab report</td>
+<td class="tdc">3 hours spent on preparing for lab</td>
+<td class="tdc">3 hours doing the prelab and and lab experiment</td>
+<td class="tdc">2 hours working on lab report</td>
+</tr>
+<tr>
+<td class="tdc">3 hours of studying for quizzes</td>
+<td class="tdc">3 hours studying for midterm</td>
+<td class="tdc">2 hours studying midterm solutions</td>
+<td class="tdc">2 hours reviewing for quizzes</td>
+<td class="tdc">5 hours solving question for assignment 2</td>
+</tr>
+<tr>
+<td class="tdc">1 hour creating notes</td>
+<td class="tdc">2 hours preparing for midterm</td>
+<td class="tdc">2 hours preparing for quizzes</td>
+<td class="tdc">3 hours solving questions of assignment 2</td>
+<td class="tdc">1 hour studying for quizzes</td>
+</tr>
+<tr>
+<td class="tdc"></td>
+<td class="tdc"></td>
+<td class="tdc"></td>
+<td class="tdc"></td>
+<td class="tdc"></td>
+</tr>
+
+</table>
+
+</figure>
+<h3 id="autosec-4"> List of Figures</h3><a id="autopage-4"></a>
+
+<nav class="lof">
+
+<p><a href=" ELEC-320-Tough-Class.html#autoid-10" class="tocfigure"
+><span class="sectionnumber">2.1</span>&#x2001;Vol IV Mosfet table</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autoid-11" class="tocfigure"
+><span class="sectionnumber">2.2</span>&#x2001;Doping dependence of the maximum equilibrium depletion width inside silicon devices maintained at 300 K.</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autoid-12" class="tocfigure"
+><span class="sectionnumber">2.3</span>&#x2001;Vol IV Mosfet Gate voltages</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autoid-13" class="tocfigure"
+><span class="sectionnumber">2.4</span>&#x2001;Workfunction difference as a function of a n- and p-type dopant conecntration in \(n^+\) poly-Si-gate and Al-gate \(SiO_2-Si\) structures. (\(T=300 K\). \(\phi _M^\prime
+-\chi ^\prime =-0.18 \ eV\) for the \(n^\prime \) poly-Si-gate structure; \(\phi _M^\prime -\chi ^\prime =0.03 eV\) for the Al-gate structure.)</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autoid-14" class="tocfigure"
+><span class="sectionnumber">2.5</span>&#x2001;Boron Chart</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autoid-19" class="tocfigure"
+><span class="sectionnumber">5.1</span>&#x2001;Minimization points plotted</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autoid-20" class="tocfigure"
+><span class="sectionnumber">8.1</span>&#x2001;Cheatsheet Part 1</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autoid-21" class="tocfigure"
+><span class="sectionnumber">8.2</span>&#x2001;CheatSheet Part 2</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autoid-22" class="tocfigure"
+><span class="sectionnumber">8.3</span>&#x2001;IEEE 754 floating point (correct later)</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autoid-23" class="tocfigure"
+><span class="sectionnumber">8.4</span>&#x2001;Pipeline for Question 2</a></p>
+
+
+</nav>
+<h3 id="autosec-5"> List of Tables</h3><a id="autopage-5"></a>
+
+<nav class="lot">
+
+<p><a href=" index.html#autoid-1" class="toctable"
+><span class="sectionnumber">1</span>&#x2001;Time log for ELEC 360 — Assignment 2</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autoid-18" class="toctable"
+><span class="sectionnumber">4.1</span>&#x2001;Some Equations for DC Conduction</a></p>
+
+
+</nav>
+<h3 id="autosec-6"> List of Algorithms</h3><a id="autopage-6"></a>
+
+<nav class="loa">
+
+<p><a href=" CENG242Cheat.html#autoid-16" class="tocfigure"
+><span class="sectionnumber">3.1</span>&#x2001;Euclid’s algorithm</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autoid-17" class="tocfigure"
+><span class="sectionnumber">3.2</span>&#x2001;Merge Sort</a></p>
+
+
+</nav>
+<h3 id="autosec-7"> Todo list</h3><a id="autopage-7"></a>
+
+<nav class="tdo">
+
+<p><a href=" Todo-List.html#autoid-2" class="toctodo"
+>Figure: Make a sketch of the structure of a trebuchet. And add more figures</a></p>
+
+
+<p><a href=" Todo-List.html#autoid-3" class="toctodo"
+>And a green note</a></p>
+
+
+<p><a href=" Todo-List.html#autoid-4" class="toctodo"
+>Anything but default colors</a></p>
+
+
+<p><a href=" Todo-List.html#autoid-5" class="toctodo"
+>Testing.</a></p>
+
+
+<p><a href=" Todo-List.html#autoid-6" class="toctodo"
+>Anything but default colors</a></p>
+
+
+<p><a href=" Todo-List.html#autoid-7" class="toctodo"
+>Short note with prepend</a></p>
+
+
+<p><a href=" Todo-List.html#autoid-8" class="toctodo"
+>Short note with noprepend</a></p>
+
+
+<p><a href=" Todo-List.html#autoid-9" class="toctodo"
+>This is due soon</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autoid-15" class="toctodo"
+>Remember to add more algorithms later</a></p>
+
+
+</nav>
+<h3 id="autosec-8"> Contents</h3><a id="autopage-8"></a>
+
+<nav class="toc">
+
+<p><a href=" Todo-List.html#autosec-10" class="tocchapter"
+><span class="sectionnumber">1</span>&#x2001;Todo List</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autosec-12" class="tocchapter"
+><span class="sectionnumber">2</span>&#x2001;ELEC 320: Tough Class</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autosec-14" class="tocsubsection"
+>Bipolar Junction Transistor</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-43" class="tocchapter"
+><span class="sectionnumber">3</span>&#x2001;CENG242Cheat</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-44" class="tocsection"
+>Basic Graph Definitions</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-45" class="tocsubsection"
+>Representation</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-47" class="tocsection"
+>Graph traversal</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-48" class="tocsubsection"
+>Breadth-first search (BFS)</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-49" class="tocsubsection"
+>Depth-first search (DFS)</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-50" class="tocsection"
+>Topological sorting</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-52" class="tocchapter"
+><span class="sectionnumber">4</span>&#x2001;ELEC 220 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-54" class="tocsection"
+>Ch.1 DC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-56" class="tocsection"
+>Ch. 2 AC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-57" class="tocsection"
+>Ch. 3 DC/AC Dielectrics</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-58" class="tocsection"
+>Ch. 4 AC Dielectrics Cont’d</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-59" class="tocsection"
+>Ch. 8 Schrodinger’s Equation</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-60" class="tocsection"
+>Ch. 12 Free Electron Theory of Metals</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-61" class="tocsubsection"
+>Fermi Distribution</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-62" class="tocsection"
+>Ch. 13 Band Theory</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-63" class="tocsection"
+>Ch. 14 Metals and Insulators</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-64" class="tocsection"
+>Ch. 15 Semiconductors</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-66" class="tocchapter"
+><span class="sectionnumber">5</span>&#x2001;ELEC 403 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-68" class="tocsection"
+>Ch.2</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-69" class="tocsection"
+>Ch. 4</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-70" class="tocsection"
+>Ch. 5</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-71" class="tocsection"
+>Ch. 7</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-73" class="tocchapter"
+><span class="sectionnumber">6</span>&#x2001;ELEC 360 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-75" class="tocsection"
+>LAPLACE TRANSFORMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-76" class="tocsection"
+>SOLUTION OF LINEAR DIFFERENTIAL EQUATION</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-77" class="tocsection"
+>STATESPACE REPRESENTATIONS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-78" class="tocsection"
+>SECOND ORDER SYSTEMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-79" class="tocsection"
+>ROUTH-HURWITZ STABILITY TEST</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-80" class="tocsection"
+>STEADY STATE ERROR ANALYSIS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-81" class="tocsection"
+>ROOT LOCUS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-82" class="tocsection"
+>BODE DIAGRAMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-83" class="tocsubsection"
+>1. Gain Factor K:</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-84" class="tocsubsection"
+>2. Integral or derivative factors</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-85" class="tocsubsection"
+>3. First Order Factors</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-86" class="tocsubsection"
+>4. Quadratic Factors</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-87" class="tocsection"
+>PHASE AND GAIN MARGINS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-89" class="tocchapter"
+><span class="sectionnumber">7</span>&#x2001;ELEC 370 Cheatsheet</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-91" class="tocsection"
+>MAGNETIC CIRCUITS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-92" class="tocsection"
+>TRANSFORMERS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-93" class="tocsubsection"
+>OPEN CIRCUIT TEST</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-94" class="tocsubsection"
+>SHORT CIRCUIT TEST</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-95" class="tocsubsection"
+>PER-UNIT VALUES</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-96" class="tocsection"
+>DC-MACHINES</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-97" class="tocsubsection"
+>DC GENERATORS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-98" class="tocsubsection"
+>SEPERATLY EXCITED</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-99" class="tocsubsection"
+>SHUNT</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-100" class="tocsubsection"
+>DC MOTORS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-101" class="tocsubsection"
+>INDUCTION MOTORS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-102" class="tocsection"
+>SYNCHRONOUS MACHINES</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-104" class="tocchapter"
+><span class="sectionnumber">8</span>&#x2001;CENG 355 CheatSheet</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-106" class="tocsection"
+>I/O</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-107" class="tocsection"
+>Interfacing</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-108" class="tocsection"
+>Memory</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-111" class="tocsection"
+>Arithmetic</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-112" class="tocsection"
+>Concurrency</a></p>
+
+
+<p><a href=" Glossary.html#autosec-114" class="tocchapter"
+><span class="sectionnumber">9</span>&#x2001;Glossary</a></p>
+
+
+<p><a href=" Glossary.html#autosec-116" class="tocchapter"
+>Glossary</a></p>
+
+
+<p><a href=" ELEC-460-Control-Theory-II.html#autosec-119" class="tocchapter"
+><span class="sectionnumber">10</span>&#x2001;ELEC 460: Control Theory II</a></p>
+
+
+<p><a href=" ELEC-460-Control-Theory-II.html#autosec-125" class="tocsubsection"
+>Stability Test for Digital Systems</a></p>
+
+
+<p><a href=" ELEC-460-Control-Theory-II.html#autosec-127" class="tocsubsection"
+>Z-transform</a></p>
+
+
+</nav>
+
+</section>
+
+<footer>
+
+<p>Made by David Li</p>
+
+
+</footer>
+
+</body>
+</html>
