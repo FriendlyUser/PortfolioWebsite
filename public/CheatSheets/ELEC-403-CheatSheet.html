@@ -1,0 +1,1027 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="author" content="David Li" />
+
+<meta name="generator" content="LaTeX lwarp package" />
+
+<meta name="description" content="A list of cheatsheets for courses at the University of Victoria" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--[if lt IE 9]>
+
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+
+<title>CheatSheets For Uvic University Courses — ELEC 403 CheatSheet</title>
+
+<link rel="stylesheet" type="text/css" href="lwarp_sagebrush.css" />
+
+
+
+
+<!-- https://groups.google.com/forum/#!topic/
+                                               mathjax-users/jUtewUcE2bY -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX AMSmath Ready",function () {
+       var seteqsectionDefault = {name: "", num: 0};
+       var seteqsections = {}, seteqsection = seteqsectionDefault;
+       var TEX = MathJax.InputJax.TeX, PARSE = TEX.Parse;
+       var AMS = MathJax.Extension["TeX/AMSmath"];
+       TEX.Definitions.Add({
+       macros: {
+             seteqsection: "mySection",
+             seteqnumber: "mySetEqNumber"
+       }
+       });
+
+
+       PARSE.Augment({
+       mySection: function (name) {
+             seteqsection.num = AMS.number;
+             var n = this.GetArgument(name);
+             if (n === "") {
+             seteqsection = seteqsectionDefault;
+             } else {
+             if (!seteqsections["_"+n])
+                    seteqsections["_"+n] = {name:n, num:0};
+             seteqsection = seteqsections["_"+n];
+             }
+             AMS.number = seteqsection.num;
+       },
+       mySetEqNumber: function (name) {
+             var n = this.GetArgument(name);
+             if (!n || !n.match(/^ *[0-9]+ *$/))
+                    n = ""; else n = parseInt(n)-1;
+             <!-- $ syntax highlighting -->
+             if (n === "" || n < 1)
+                    TEX.Error
+                    ("Argument to "+name+" should be a positive integer");
+             AMS.number = n;
+       }
+       });
+       MathJax.Hub.Config({
+       TeX: {
+             equationNumbers: {
+             formatTag: function (n)
+                    {return "("+(seteqsection.name+"."+n).replace(/^\./,"")+")"},
+             formatID: function (n) {
+                    n = (seteqsection.name+'.'+n).replace
+                        (/[:"'<>&]/g,"").replace(/^\./,"");
+                    return 'mjx-eqn-' + n;
+             }
+             }
+       }
+       });
+});
+</script>
+
+
+<!-- http://docs.mathjax.org/en/latest/options/ThirdParty.html -->
+<script type="text/x-mathjax-config">
+   MathJax.Ajax.config.path["Contrib"] =
+       "https://cdn.mathjax.org/mathjax/contrib";
+</script>
+
+
+<!-- https://github.com/burnpanck/MathJax-siunitx -->
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[siunitx]/siunitx.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {
+             inlineMath: [["$","$"],["\\(","\\)"]] ,
+             processClass: "tabbing|verse"
+       },
+      TeX: {extensions: ["AMSmath.js","AMSsymbols.js", "sinuitx.js"]}
+ });
+ MathJax.Ajax.config.path['siunitx']                      = 'http://rawgit.com/burnpanck/MathJax-siunitx/master/';
+ </script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+       TeX: {
+       equationNumbers: {
+             autoNumber: "AMS"
+       }
+       }
+});
+</script>
+
+
+<!-- Alternative CDN provider: -->
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+
+
+<!-- No longer supported after April 30, 2017: -->
+<!--
+<script
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+-->
+
+</head>
+<body>
+
+
+<a id="autopage-65"></a> <nav class="topnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+<header>
+
+<p><span class="fbox" style="border:1pt solid black ; padding:3pt">
+<a href="uvic.png" target="_blank"
+><img src="uvic.png"
+style="width:173pt; "
+class="inlineimage"
+></a></span></p>
+
+
+</header>
+
+<h1>CheatSheets For Uvic University Courses</h1>
+<nav class="sidetoc">
+
+<div class="sidetoctitle">
+
+<p>Contents</p>
+
+
+</div>
+
+<div class="sidetoccontents">
+
+<p><a href="index.html" class="linkhome"
+>Home</a></p>
+
+
+<p><a href=" Todo-List.html#autosec-10" class="tocchapter"
+><span class="sectionnumber">1</span>&#x2001;Todo List</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autosec-12" class="tocchapter"
+><span class="sectionnumber">2</span>&#x2001;ELEC 320: Tough Class</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-43" class="tocchapter"
+><span class="sectionnumber">3</span>&#x2001;CENG242Cheat</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-44" class="tocsection"
+>Basic Graph Definitions</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-47" class="tocsection"
+>Graph traversal</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-50" class="tocsection"
+>Topological sorting</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-52" class="tocchapter"
+><span class="sectionnumber">4</span>&#x2001;ELEC 220 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-54" class="tocsection"
+>Ch.1 DC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-56" class="tocsection"
+>Ch. 2 AC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-57" class="tocsection"
+>Ch. 3 DC/AC Dielectrics</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-58" class="tocsection"
+>Ch. 4 AC Dielectrics Cont’d</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-59" class="tocsection"
+>Ch. 8 Schrodinger’s Equation</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-60" class="tocsection"
+>Ch. 12 Free Electron Theory of Metals</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-62" class="tocsection"
+>Ch. 13 Band Theory</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-63" class="tocsection"
+>Ch. 14 Metals and Insulators</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-64" class="tocsection"
+>Ch. 15 Semiconductors</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-66" class="tocchapter"
+><span class="sectionnumber">5</span>&#x2001;ELEC 403 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-68" class="tocsection"
+>Ch.2</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-69" class="tocsection"
+>Ch. 4</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-70" class="tocsection"
+>Ch. 5</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-71" class="tocsection"
+>Ch. 7</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-73" class="tocchapter"
+><span class="sectionnumber">6</span>&#x2001;ELEC 360 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-75" class="tocsection"
+>LAPLACE TRANSFORMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-76" class="tocsection"
+>SOLUTION OF LINEAR DIFFERENTIAL EQUATION</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-77" class="tocsection"
+>STATESPACE REPRESENTATIONS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-78" class="tocsection"
+>SECOND ORDER SYSTEMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-79" class="tocsection"
+>ROUTH-HURWITZ STABILITY TEST</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-80" class="tocsection"
+>STEADY STATE ERROR ANALYSIS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-81" class="tocsection"
+>ROOT LOCUS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-82" class="tocsection"
+>BODE DIAGRAMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-87" class="tocsection"
+>PHASE AND GAIN MARGINS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-89" class="tocchapter"
+><span class="sectionnumber">7</span>&#x2001;ELEC 370 Cheatsheet</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-91" class="tocsection"
+>MAGNETIC CIRCUITS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-92" class="tocsection"
+>TRANSFORMERS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-96" class="tocsection"
+>DC-MACHINES</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-102" class="tocsection"
+>SYNCHRONOUS MACHINES</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-104" class="tocchapter"
+><span class="sectionnumber">8</span>&#x2001;CENG 355 CheatSheet</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-106" class="tocsection"
+>I/O</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-107" class="tocsection"
+>Interfacing</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-108" class="tocsection"
+>Memory</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-111" class="tocsection"
+>Arithmetic</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-112" class="tocsection"
+>Concurrency</a></p>
+
+
+<p><a href=" Glossary.html#autosec-114" class="tocchapter"
+><span class="sectionnumber">9</span>&#x2001;Glossary</a></p>
+
+
+<p><a href=" Glossary.html#autosec-116" class="tocchapter"
+>Glossary</a></p>
+
+
+<p><a href=" ELEC-460-Control-Theory-II.html#autosec-119" class="tocchapter"
+><span class="sectionnumber">10</span>&#x2001;ELEC 460: Control Theory II</a></p>
+
+
+</div>
+
+</nav>
+
+<section class="textbody">
+
+<!--Nullify \ensuremath for MathJax:-->
+
+\(\newcommand \ensuremath [1]{#1}\)
+
+<!--Additional customizations for MathJax:-->
+
+<p><h3 id="autosec-66"> <span class="sectionnumber">5&#x2001;</span>ELEC 403 CheatSheet</h3><a id="autopage-66"></a>
+<div class="multicols">
+
+<p><b>Algorithm 1.1 General optimization algorithm</b><br />
+<b>Step 1:</b><br />
+(a) Set \(k=0\) and initialize \(x_0\)<br />
+(b) Compute \(F_0=f(x_0)\)<br />
+<b>Step 2:</b><br />
+(a) Set \(k=k+1\)<br />
+(b) Compute the changes in \(x_k\) given by column vector \(\nabla x_k\) </p>
+
+
+<p>\[ \text {where} \quad \nabla x_k^T = \begin {bmatrix}\nabla x_1 &amp; \nabla x_2 &amp; \cdots &amp; \nabla x_n\end {bmatrix} \]</p>
+
+
+<p>by using an appropriate procedure.<br />
+(c) Set \(x_k=x_{k-1}+\nabla x_k\)<br />
+(d) Compute \(F_k=f(x_k)\) and \(\nabla F_k=F_{k-1}-F_k\).<br />
+<b>Step 3:</b><br />
+Check if convergence has been achieved by using an appropriate criterion, e.g., by checking \(\nabla F_k\) and/or \(\nabla x_k\). If this is the case, continue to Step 4; otherwise, go to Step 2.<br />
+<b>Step 4:</b><br />
+(a) Output \(x^* = x_k\) and \(F^* = f(x^*)\).<br />
+(b) Stop </p>
+<h4 id="autosec-68"> Ch.2</h4><a id="autopage-68"></a>
+
+<p>Gradient: \(g(x)=\nabla f(x)=\begin {bmatrix}\frac {\partial f}{\partial x_1} &amp; \frac {\partial f}{\partial x_2} &amp; \cdots &amp; \frac {\partial f}{\partial x_n} \end {bmatrix}^T\)<br />
+Hessian Matrix: \(H(x)=\nabla g(x)=\nabla \{ \nabla ^T f(x)\}\).<br />
+</p>
+
+
+<p>\[ H(x)= \begin {bmatrix} \frac {\partial ^2 f}{\partial ^2 x_1} &amp; \frac {\partial ^2 f}{\partial x_1 \partial x_2} &amp; \cdots &amp; \frac {\partial ^2 f}{\partial x_1 \partial x_n} \\ \frac {\partial ^2 f(x)}{\partial
+x_2 \partial x_1} &amp; \frac {\partial ^2 f(x)}{\partial x_2^2} &amp; \cdots &amp; \frac {\partial f}{\partial x_2 \partial x_n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \frac {\partial f}{\partial x_n \partial
+x_1}&amp; \frac {\partial f}{\partial x_n \partial x_2}&amp; \cdots &amp; \frac {\partial f}{\partial x_n \partial x_n} \end {bmatrix} \]</p>
+
+
+<p>Taylor Series: (quad approx, linear approx): \(\delta =\begin {bmatrix} \delta _1 &amp;\delta _2 \end {bmatrix}^T\) \(f(x + \delta ) = f(x) + g(x)^T\delta + 12\delta ^TH(x)\delta + o(||\delta ||^2)\)<br />
+Linear approximation: \(f(x + \delta ) \approx f(x) + g(x)^T\delta \)</p>
+
+
+<figure id="autoid-19" class="figure">
+
+<p>
+<a href="Images/min.jpg" target="_blank"
+><img src="Images/min.jpg"
+style="width:434pt; "
+class="inlineimage"
+></a></p>
+
+
+<figcaption>
+<p>Figure 5.1:&nbsp;Minimization points plotted</p>
+
+
+</figcaption>
+
+</figure>
+
+<p>\(\tilde {x}=x+\delta \quad \delta =\tilde {x}-x\) \(\hat {f}(\tilde {x})=f(x)+g(x)(\tilde {x}-x)^T+0.5(\tilde {x}-x)^T H(x)(\tilde {x}-x)^T\) The gradient \(g(x)\) and the Hessian \(H(x)\) must satisfy certain conditions
+at a local minimizer \(x^*\).<br />
+1. Conditions which are satisfied at a local minimizer \(x^*\).<br />
+2. Conditions which guarantee that \(x^*\) is a local minimizer.</p>
+
+
+<p><b>Definition 2.1</b> A point \(x^* \in R,\) where R is the feasible region, is said to be a weak local minimizer of f(x) if there exists a distance \(\epsilon &gt; 0\) such that \(f(x) \geq f(x^*)\) (2.5) if \(x \in R\) and \(||x-x^*||
+&lt; \epsilon \)<br />
+</p>
+
+
+<p><b>Definition 2.2</b> A point \(x^* \in R \) is said to be a weak global minimizer of f(x) if \(f(x) \geq f(x^*)\) (2.6) for all \(x \in R.\)<br />
+<b>Definition 2.3</b></p>
+
+
+<p>If Eq. (2.5) in Def. 2.1 or Eq. (2.6) in Def. 2.2 is replaced by \(f(x) &gt; f(x^*)\) (2.7) \(x^*\) is said to be a strong local (or global) minimizer. d</p>
+
+
+<p><b>Definition 2.4</b> Let \(\delta = \alpha \mathbf {d}\) be a change in x where \(\alpha \) is a positive constant and d is a direction vector. If R is the feasible region and a constant \(\hat {\alpha } &gt; 0\) exists such that
+\(x + \alpha d \in R\) for all \(\alpha \) in the range \(0 \leq \alpha \leq \hat {\alpha }\) , then d is said to be a feasible direction at point x.<br />
+</p>
+
+
+<p><b>Definition 2.5</b><br />
+(a) Let \(d\) be an arbitrary direction vector at point \(x\). The quadratic form \(d^TH(x)d\) is said to be <i>positive definite, positive semidefinite, negative semidefinite, negative definite</i> if \(d^TH(x)d &gt; 0, \geq 0, \leq 0,
+&lt; 0,\) respectively, for all \(d \neq 0\) at \(x\). If \(d^TH(x)d\) can assume positive as well as negative values, it is said to be indefinite.<br />
+(b) If \(d^TH(x)d\) is positive definite, positive semidefinite, etc., then matrix \(H(x)\) is said to be positive definite, positive semidefinite, etc.<br />
+</p>
+
+
+<p>The objective function must satisfy two sets of conditions in order to have a minimum, namely, first- and second-order conditions.<br />
+<b>First-order necessary conditions for a minimum</b><br />
+(a) If \(f(x) \in C^1\) and \(x^*\) is a local minimizer, then \(g(x^*)^Td \geq 0\) for every feasible direction \(d\) at \(x^*\).<br />
+(b) If \(x^*\) is located in the interior of \(\mathcal {R}\) then \(g(x^*) = 0\)<br />
+<br />
+<b>Second-order necessary conditions for a minimum</b><br />
+(a) If \(f(x) \in C_2\) and \(x^*\) is a local minimizer, then for every feasible direction d at \(x^*\). &#x2001;&#x2001;
+\((i) \ g(x^*)Td \geq 0\)<br />
+\((ii)\) If \(g(x^*)^Td = 0\), then \(d^TH(x^*)d \geq 0\)<br />
+(b) If \(x^*\) is a local minimizer in the interior of R, then<br />
+\((i)\) \(g(x^*) = 0\)<br />
+\((ii)\) \(d^TH(x^*)d \geq 0\) for all \(d \neq 0\)</p>
+
+
+<p><b>Second-order sufficient conditions for a minimum</b><br />
+If \(f(x) \in C_2\) and \(x^*\) is located in the interior of \(\mathcal {R}\), then the conditions (a) \(g(x^*) = 0\) (b) \(H(x^*)\) is positive definite are sufficient for \(x^*\) to be a strong local minimizer.<br />
+</p>
+
+
+<p><b>Definition 2.6</b><br />
+A point \(\bar {x} \in \mathcal {R},\) where \(\mathcal {R}\) is the feasible region, is said to be a saddle point if<br />
+(a) \(g(\bar {x}) = 0\)<br />
+(b) point \(\bar {x}\) is neither a maximizer nor a minimizer. &#x2001;&#x2001;
+<br />
+Stationary points can be located and classified as follows:<br />
+1. Find the points \(x_i\) at which \(g(x_i) = 0\).<br />
+2. Obtain the Hessian \(H(x_i)\).<br />
+3. Determine the character of \(H(x_i)\) for each point \(x_i\).<br />
+If \(H(x_i)\) is positive (or negative) definite, \(x_i\) is a minimizer (or maximizer); if \(H(x_i)\) is indefinite, \(x_i\) is a saddle point.</p>
+
+
+<p><b>Techniques to compute Hessian P.D. , N.D. </b><br />
+Eigenvalues: det \((\lambda I -A) = 0\) Multiplying all eigenvalues is equal to the determinant.<br />
+The leading principal minors of a matrix A or its negative \(-A\) can be used to establish whether the matrix is positive or negative definite whereas the principal minors of A or \(-A\) can be used to establish whether the matrix is
+positive or negative semidefinite.<br />
+</p>
+
+
+<p><b>Theorem 2.9 Properties of matrices</b><br />
+(a) If <b>H</b> is positive semidefinite or positive definite, then det \(\mathbf {H} \geq 0 \ \text {or} &gt; 0\)<br />
+(b) <b>H</b> is positive definite if and only if all its leading principal minors are positive, i.e., det \(\mathbf {H_i} &gt; 0\) for \(i = 1, 2, \cdots , n.\)<br />
+(c) <b>H</b> is positive semidefinite if and only if all its principal minors are nonnegative, i.e., det \((H_i^{(l)}) \geq 0\) for all possible selections of \(\{l_1, l_2, \cdots , l_i \}\) for \(i = 1, 2, \cdots , n\).<br />
+(d) <b>H</b> is negative definite if and only if all the leading principal minors of \(-\mathbf {H}\) are positive, i.e., \(det ( -H_i) &gt; 0\) for \(i = 1, 2, \cdots , n\).<br />
+(e) <b>H</b> is negative semidefinite if and only if all the principal minors of -\(\mathbf {H}\) are nonnegative, i.e., det \((-H_i^{(l)}) \geq 0\) for all possible selections of \(\{l_1, l_2, \cdots , l_i \}\) for \(i = 1, 2, \cdots ,
+n\).<br />
+(f) <b>H</b> is indefinite if neither (c) nor (e) holds.</p>
+
+
+<p><b>Definition 2.7</b><br />
+A set \(\mathcal {R}_c \subset E_n \) is said to be convex if for every pair of points \(x_1, x_2 \subset R_c\) and for every real number \(\alpha \) in the range \(0 &lt; \alpha &lt; 1\), the point \(x = \alpha x_1 + (1 - \alpha
+)x_2\) is located in \(\mathcal {R}_c \), i.e., \(x \in \mathcal {R}_c\).<br />
+</p>
+
+
+<p><b>Definition 2.8</b><br />
+(a) A function \(f(x)\) defined over a convex set \(\mathcal {R}_c\) is said to be convex if for every pair of points \(x_1, x_2 \in \mathcal {R}_c \) and every real number \(\alpha \) in the range \(0 &lt; \alpha &lt; 1\), the
+inequality \(f[\alpha x_1 + (1 - \alpha )x_2] \leq \alpha f(x_1) + (1 - \alpha )f(x_2)\) holds. If \(x_1 \neq x_2\) and \(f[\alpha x_1 + (1 - \alpha )x_2] &lt; \alpha f(x_1) + (1 - \alpha )f(x_2)\) then f(x) is said to be strictly
+convex.<br />
+(b) If \(\phi (x)\) is defined over a convex set \(\mathcal {R}_c\) and f(x) = -\(\phi (x)\) is convex, then \(\phi (x)\) is said to be concave. If f(x) is strictly convex, \(\phi (x)\) is strictly concave.<br />
+</p>
+
+
+<p><b>Property of convex functions relating to the Hessian</b> A function \(f(x) \in C^2\)is convex over a convex set \(\mathcal {R}_c\) if and only if the Hessian H(x) of f(x) is positive semidefinite for \(x \in \mathcal
+{R}_c.\)<br />
+</p>
+
+
+<p><b>Theorem 2.15 Relation between local and global minimizers in convex functions</b><br />
+If \(f(x)\) is a convex function defined on a convex set \(\mathcal {R}_c\), then<br />
+(a) the set of points \(S_c\) where \(f(x)\) is minimum is convex;<br />
+(b) any local minimizer of \(f(x)\) is a global minimizer.</p>
+<h4 id="autosec-69"> Ch. 4</h4><a id="autopage-69"></a>
+
+<p><b>Dichotomous Search</b><br />
+Two function evaluations per iteration.<br />
+A <b>unimodal function</b> on an interval has exactly one point where a maximum or minimum occurs in the interval.<br />
+Consider a unimodal function which is known to have a minimum in the interval \([x_L, \ x_U]\). This interval is said to be the range of uncertainty.<br />
+In this method, f(x) is evaluated at two points \(x_a = x_1 - \epsilon /2\) and \(x_b = x_1 +\epsilon /2\) where \(\epsilon \) is a small positive number. Then depending on whether \(f(x_a) &lt; f(x_b)\) or \(f(x_a) &gt;
+f(x_b)\), range \(x_L\) to \(x_1 + \epsilon /2\) or \(x_1 - \epsilon /2\) to \(x_U\) can be selected and if \(f(x_a) = f(x_b)\) either will do fine. If we assume that \(x_1 - x_L = x_U - x_1\), i.e., \(x_1 = (x_L + x_U)/2\),
+the region of uncertainty is immediately reduced by half. The same procedure can be repeated for the reduced range, that is, f(x) can be evaluated at \(x_2 - \epsilon /2\) and \(x2 + \epsilon /2\) where \(x_2\) is located at the
+center of the reduced range, and so on.<br />
+<br />
+<b>Algorithm 4.1 Fibonacci</b><br />
+Computing n =\(I_n=\frac {I_1}{F_n}\), function evaluations = n-1<br />
+<b>Step 1</b><br />
+Input \(x_{L,1}, x_{U,1}\), and n.<br />
+<b>Step 2</b><br />
+Compute \(F_1, F_2, \cdots , F_n\) using Eq. (4.4).<br />
+<b>Step 3</b><br />
+Assign \(I_1 = x_{U,1} - x_{L,1}\) and compute </p>
+
+
+<p><span class="hidden"> \( \seteqsection {5} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                        Fn−1
+                                                                                                 I2 =         I1 (see Eq. (4.6))
+                                                                                                         Fn
+                                                                                                 xa,1   = xU,1 − I2 , xb,1 = xL,1 + I2
+                                                                                                 fa,1 = f (xa,1 ),    fb,1 = f (xb,1 )
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; I_2 = \frac {F_{n -1}}{F_n}I_1 (\text {see Eq. (4.6)})\\ &amp; x_{a,1} = x_{U,1} - I_2, \quad x_{b,1} = x_{L,1} + I_2\\ &amp; f_{a,1} = f(x_{a,1}), \quad f_{b,1} = f(x_{b,1}) \end{align*}
+</p>
+
+
+<p>Set k = 1.<br />
+<b>Step 4</b><br />
+Compute \(I_{k+2}\) using Eq. (4.6). If \(f_{a,k} \geq f_{b,k}\), then update Eqs. (4.7) to (4.12) using </p>
+
+
+<p><span class="hidden"> \( \seteqsection {5} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                         xL,k+1 = xa,k
+                                                                                                         xU,k+1 = xU,k
+                                                                                                         xa,k+1 = xb,k
+                                                                                                         xb,k+1 = xL,k+1 + Ik+1
+                                                                                                         fa,k+1 = fb,k
+                                                                                                         fb,k+1 = f (xb,k+1 )
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; x_{L,k+1}=x_{a,k} \\ &amp; x_{U,k+1}=x_{U,k} \\ &amp; x_{a,k+1}=x_{b,k} \\ &amp; x_{b,k+1}=x_{L,k+1}+I_{k+1} \\ &amp; f_{a,k+1}=f_{b,k} \\ &amp; f_{b,k+1}=f(x_{b,k+1})
+\end{align*}
+</p>
+
+
+<p>using Otherwise, if \(f_{a,k} &lt; f_{b,k}\), update information using Eqs. (4.13) to (4.18) using<br />
+</p>
+
+
+<p><span class="hidden"> \( \seteqsection {5} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                         xL,k+1 = xL,k
+                                                                                                         xU,k+1 = xb,k
+                                                                                                         xa,k+1 = xU,k+1 − Ik+2
+                                                                                                         xb,k+1 = xa,k
+                                                                                                         fa,k+1 = f (xa,k+1 )
+                                                                                                         fb,k+1 = fa,k
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; x_{L,k+1}=x_{L,k} \\ &amp; x_{U,k+1}=x_{b,k} \\ &amp; x_{a,k+1}=x_{U,k+1}-I_{k+2} \\ &amp; x_{b,k+1}=x_{a,k} \\ &amp; f_{a,k+1}=f(x_{a,k+1}) \\ &amp; f_{b,k+1}=f_{a,k}
+\end{align*}
+</p>
+
+
+<p><b>Step 5</b><br />
+If \(k = n - 2\) or \(x_{a,k+1} &gt; x_{b,k+1}\), output \(x^* = x_{a,k+1}\) and \(f^* = f(x^*)\), and stop. Otherwise, set \(k = k + 1\) and repeat from Step 4. The condition \(x_{a,k+1} &gt; x_{b,k+1}\) implies that
+\(x_{a,k+1} \approx x_{b,k+1}\) within the precision of the computer used, as was stated earlier, or that there is an error in the algorithm. It is thus used as an alternative stopping criterion.<br />
+</p>
+
+
+<p><b>Algorithm 4.2 Golden-section search</b><br />
+(function evaluations = k+1) and Golden Ratio: \(K=\cfrac {1+\sqrt {5}}{2}\) \(\Lambda _{GS} = I_n = \frac {I_1} {K_{n-1}}\) &#x2001;\(\Lambda _{F} = I_n = \frac {I_1} {F_n} \approx \frac {\sqrt {5}}
+{K^{n+1}}I_1\) \(\frac {I_k}{I_{k+1}}=\frac {I_{k+1}}{I_{k+2}} = \frac {I_{k+2}}{I_{k+3}} = \cdots = K\)<br />
+<b>Step 1</b><br />
+Input \(x_{L,1}, x_{U,1},\) and \(\epsilon \).<br />
+<b>Step 2</b><br />
+Assign \(I_1 = x_{U,1} - x_{L,1}, K = 1.618034\) and compute </p>
+
+
+<p><span class="hidden"> \( \seteqsection {5} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                 I2 = I1 /K
+                                                                                                 xa,1 = xU,1 − I2 ,      xb,1 = xL,1 + I2
+                                                                                                 fa,1 = f (xa,1 ),    fb,1 = f (xb,1 )
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp;I_2 = I_1/K \\ &amp;x_{a,1} = x_{U,1} - I_2, \quad x_{b,1} = x_{L,1} + I_2 \\ &amp;f_{a,1} = f(x_{a,1}), \quad f_{b,1} = f(x_{b,1}) \end{align*}
+</p>
+
+
+<p>Set \(k = 1\).<br />
+<b>Step 3</b><br />
+Compute \(I_{k+2} = I_{k+1}/K\)<br />
+If \(f_{a,k} \geq f_{b,k}\), then update \(x_{L,k+1}, x_{U,k+1}\), \(x_{a,k+1}\), \(x_{b,k+1}\), \(f_{a,k+1}\), and \(f_{b,k+1}\) as </p>
+
+
+<p><span class="hidden"> \( \seteqsection {5} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                         xL,k+1 = xa,k
+                                                                                                         xU,k+1 = xU,k
+                                                                                                         xa,k+1 = xb,k
+                                                                                                         xb,k+1 = xL,k+1 + Ik+1
+                                                                                                         fa,k+1 = fb,k
+                                                                                                         fb,k+1 = f (xb,k+1 )
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; x_{L,k+1}=x_{a,k} \\ &amp; x_{U,k+1}=x_{U,k} \\ &amp; x_{a,k+1}=x_{b,k} \\ &amp; x_{b,k+1}=x_{L,k+1}+I_{k+1} \\ &amp; f_{a,k+1}=f_{b,k} \\ &amp; f_{b,k+1}=f(x_{b,k+1})
+\end{align*}
+</p>
+
+
+<p>Or use using Eqs. (4.7) to (4.12). Otherwise if \(f_{a,k} &lt; f_{b,k}\), then update \(x_{L,k+1}, x_{U,k+1}\), \(x_{a,k+1}\), \(x_{b,k+1}\), \(f_{a,k+1}\), and \(f_{b,k+1}\) as </p>
+
+
+<p><span class="hidden"> \( \seteqsection {5} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                         xL,k+1 = xL,k
+                                                                                                         xU,k+1 = xb,k
+                                                                                                         xa,k+1 = xU,k+1 − Ik+2
+                                                                                                         xb,k+1 = xa,k
+                                                                                                         fa,k+1 = f (xa,k+1 )
+                                                                                                         fb,k+1 = fa,k
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; x_{L,k+1}=x_{L,k} \\ &amp; x_{U,k+1}=x_{b,k} \\ &amp; x_{a,k+1}=x_{U,k+1}-I_{k+2} \\ &amp; x_{b,k+1}=x_{a,k} \\ &amp; f_{a,k+1}=f(x_{a,k+1}) \\ &amp; f_{b,k+1}=f_{a,k}
+\end{align*}
+</p>
+
+
+<p>Otherwise, if \(f_{a,k} &lt; f_{b,k}\), update information using Eqs. (4.13) to (4.18).<br />
+<b>Step 4</b><br />
+If \(I_k &lt; \epsilon \) or \(x_{a,k+1} &gt; x_{b,k+1}\), then do:<br />
+If \(f_{a,k+1} &gt; f_{b,k+1}\), compute \(x^* = 0.5(x_{b,k+1} + x_{U,k+1})\)<br />
+If \(f_{a,k+1} = f_{b,k+1}\), compute \(x^* = 0.5(x_{a,k+1} + x_{b,k+1})\)<br />
+If \(f_{a,k+1} &lt; f_{b,k+1}\), compute \(x^* = 0.5(x_{L,k+1} + x_{a,k+1})\) Compute \(f^* = f(x^*).\)<br />
+Output \(x^*\) and \(f^*\), and stop.<br />
+<b>Step 5</b><br />
+Set \(k = k + 1\) and repeat from Step 3.<br />
+<br />
+<b>Equations 4.4, 4.6, (4.7-4.12) and (4.13-4.18) </b><br />
+\(F_k = F_{k-1} + F_{k-2} \quad \) for \(k \geq 2\) (4.4)<br />
+\(I_{k+2} = \frac {F_{n-k-1}}{F_{n-k}}I_{k+1} (4.6)\)</p>
+
+
+<p>If \(f_{a,k} &gt; f_{b,k}\), then \(x^*\) is in interval \([x_{a,k}, x_{U,k}]\) and so the new bounds of \(x^* \rightarrow \) \(x_{L,k+1} = x_{a,k} (4.7) \quad x_{U,k+1} = x_{U,k} (4.8)\) Similarly, the two interior points
+of the new interval, namely, \(x_{a,k+1}\) and \(x_{b,k+1}\) will be \(x_{b,k}\) and \(x_{L,k+1} + I_{k+2}\), respectively. We can thus assign \(x_{a,k+1} = x_{b,k}\) (4.9) \(x_{b,k+1} = x_{L,k+1} + I_{k+2}\) (4.10)
+as illustrated in Fig. 4.5.<br />
+The value \(f_{b,k}\) is retained as the value of f(x) at \(x_{a,k+1}\), and the value of f(x) at \(x_{b,k+1}\) is calculated, i.e., \(f_{a,k+1} = f_{b,k}\) (4.11) \(f_{b,k+1} = f(x_{b,k+1})\) (4.12)<br />
+On the other hand, if \(f_{a,k} &lt; f_{b,k}\), then \(x^*\) is in interval \([x_{L,k}, x_{b,k}]\). In this case, we assign \(x_{L,k+1} = x_{L,k}\) (4.13) \(x_{U,k+1} = x_{b,k}\) (4.14) \(x_{a,k+1} = x_{U,k+1} - I_{k+2}\)
+(4.15) \(x_{b,k+1} = x_{a,k}\) (4.16) \(f_{b,k+1} = f_{a,k}\) (4.17) and calculate \(f_{a,k+1} = f(x_{a,k+1})\) (4.18)<br />
+<br />
+<b>Algorithm 4.6 Inexact line search</b><br />
+<b>Step 1:</b><br />
+Input \(x_k\), \(d_k\), and compute \(g_k\).<br />
+Initialize algorithm parameters \(\rho , \sigma , \tau \), and \(\chi \).<br />
+Set \(\alpha _L = 0\) and \(\alpha _U = 10^{99}\).<br />
+<b>Step 2:</b><br />
+Compute \(f_L = f(x_k + \alpha _L dk)\).<br />
+Compute \(f_L^\prime = g(x_k + \alpha _L dk)^Tdk\).<br />
+<b>Step 3:</b><br />
+Estimate \(\alpha _0\).<br />
+<b>Step 4:</b><br />
+Compute \(f_0 = f(x_k + \alpha _0dk)\).<br />
+<b>Step 5 (Interpolation)</b><br />
+If \(f_0 &gt; f_L + \rho (\alpha _0 - \alpha _L)f_L^\prime \) , then do:<br />
+a. If \(\alpha _0 &lt; \alpha _U\), then set \(\alpha _U = \alpha _0\).<br />
+b. Compute \(\breve {\alpha }_0\) using the interpolation formula Eq. (4.57). </p>
+
+
+<p>\[ \breve {\alpha }_0 =\alpha _L + \frac {(\alpha _0-\alpha _L)^2f_L^\prime }{2[f_L-f_0+(\alpha _0-\alpha _L)f_L^\prime ]} \]</p>
+
+
+<p>c. If \(\breve {\alpha }_0 &lt; \alpha _L + \tau (\alpha _U - \alpha _L)\) then set \(\breve {\alpha }_0 = \alpha _L + \tau (\alpha _U - \alpha _L)\).<br />
+d. If \(\breve {\alpha }_0 &gt; \alpha _U - \tau (\alpha _U - \alpha _L)\) then set \(\breve {\alpha }_0 = \alpha _U - \tau (\alpha _U - \alpha _L)\).<br />
+e. Set \(\alpha _0 = \breve {\alpha }_0\) and go to Step 4.<br />
+<b>Step 6</b><br />
+Compute \(f_0^\prime = g(x_k + \alpha _0dk)^Tdk\).<br />
+<b>Step 7 (Extrapolation)</b><br />
+If \(f_0^\prime &lt; \alpha f_L^\prime \) , then do:<br />
+a. Compute \(\nabla \alpha _0 = (\alpha _0 - \alpha _L)f_0^\prime /(f_L^\prime - f_0^\prime )\) (see Eq. (4.58)). </p>
+
+
+<p>\[ \breve {\alpha }_0 = \alpha _0 + (\alpha _0 - \alpha _L)f_0^\prime (f_L^\prime - f_0^\prime ) \quad (Eq. (4.58)) \]</p>
+
+
+<p>b. If \(\nabla \alpha _0 &lt; \tau (\alpha _0 - \alpha _L)\), then set \(\nabla \alpha _0 = \tau (\alpha _0 - \alpha _L)\).<br />
+c. If \(\nabla \alpha _0 &gt; \chi (\alpha _0 - \alpha _L)\), then set \(\nabla \alpha _0 = \chi (\alpha _0 - \alpha _L)\).<br />
+d. Compute \(\breve {\alpha }_0 = \alpha _0 + \nabla \alpha _0\).<br />
+e. Set \(\alpha _L = \alpha _0, \alpha _0 = \breve {\alpha }_0, f_L = f_0, f_L^\prime = f_0^\prime \), and go to Step 4.<br />
+<b>Step 8</b><br />
+Output \(\alpha _0\) and \(f_0 = f(x_k + \alpha _0dk)\), and stop.</p>
+<h4 id="autosec-70"> Ch. 5</h4><a id="autopage-70"></a>
+
+<p>Standard form: \(f(x)=\frac {1}{2}x^T H x + x^T g(x) + C\)<br />
+Rate of Convergence \(\beta = (1-r^2)/(1+r^2)\), where r is the smallest eigenvalue divided by the biggest eigenvalue.<br />
+</p>
+
+
+<p><span class="hidden"> \( \seteqsection {5} \) </span> </p>
+
+
+
+<!--
+
+
+                                                                                                             i−1
+                                                                                                                          1
+                                                                                                 h                           h           i
+                                                                                                     a   c                      b   −c
+                                                                                        H −1 =                     =                         ab − c2 6= 0
+                                                                                                     c   b             ab − c2 −c   a
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; H^{-1}=\begin {bmatrix} a &amp; c \\ c &amp; b \end {bmatrix}^{-1} = \frac {1}{ab-c^2} \begin {bmatrix} b &amp; -c \\ -c &amp; a \end {bmatrix} \quad ab-c^2 \neq 0 \end{align*}
+</p>
+
+
+<p>\([f(x_k)-f(x^*)]\leq \left (\frac {1-r}{1+r}\right )^2[f(x_k)-f(x^*)]\)<br />
+<b>Algorithm 5.1 Steepest-descent algorithm</b><br />
+<b>Step 1</b><br />
+Input \(x_0\) and initialize the tolerance \(\epsilon \).<br />
+Set \(k = 0\).<br />
+<b>Step 2</b><br />
+Calculate gradient \(g_k\) and set \(d_k=-g_k\).<br />
+<b>Step 3</b><br />
+Find \(\alpha _k\), the value of \(\alpha \) that minimizes \(f(x_k + \alpha d_k)\), using a line search (Algorithm Inexact Line Search. 4.6).<br />
+<b>Step 4</b><br />
+Set \(x_{k+1} = x_k + \alpha _k d_k\) and calculate \(f_{k+1} = f(x_{k+1})\).<br />
+<b>Step 5</b><br />
+If \(||\alpha _k d_k|| &lt; \epsilon \), then do:<br />
+Output \(x^* = x_{k+1}\) and \(f(x^*) = f_{k+1}\), and stop.<br />
+Otherwise, set \(k = k + 1\) and repeat from Step 2.<br />
+</p>
+
+
+<p><b>Algorithm 5.3 Basic Newton algorithm</b><br />
+<b>Step 1</b><br />
+Input \(x_0\) and initialize the tolerance \(\epsilon \)<br />
+Set \(k = 0\).<br />
+<b>Step 2</b><br />
+Compute \(g_k\) and \(H_k\).<br />
+If \(H_k\) is not positive definite, force it to become positive definite.<br />
+<b>Step 3</b><br />
+Compute \(H_k^{-1}\) and \(d_k=-H_k^{-1}g_k\)<br />
+<b>Step 4</b><br />
+Find \(\alpha _k\) , the value of \(\alpha \) that minimizes \(f(x+\alpha d_k)\), using a line search.<br />
+<b>Step 5</b><br />
+Set \(x_{k+1}=x_k+\alpha _k d_k\)<br />
+Compute \(f_{k+1}=f(x_{k+1})\).<br />
+<b>Step 6</b><br />
+If \(||\alpha _k d_k|| &lt; \epsilon \), then do:<br />
+Output \(x^*=x_{k+1}\) and \(f(x^*)=f(x_{k+1})\), and stop<br />
+Otherwise, set \(k = k + 1\) and repeat from Step 2.<br />
+<b>Algorithm 5.5 Gauss — Newton Algorithm</b><br />
+\(f=\begin {bmatrix} f_1(x) &amp; f_2(x) &amp; \cdots f_m(x) \end {bmatrix}^T\), J = Jacobian<br />
+\(F(x)=\sum _{p=1}^{m}f_p(x)^2=f^Tf\)<br />
+\(J=\begin {bmatrix} \frac { \partial f_1}{\partial x_1} &amp; \frac { \partial f_1}{ \partial x_2} &amp; \cdots &amp; \frac {\partial f_1}{\partial x_n} \\ \frac {\partial f_2}{\partial x_1} &amp; \frac {\partial
+f_2}{\partial x_2} &amp; \cdots &amp; \frac {\partial f_2}{\partial x_n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \frac {\partial f_m}{\partial x_1}&amp; \frac {\partial f_m}{\partial x_2}&amp; \cdots
+&amp; \frac {\partial f_m}{\partial x_n} \end {bmatrix}\)<br />
+<b>Step 1</b><br />
+Input \(x_0\) and initialize the tolerance \(\epsilon \).<br />
+Set \(k = 0\).<br />
+<b>Step 2</b><br />
+Compute \(f_{pk} = f_p(x_k)\) for \(p = 1, 2, \cdots , m\) and \(F_k\).<br />
+<b>Step 3</b><br />
+Compute \(J_k, g_k = 2J^T_k f_k\), and \(H_k = 2J^T_k J_k\).<br />
+<b>Step 4</b><br />
+\(d_k=-H_k^{-1}g_k\)<br />
+<b>Step 5</b><br />
+Find \(\alpha _k\), the value of \(\alpha \) that minimizes \(f(x_k + \alpha d_k)\).<br />
+<b>Step 6</b><br />
+Set \(x_{k+1} = x_k + \alpha _kd_k\).<br />
+Compute \(f_{p,k+1}\) for \(p = 1, 2,\cdots , m\) and \(F_{k+1}\).<br />
+<b>Step 7</b><br />
+If \(|F_{k+1}-F_k | &lt; \epsilon \), then do:<br />
+Output \(x^*= x_{k+1}\), \(f_{p,k+1}(x^*)\) for \(p = 1, 2,\cdots , m\), and \(F_{k+1}\).<br />
+Stop.<br />
+Otherwise, set \(k = k + 1\) and repeat from Step 3.</p>
+<h4 id="autosec-71"> Ch. 7</h4><a id="autopage-71"></a>
+
+<p><b>Problems with Rank-one Method</b> </p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>1. positive definite \(S_k\) may not yield positive definite \(S_{k+1}\)</p>
+
+</li>
+<li>
+<p>2. denominator in correction formula may approach zero</p>
+
+</li>
+</ul>
+
+<p>THE DFP and BFGS are implementing of the basic algorithms Quasi Newton (7.2) with changes to the updating function. \(d_k=-S_kg_k\) and \(f(x_k + \alpha d_k)\) \(\rightarrow \) \(\alpha _k=\frac {g_k^TS_kg_k}
+{g_k^TS_kHS_kg_k}\)<br />
+Convergence equation: \(\beta = \left (\frac {1-r}{1+r}\right )^2\) \(f(x_{k+1})-f(x^*) \leq \left (\frac {1-r}{1+r}\right )^2[f(x_k)-f(x^*)]\)<br />
+<b>BFGS and then DFP properties</b><br />
+For convex quadratic functions (BFGS) </p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>— \(Sk+1\) becomes identical to \(H^{-1}\) for \(k = n-1\).</p>
+
+</li>
+<li>
+<p>— Directions \(\delta _0,\delta _1,\cdots ,\delta _{n-1}\) form a conjugate set.</p>
+
+</li>
+<li>
+<p>— \(S_{k+1}\) is positive definite if \(S_k\) is positive definite.</p>
+
+</li>
+<li>
+<p>— \(\delta ^T_k \gamma _k = \delta ^T_k g_{k+1}-\delta _T^k g_k &gt; 0\) applies.<br />
+</p>
+
+</li>
+</ul>
+
+<p><b>For DFP (from textbook)</b> </p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>1. If \(S_k\) is PD, then the matrix \(S_{k+1}\) generated by DFP is also PD.</p>
+
+</li>
+<li>
+<p>2. Directions \(\delta _0,\delta _1,\cdots ,\delta _{n-1}\) form a conjugate set.<br />
+</p>
+
+</li>
+</ul>
+
+<p><b>Algorithm 7.2 adjusted for DFP/BFGS</b><br />
+<b>Step 1</b><br />
+Input \(x_0\) and initialize the tolerance \(\epsilon \).<br />
+Set \(k = 0\) and \(S_0 = I_n\).<br />
+Compute \(g_0\).<br />
+<b>Step 2</b><br />
+Set \(d_k=-S_kg_k\)<br />
+Find \(\alpha _k\), the value of \(\alpha \) that minimizes \(f(x_k+\alpha d_k)\), using a line search<br />
+Set \(\delta _k=\alpha _k d_k\) and \(x_{k+1}=x_k+\delta _k\)<br />
+<b>Step 3</b><br />
+If \(||\delta _k|| &lt; \epsilon \), output \(x^* = x_{k+1}\) and \(f(x^*) = f(x_{k+1})\), and stop<br />
+<b>Step 4</b><br />
+Compute \(g_{k+1}\) and set \(\gamma _k=g_{k+1}-g_k\)<br />
+Compute \(S_{k+1}\) using appropriate formula. </p>
+
+
+<p><span class="hidden"> \( \seteqsection {5} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                        (δk − Sk γk )(δk − Sk γk )T
+                                                                                  Basic/ Rank One: Sk+1 = Sk +
+                                                                                                                             γkT (δk − Sk γk )
+                                                                                                       δk δkT       Sk γk γkT Sk
+                                                                                  DFP:   Sk+1 = Sk +            −
+                                                                                                       δkT γk        γkT Sk γk
+                                                                                                                            
+                                                                                                                γkT Sk γk        δk δkT       (δk γkT Sk + Sk γk δkT )
+                                                                                  BFGS: Sk+1 = Sk +       1+                              −
+                                                                                                                    γkT δk       γkT δk               γkT δk
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp;\text {Basic/ Rank One:} \quad S_{k+1}=S_k+\frac {(\delta _k-S_k \gamma _k)(\delta _k-S_k \gamma _k)^T}{\gamma _k^T(\delta _k-S_k\gamma _k)}\\ &amp;\text {DFP:}\quad
+S_{k+1}=S_k+\frac {\delta _k \delta _k^T}{\delta _k^T \gamma _k}-\frac {S_k\gamma _k\gamma _k^TS_k}{\gamma _k^TS_k\gamma _k}\\ &amp;\text {BFGS:} \quad S_{k+1}=S_k+\left (1+\frac {\gamma
+_k^TS_k\gamma _k}{\gamma _k^T\delta _k}\right )\frac {\delta _k\delta _k^T}{\gamma _k^T\delta _k}-\frac {(\delta _k\gamma _k^TS_k+S_k\gamma _k\delta _k^T)}{\gamma _k^T\delta _k} \end{align*}
+</p>
+
+
+<p>Set \(k=k+1\) and repeat from Step 2.<br />
+</p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>— remember that \(\left (1+\frac {\gamma _k^TS_k\gamma _k}{\gamma _k^T\delta _k}\right )\) is a single number</p>
+
+</li>
+<li>
+<p>— \(\delta _k\delta _k^T\) is a matrix.</p>
+
+</li>
+<li>
+<p>— Focus on minimization, \(\max [f(x)] =-\min [-f(x)]\)</p>
+
+</li>
+<li>
+<p>— Hessian is positive semidefinite for concave functions.</p>
+
+</li>
+</ul>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>Made by David Li</p>
+
+
+</footer>
+
+<nav class="botnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+</body>
+</html>

@@ -1,0 +1,1058 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="author" content="David Li" />
+
+<meta name="generator" content="LaTeX lwarp package" />
+
+<meta name="description" content="A list of cheatsheets for courses at the University of Victoria" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--[if lt IE 9]>
+
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+
+<title>CheatSheets For Uvic University Courses — CENG242Cheat</title>
+
+<link rel="stylesheet" type="text/css" href="lwarp_sagebrush.css" />
+
+
+
+
+<!-- https://groups.google.com/forum/#!topic/
+                                               mathjax-users/jUtewUcE2bY -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX AMSmath Ready",function () {
+       var seteqsectionDefault = {name: "", num: 0};
+       var seteqsections = {}, seteqsection = seteqsectionDefault;
+       var TEX = MathJax.InputJax.TeX, PARSE = TEX.Parse;
+       var AMS = MathJax.Extension["TeX/AMSmath"];
+       TEX.Definitions.Add({
+       macros: {
+             seteqsection: "mySection",
+             seteqnumber: "mySetEqNumber"
+       }
+       });
+
+
+       PARSE.Augment({
+       mySection: function (name) {
+             seteqsection.num = AMS.number;
+             var n = this.GetArgument(name);
+             if (n === "") {
+             seteqsection = seteqsectionDefault;
+             } else {
+             if (!seteqsections["_"+n])
+                    seteqsections["_"+n] = {name:n, num:0};
+             seteqsection = seteqsections["_"+n];
+             }
+             AMS.number = seteqsection.num;
+       },
+       mySetEqNumber: function (name) {
+             var n = this.GetArgument(name);
+             if (!n || !n.match(/^ *[0-9]+ *$/))
+                    n = ""; else n = parseInt(n)-1;
+             <!-- $ syntax highlighting -->
+             if (n === "" || n < 1)
+                    TEX.Error
+                    ("Argument to "+name+" should be a positive integer");
+             AMS.number = n;
+       }
+       });
+       MathJax.Hub.Config({
+       TeX: {
+             equationNumbers: {
+             formatTag: function (n)
+                    {return "("+(seteqsection.name+"."+n).replace(/^\./,"")+")"},
+             formatID: function (n) {
+                    n = (seteqsection.name+'.'+n).replace
+                        (/[:"'<>&]/g,"").replace(/^\./,"");
+                    return 'mjx-eqn-' + n;
+             }
+             }
+       }
+       });
+});
+</script>
+
+
+<!-- http://docs.mathjax.org/en/latest/options/ThirdParty.html -->
+<script type="text/x-mathjax-config">
+   MathJax.Ajax.config.path["Contrib"] =
+       "https://cdn.mathjax.org/mathjax/contrib";
+</script>
+
+
+<!-- https://github.com/burnpanck/MathJax-siunitx -->
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[siunitx]/siunitx.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {
+             inlineMath: [["$","$"],["\\(","\\)"]] ,
+             processClass: "tabbing|verse"
+       },
+      TeX: {extensions: ["AMSmath.js","AMSsymbols.js", "sinuitx.js"]}
+ });
+ MathJax.Ajax.config.path['siunitx']                      = 'http://rawgit.com/burnpanck/MathJax-siunitx/master/';
+ </script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+       TeX: {
+       equationNumbers: {
+             autoNumber: "AMS"
+       }
+       }
+});
+</script>
+
+
+<!-- Alternative CDN provider: -->
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+
+
+<!-- No longer supported after April 30, 2017: -->
+<!--
+<script
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+-->
+
+</head>
+<body>
+
+
+<a id="autopage-42"></a> <nav class="topnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+<header>
+
+<p><span class="fbox" style="border:1pt solid black ; padding:3pt">
+<a href="uvic.png" target="_blank"
+><img src="uvic.png"
+style="width:173pt; "
+class="inlineimage"
+></a></span></p>
+
+
+</header>
+
+<h1>CheatSheets For Uvic University Courses</h1>
+<nav class="sidetoc">
+
+<div class="sidetoctitle">
+
+<p>Contents</p>
+
+
+</div>
+
+<div class="sidetoccontents">
+
+<p><a href="index.html" class="linkhome"
+>Home</a></p>
+
+
+<p><a href=" Todo-List.html#autosec-10" class="tocchapter"
+><span class="sectionnumber">1</span>&#x2001;Todo List</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autosec-12" class="tocchapter"
+><span class="sectionnumber">2</span>&#x2001;ELEC 320: Tough Class</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-43" class="tocchapter"
+><span class="sectionnumber">3</span>&#x2001;CENG242Cheat</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-44" class="tocsection"
+>Basic Graph Definitions</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-47" class="tocsection"
+>Graph traversal</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-50" class="tocsection"
+>Topological sorting</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-52" class="tocchapter"
+><span class="sectionnumber">4</span>&#x2001;ELEC 220 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-54" class="tocsection"
+>Ch.1 DC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-56" class="tocsection"
+>Ch. 2 AC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-57" class="tocsection"
+>Ch. 3 DC/AC Dielectrics</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-58" class="tocsection"
+>Ch. 4 AC Dielectrics Cont’d</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-59" class="tocsection"
+>Ch. 8 Schrodinger’s Equation</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-60" class="tocsection"
+>Ch. 12 Free Electron Theory of Metals</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-62" class="tocsection"
+>Ch. 13 Band Theory</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-63" class="tocsection"
+>Ch. 14 Metals and Insulators</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-64" class="tocsection"
+>Ch. 15 Semiconductors</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-66" class="tocchapter"
+><span class="sectionnumber">5</span>&#x2001;ELEC 403 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-68" class="tocsection"
+>Ch.2</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-69" class="tocsection"
+>Ch. 4</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-70" class="tocsection"
+>Ch. 5</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-71" class="tocsection"
+>Ch. 7</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-73" class="tocchapter"
+><span class="sectionnumber">6</span>&#x2001;ELEC 360 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-75" class="tocsection"
+>LAPLACE TRANSFORMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-76" class="tocsection"
+>SOLUTION OF LINEAR DIFFERENTIAL EQUATION</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-77" class="tocsection"
+>STATESPACE REPRESENTATIONS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-78" class="tocsection"
+>SECOND ORDER SYSTEMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-79" class="tocsection"
+>ROUTH-HURWITZ STABILITY TEST</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-80" class="tocsection"
+>STEADY STATE ERROR ANALYSIS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-81" class="tocsection"
+>ROOT LOCUS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-82" class="tocsection"
+>BODE DIAGRAMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-87" class="tocsection"
+>PHASE AND GAIN MARGINS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-89" class="tocchapter"
+><span class="sectionnumber">7</span>&#x2001;ELEC 370 Cheatsheet</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-91" class="tocsection"
+>MAGNETIC CIRCUITS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-92" class="tocsection"
+>TRANSFORMERS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-96" class="tocsection"
+>DC-MACHINES</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-102" class="tocsection"
+>SYNCHRONOUS MACHINES</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-104" class="tocchapter"
+><span class="sectionnumber">8</span>&#x2001;CENG 355 CheatSheet</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-106" class="tocsection"
+>I/O</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-107" class="tocsection"
+>Interfacing</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-108" class="tocsection"
+>Memory</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-111" class="tocsection"
+>Arithmetic</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-112" class="tocsection"
+>Concurrency</a></p>
+
+
+<p><a href=" Glossary.html#autosec-114" class="tocchapter"
+><span class="sectionnumber">9</span>&#x2001;Glossary</a></p>
+
+
+<p><a href=" Glossary.html#autosec-116" class="tocchapter"
+>Glossary</a></p>
+
+
+<p><a href=" ELEC-460-Control-Theory-II.html#autosec-119" class="tocchapter"
+><span class="sectionnumber">10</span>&#x2001;ELEC 460: Control Theory II</a></p>
+
+
+</div>
+
+</nav>
+
+<section class="textbody">
+
+<!--Nullify \ensuremath for MathJax:-->
+
+\(\newcommand \ensuremath [1]{#1}\)
+
+<!--Additional customizations for MathJax:-->
+
+<p><h3 id="autosec-43"> <span class="sectionnumber">3&#x2001;</span>CENG242Cheat</h3><a id="autopage-43"></a>
+
+<p><a id="autoid-15"></a> <span class="fcolorbox" style="border:1pt solid #000000 ; padding:3pt ; background:#FF8000">8</span> <span class="marginpar">8: <span class="fcolorbox" style="border:1pt solid
+#000000 ; padding:3pt ; background:#FF8000">Remember to add more algorithms later</span></span> Future Work</p>
+
+
+<figure id="autoid-16" class="algorithm">
+
+<figcaption>
+<p>Algorithm 3.1:&nbsp;Euclid’s algorithm</p>
+
+
+</figcaption>
+
+<a id="euclid"></a>
+<ul style="list-style-type:none">
+
+<li>
+<p>1: <span style="width:0pt; display:inline-block;"></span><b>procedure</b> <span class="textsc">Euclid</span>(\(a,b\))<span class="floatright">&#x25B7; The g.c.d. of a and b</span></p>
+
+</li>
+<li>
+<p>2:     <span style="width:12pt; display:inline-block;"></span>\(r\gets a\bmod b\)</p>
+
+</li>
+<li>
+<p>3:     <span style="width:12pt; display:inline-block;"></span><b>while</b> \(r\not =0\) <b>do</b><span class="floatright">&#x25B7; We have the answer if r is 0</span></p>
+
+</li>
+<li>
+<p>4:        <span style="width:24pt; display:inline-block;"></span>\(a\gets b\)</p>
+
+</li>
+<li>
+<p>5:        <span style="width:24pt; display:inline-block;"></span>\(b\gets r\)</p>
+
+</li>
+<li>
+<p>6:        <span style="width:24pt; display:inline-block;"></span>\(r\gets a\bmod b\)</p>
+
+</li>
+<li>
+<p>7:     <span style="width:12pt; display:inline-block;"></span><b>end</b> <b>while</b><a id="euclidendwhile"></a></p>
+
+</li>
+<li>
+<p>8:     <span style="width:12pt; display:inline-block;"></span><b>return</b> \(b\)<span class="floatright">&#x25B7; The gcd is b</span></p>
+
+</li>
+<li>
+<p>9: <span style="width:0pt; display:inline-block;"></span><b>end</b> <b>procedure</b></p>
+
+</li>
+</ul>
+
+</figure>
+
+<figure id="autoid-17" class="algorithm">
+
+<figcaption>
+<p>Algorithm 3.2:&nbsp;Merge Sort</p>
+
+
+</figcaption>
+<ul style="list-style-type:none">
+
+<li>
+<p>1: <span style="width:0pt; display:inline-block;"></span><b>function</b> <span class="textsc">Merge</span>(\(A,p,q,r\))<span class="floatright">&#x25B7; Where A - array, p - left, q - middle, r - right</span></p>
+
+</li>
+<li>
+<p>2:     <span style="width:12pt; display:inline-block;"></span>\({n_1} = q - p + 1\)</p>
+
+</li>
+<li>
+<p>3:     <span style="width:12pt; display:inline-block;"></span>\({n_2} = r - q\)</p>
+
+</li>
+<li>
+<p>4:     <span style="width:12pt; display:inline-block;"></span>Let \(L[1 \ldots {n_1} + 1]\) and \(R[1 \ldots {n_2} + 1]\) be new arrays</p>
+
+</li>
+<li>
+<p>5:     <span style="width:12pt; display:inline-block;"></span><b>for</b> \(i = 1\) to \(n_1\) <b>do</b></p>
+
+</li>
+<li>
+<p>6:        <span style="width:24pt; display:inline-block;"></span>\(L[i] = A[p + i - 1]\)</p>
+
+</li>
+<li>
+<p>7:     <span style="width:12pt; display:inline-block;"></span><b>end</b> <b>for</b></p>
+
+</li>
+<li>
+<p>8:     <span style="width:12pt; display:inline-block;"></span><b>for</b> \(j = 1\) to \(n_2\) <b>do</b></p>
+
+</li>
+<li>
+<p>9:        <span style="width:24pt; display:inline-block;"></span>\(R[i] = A[q + j]\)</p>
+
+</li>
+<li>
+<p>10:      <span style="width:12pt; display:inline-block;"></span><b>end</b> <b>for</b></p>
+
+</li>
+<li>
+<p>11:      <span style="width:12pt; display:inline-block;"></span>\(L[{n_1} + 1] = \infty \)</p>
+
+</li>
+<li>
+<p>12:      <span style="width:12pt; display:inline-block;"></span>\(R[{n_2} + 1] = \infty \)</p>
+
+</li>
+<li>
+<p>13:      <span style="width:12pt; display:inline-block;"></span>\(i = 1\)</p>
+
+</li>
+<li>
+<p>14:      <span style="width:12pt; display:inline-block;"></span>\(j = 1\)</p>
+
+</li>
+<li>
+<p>15:      <span style="width:12pt; display:inline-block;"></span><b>for</b> \(k = p\) to \(r\) <b>do</b></p>
+
+</li>
+<li>
+<p>16:        <span style="width:24pt; display:inline-block;"></span><b>if</b> \(L[i] &lt; R[j]\) <b>then</b></p>
+
+</li>
+<li>
+<p>17:            <span style="width:36pt; display:inline-block;"></span>\(A[k] = L[i]\)</p>
+
+</li>
+<li>
+<p>18:            <span style="width:36pt; display:inline-block;"></span>\(i = i + 1\)</p>
+
+</li>
+<li>
+<p>19:        <span style="width:24pt; display:inline-block;"></span><b>else</b> <b>if</b> \(L[i] &gt; R[j]\) <b>then</b></p>
+
+</li>
+<li>
+<p>20:            <span style="width:36pt; display:inline-block;"></span>\(A[k] = R[j]\)</p>
+
+</li>
+<li>
+<p>21:            <span style="width:36pt; display:inline-block;"></span>\(j = j + 1\)</p>
+
+</li>
+<li>
+<p>22:        <span style="width:24pt; display:inline-block;"></span><b>else</b></p>
+
+</li>
+<li>
+<p>23:            <span style="width:36pt; display:inline-block;"></span>\(A[k] = - \infty \) <span class="floatright">&#x25B7; We mark the duplicates with the largest negative integer</span></p>
+
+</li>
+<li>
+<p>24:            <span style="width:36pt; display:inline-block;"></span>\(j = j + 1\)</p>
+
+</li>
+<li>
+<p>25:        <span style="width:24pt; display:inline-block;"></span><b>end</b> <b>if</b></p>
+
+</li>
+<li>
+<p>26:      <span style="width:12pt; display:inline-block;"></span><b>end</b> <b>for</b></p>
+
+</li>
+<li>
+<p>27: <span style="width:0pt; display:inline-block;"></span><b>end</b> <b>function</b></p>
+
+<p></p>
+
+</li>
+</ul>
+
+</figure>
+<h4 id="autosec-44"> Basic Graph Definitions</h4><a id="autopage-44"></a>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>• A graph \(G = (V,E)\) consists of a finite set of vertices \(V\) and a finite set of edges \(E\). </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Directed graphs: \(E\) is a set of ordered pairs of vertices \((u,v)\) where \(u,v \in V\)<br />
+</p>
+
+</li>
+<li>
+<p>– Undirected graph: \(E\) is a set of unordered pairs of vertices \(\{u,v\}\) where \(u,v \in V\)<br />
+<br />
+</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• Edge \((u,v)\) is incident to \(u\) and \(v\)</p>
+
+</li>
+<li>
+<p>• Degree of vertex in undirected graph is the number of edges incident to it.</p>
+
+</li>
+<li>
+<p>• In (out) degree of a vertex in directed graph is the number of edges entering (leaving) it.</p>
+
+</li>
+<li>
+<p>• A path from \(u_1\) to \(u_2\) is a sequence of vertices \(&lt;u_1\)=\(v_0,v_1,v_2, \cdots , v_k\)=\(u_2&gt;\) such that \((v_i,v_{i+1}) \in E\) (or \(\{v_i,v_{i+1}\} \in E\)) </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– We say that \(u_2\) is reachable from \(u_1\)</p>
+
+</li>
+<li>
+<p>– The length of the path is \(k\)</p>
+
+</li>
+<li>
+<p>– It is a cycle if \(v_0 = v_k\)</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• An undirected graph is connected / if every pair of vertices are connected by a path </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– The connected components are the equivalence classes of the vertices under the “reachability” relation. (All connected pair of vertices are in the same connected component).</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• A directed graph is strongly connected if every pair of vertices are reachable from each other </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– The strongly connected components are the equivalence classes of the vertices under the “mutual reachability” relation.</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• Graphs appear all over the place in all kinds of applications, e.g: </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Trees \((\vert E \vert = \vert V \vert - 1)\)</p>
+
+</li>
+<li>
+<p>– Connectivity/dependencies (house building plans, WWW-page connections = internet graph)</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• Often the edges \((u,v)\) in a graph have weights \(w(u,v)\), e.g. </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Road networks (distances)</p>
+
+</li>
+<li>
+<p>– Cable networks (capacity)</p>
+
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="autosec-45"> Representation</h5><a id="autopage-45"></a>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>• Adjacency-list representation: </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Array of \(\vert V \vert \) list of edges incident to each vertex.<br />
+</p>
+
+<p>Examples:<br />
+</p>
+
+</li>
+<li>
+<p>– Note: For undirected graphs, every edge is stored twice.</p>
+
+</li>
+<li>
+<p>– If graph is weighted, a weight is stored with each edge.</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• Adjacency-matrix representation: </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– \(\vert V \vert \times \vert V \vert \) matrix \(A\) where </p>
+
+<p>\[ a_{ij} = \left \{ \begin {array}{ll} 1 &amp; \mbox { if $(i,j) \in E$} \\ 0 &amp; \mbox { otherwise } \\ \end {array} \right . \]</p>
+
+<p>Examples:<br />
+</p>
+
+</li>
+<li>
+<p>– Note: For undirected graphs, the adjacency matrix is symmetric along the main diagonal (\(A^T = A\)).</p>
+
+</li>
+<li>
+<p>– If graph is weighted, weights are stored instead of one’s.</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• Comparison of matrix and list representation:<br />
+</p>
+
+<ul style="list-style-type:none">
+
+<li>
+<table>
+<tr>
+<td class="tdl tvertbarr" style="border-right: 1px solid #">Adjacency list</td>
+<td class="tdl">Adjacency matrix</td>
+</tr>
+<tr class="hline" >
+<td class="tdl tvertbarr" style="border-right: 1px solid #">\(O(\vert V \vert + \vert E \vert )\) space</td>
+<td class="tdl">\(O(\vert V \vert ^2)\) space</td>
+</tr>
+<tr>
+<td class="tdl tvertbarr" style="border-right: 1px solid #">Good if graph sparse \((\vert E \vert &lt;&lt; \vert V \vert ^2)\)</td>
+<td class="tdl">Good if graph dense \((\vert E \vert \approx \vert V \vert ^2)\)</td>
+</tr>
+<tr>
+<td class="tdl tvertbarr" style="border-right: 1px solid #">No quick access to \((u,v)\)</td>
+<td class="tdl">\(O(1)\) access to \((u,v)\)</td>
+</tr>
+<tr>
+<td class="tdl"></td>
+<td class="tdl"></td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+<li>
+<p>• We will use adjacency list representation unless stated otherwise (\(O(|V|+|E|)\) space).</p>
+
+</li>
+</ul>
+<h4 id="autosec-47"> Graph traversal</h4><a id="autopage-47"></a>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>• There are two standard (and simple) ways of traversing all vertices/edges in a graph in a systematic way </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Breadth-first</p>
+
+</li>
+<li>
+<p>– Depth-first</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• We can use them in many fundamental algorithms, e.g finding cycles, connected components, \(\dots \)</p>
+
+</li>
+</ul>
+<h5 id="autosec-48"> Breadth-first search (BFS)</h5><a id="autopage-48"></a>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>• Main idea: </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Start at some source vertex \(s\) and visit,</p>
+
+</li>
+<li>
+<p>– All vertices at distance 1,</p>
+
+</li>
+<li>
+<p>– Followed by all vertices at distance 2,</p>
+
+</li>
+<li>
+<p>– Followed by all vertices at distance 3,</p>
+
+<p>\(\vdots \)</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• BFS corresponds to computing shortest path distance (number of edges) from \(s\) to all other vertices.</p>
+
+</li>
+<li>
+<p>• To control progress of our BFS algorithm, we think about coloring each vertex </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– White before we start,</p>
+
+</li>
+<li>
+<p>– Gray after we visit the vertex but before we have visited all its adjacent vertices,</p>
+
+</li>
+<li>
+<p>– Black after we have visited the vertex and all its adjacent vertices (all adjacent vertices are gray).</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• We use a queue \(Q\) to hold all gray vertices—vertices we have seen but are still not done with.</p>
+
+</li>
+<li>
+<p>• We remember from which vertex a given vertex \(v\) is colored gray – i.e. the node that discovered \(v\) first; this is called parent[\(v\)].</p>
+
+</li>
+<li>
+<p>• Algorithm:<br />
+<br />
+<span class="fbox" style="border:1pt solid black ; padding:3pt">             BFS(\(s\)) <br />
+       color[\(s\)] = gray <br />
+       \(d[s] = 0\) <br />
+       ENQUEUE(\(Q,s\)) <br />
+        WHILE \(Q\) not empty DO
+             DEQUEUE(\(Q,u\)) <br />
+             FOR \((u,v)\in E\) DO
+                  IF color[\(v\)] = white THEN <br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;color[\(v\)] = gray <br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;\(d[v] = d[u] + 1\) <br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;parent[\(v\)] = u <br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;ENQUEUE(\(Q,v\)) <br />
+                  FI <br />
+                  color[\(u\)] = black
+             <br /><br />
+        <br /><br /> <br />
+        OD
+<br /><br /> </span> </p>
+
+</li>
+<li>
+<p>• Algorithm runs in \(O(\vert V \vert + \vert E \vert )\) time</p>
+
+</li>
+<li>
+<p>• Example (for directed graph):<br />
+</p>
+
+</li>
+<li>
+<p>• Note: </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– parent[\(v\)] forms a tree; BFS-tree.</p>
+
+</li>
+<li>
+<p>– \(d[v]\) contains length of shortest path from \(s\) to \(v\). (Prove by induction)</p>
+
+</li>
+<li>
+<p>– We can use parent[\(v\)] to find the shortest path from \(s\) to a given vertex.</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• If graph is not connected we have to try to start the traversal at all nodes.<br />
+</p>
+
+<p><span class="fbox" style="border:1pt solid black ; padding:3pt">             FOR each vertex \(u \in V \) DO <br />
+      IF color[\(u\)] = white THEN BFS(\(u\))
+<br /><br /> OD </span> </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Note: We can use algorithm to compute connected components in \(O(|V|+|E|)\) time.</p>
+
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="autosec-49"> Depth-first search (DFS)</h5><a id="autopage-49"></a>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>• If we use stack instead of queue \(Q\) we get another traversal order; depth-first </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– We go “as deep as possible”,</p>
+
+</li>
+<li>
+<p>– Go back until we find unexplored adjacent vertex,</p>
+
+</li>
+<li>
+<p>– Go as deep as possible,</p>
+
+<p>\(\vdots \)</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• Often we are interested in “start time” and “finish time” of vertex \(u\) </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Start time (d[\(u\)]): indicates at what “time” vertex is first visited.</p>
+
+</li>
+<li>
+<p>– Finish time (f[\(u\)]): indicates at what “time” all adjacent vertices have been visited.</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• We can write DFS iteratively using the same algorithm as for BFS but with a STACK instead of a QUEUE, or, we can write a recursive DFS procedure </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– We will color a vertex gray when we first meet it and black when we finish processing all adjacent vertices.</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• Algorithm:<br />
+</p>
+
+<p><span class="fbox" style="border:1pt solid black ; padding:3pt">                 DFS(\(u\)) <br />
+      color[\(u\)] = gray <br />
+      \(d[u]\) = time <br />
+      time = time + 1 <br />
+      FOR \((u,v)\in E\) DO
+             IF color[\(v\)] = white THEN
+                  parent[\(v\)] = \(u\) <br />
+                  DFS(v)
+             <br /><br /> <br />
+             FI
+      <br /><br /> <br />
+      OD <br />
+      color[\(u\)] = black <br />
+      \(f[u]\) = time <br />
+      time = time + 1
+<br /><br /> </span> </p>
+
+</li>
+<li>
+<p>• Algorithm runs in \(O(\vert V \vert + \vert E \vert )\) time </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– As before we can extend algorithm to unconnected graphs and we can use it to detect cycles in \(O(|V|+|E|)\) time.</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• As previously parent[\(v\)] forms a tree; DFS-tree </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Note: If \(u\) is descendent of \(v\) in DFS-tree then \(d[v] &lt; d[u] &lt; f[u] &lt; f[v]\)</p>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="autosec-50"> Topological sorting</h4><a id="autopage-50"></a>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>• Definition: Topological sorting of directed acyclic graph \(G=(V,E)\) is a linear ordering of vertices \(V\) such that \((u,v) \in E \Rightarrow u\) appear before \(v\) in ordering.</p>
+
+</li>
+<li>
+<p>• Topological ordering can be used in scheduling: </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Example: Dressing (arrow implies “must come before”)<br />
+<br />
+</p>
+
+<p>We want to compute order in which to get dressed. One possibility:<br />
+</p>
+
+<p>The given order is one possible topological order.</p>
+
+</li>
+</ul>
+</li>
+<li>
+<p>• Algorithm: Topological order just reverse DFS finish time (\(\Rightarrow O(\vert V \vert + \vert E \vert )\) running time).</p>
+
+</li>
+<li>
+<p>• Correctness: \((u,v) \in E \Leftrightarrow f(v) &lt; f(u)\) </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>– Proof: When \((u,v)\) is explored by DFS algorithm, \(v\) must be white or black (gray \(\Rightarrow \) cycle). </p>
+
+<ul style="list-style-type:none">
+
+<li>
+<p>∗ \(v\) white: \(v\) visited and finished before \(u\) is finished \(\Rightarrow f(v) &lt; f(u)\)</p>
+
+</li>
+<li>
+<p>∗ \(v\) black: \(v\) already finished \(\Rightarrow f(v) &lt; f(u)\)</p>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>• Alternative algorithm: Count in-degree of each vertex and repeatedly number and remove in-degree 0 vertex and its outgoing edges: Homework.</p>
+
+<p></p>
+
+</li>
+</ul>
+
+</section>
+
+<footer>
+
+<p>Made by David Li</p>
+
+
+</footer>
+
+<nav class="botnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+</body>
+</html>

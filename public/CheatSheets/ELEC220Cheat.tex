@@ -1,0 +1,143 @@
+\chapter{ELEC 220 CheatSheet}
+\begin{multicols}{3}
+
+\section{Ch.1 DC Conduction}
+$\sigma$ = conductivity (S/m) and $ \rho$ = resistivity ($ \Omega $m). $\sigma = 1 /\ \rho $. 
+\begin{table}
+\begin{tabular}{c|c}
+	Hall coefficient    & $R_H= \frac{v_D}{J}=\frac{-1}{eN_e}=(-eN_e)^{-1}$ \\
+	Ohm's Law  & $J = \sigma \cdot E \quad A /\ m^{2}$\\ 
+	Resistance & $R= \frac{\rho \cdot  L}{A}= \frac{L}{\sigma \cdot A}$ \\
+	Drude Model  & $J = -eN_ev_D$ \\
+	Viscosity Model  & $v_D=\frac{-e\tau}{m_e}E$
+\end{tabular}
+\caption{Some Equations for DC Conduction}
+\end{table}
+$$\textbf{Scattering time Formula:} \quad \sigma= \frac{e^2N_e\tau}{m_e} $$
+
+\section{Ch. 2 AC Conduction}
+\begin{align} 
+\textbf{Skin Depth:} \quad \delta= 
+\left(\frac{2}{\omega \mu \sigma}\right)^{1/2} \\
+E= E_0e^{-i(wt-z/\ \delta)}e^{-z/\ \delta} \\
+I \sim e^{-2z /\ \delta} \\
+I \propto |E|^{2} \\
+\omega = \frac{2\pi c}{\lambda_o}
+\end{align} 
+\begin{align} 
+\textbf{Plasma Frequency:} \quad \omega_p= 
+\left(\frac{N_ee^2}{m \epsilon}\right)^{1/2} \\
+k^2= \omega^2 \mu \epsilon - \frac{N_ee^2\mu}{m}= \omega^2\mu\epsilon\left(1-\frac{\omega_p^2}{\omega^2}\right)
+\end{align} 
+%\def\bsq#1{%both single quotes
+%	\lq{#1}\rq}
+\section{Ch. 3 DC/AC Dielectrics}
+\begin{align} 
+\textbf{Relative Permittivity:} \quad = \frac{C^\prime}{C}=\frac{Q^\prime}{Q}
+= \epsilon_r \\
+PA=Q^\prime - Q = C^\prime V - CV= CV(\epsilon_r-1) \\
+P= \epsilon_0E(\epsilon_r-1) \ and \ \epsilon_r=1+\frac{P}{\epsilon_0E}= 1+\chi \\
+D = \epsilon E = \epsilon_0 \epsilon_r E = \epsilon_0 E+ P \\
+P = Np = Nqd \\
+\epsilon_= 1 + \frac{N \alpha_e}{\epsilon_0}=1+\chi
+\end{align}
+\begin{align}
+\textbf{Debye Model:} \quad 
+\epsilon_d(\omega)= \frac{\epsilon_d(0)}{1-i\omega \tau_r}=\epsilon_d^\prime+i\epsilon_d^{\prime \prime}\\
+\epsilon_d^\prime= \frac{\epsilon_d(0)}{1+\omega^2 \tau_r^2} \quad and \quad \epsilon_d^{\prime \prime}(\omega)= \frac{\epsilon_d(0)}{1+\omega^2 \tau_r^2}\omega \tau_r
+\end{align}
+Different Polarization Mechanisms(Decreasing Speed)
+Electronic	\\
+Ionic	\\
+Dipolar (Orientational)	\\
+Space Charge (Interfacial)	\\
+Ferroelectric
+\section{Ch. 4 AC Dielectrics Cont'd}
+\begin{align}
+\nu =\frac{c}{n}= \frac{1}{\sqrt{\epsilon_r \epsilon_o \mu_o}} \\
+n = \sqrt{\epsilon_r} \quad \text{reflactive index} \\
+\sin(\theta_c)=\frac{n_1}{n2} \\
+k_{imag}=\frac{\omega \epsilon_r^{\prime \prime}}{2c\sqrt{\epsilon_r^\prime}}= \frac{\omega}{2c}\sqrt{\epsilon_r^\prime}\tan{\delta} \\
+dB = 8.69 \times k_{imag}
+\end{align}
+\section{Ch. 8 Schrodinger's Equation}
+\begin{align}
+\textbf{Planck's constant} \quad \hbar = \frac{h}{2 \pi} \\
+1.6 \times 10^{-19}J= 1 eV	\\
+p = \frac{h}{\lambda} \\
+E = \frac{\hbar^2 k^2}{2m}= \frac{n^2h^2}{8mL^2} \\
+k=(2mE)^{1/2}h^{-1}	\\
+\int_{0}^{L} \psi^2 dz = 1 = A_n^2 \int_{0}^{L} sin^2(n \pi z /L) dz = \frac{A_n^2}{2}L \\
+<S> = \frac{\int \psi^*S\psi dV}{\int \psi^*\psi dV}=\int \psi^*S\psi dV
+\end{align}
+The wavefunction y is complex valued
+• We interpret the absolute value of y squared
+(i.e., $\psi \times \psi^*$) as the probability that the
+particle is in a given position
+• This requires appropriate normalization over
+space so that the total probability that the
+particle is anywhere is 1 (i.e., the particle
+exists)
+\section{Ch. 12 Free Electron Theory of Metals}
+\begin{align}
+\textbf{1D Box:} \quad k_F = \frac{N \pi}{2 L} \\
+E_F=\frac{\hbar^2k_F^2}{2m}=
+\frac{h^2}{32m}\left(\frac
+{N}{L}\right)^2 \\
+Z(E)=\frac{dN(E)}{dE}= CE^{-1/2} \\
+\textbf{2D Box:} \quad k_F^2 = 2 \pi \frac{N}{L^2} \\
+E_F=\frac{\hbar^2k_F^2}{2m}=
+\frac{h^2}{4 \pi m}\frac
+{N}{L^2}	\\
+Z(E)=\frac{dN(E)}{dE}= C \\
+\textbf{3D Box:} \quad k_F^3 = 3 \pi^2 \frac{N}{L^3} \\
+E_F=\frac{\hbar^2k_F^2}{2m}=
+\frac{h^2}{2m}\left(\frac
+{3N}{8 \pi L^3}\right)^{2/3} \\
+\quad Z(E)=\frac{dN(E)}{dE}= \frac{4\pi L^3 (2m)^{3/2}}{h^3}
+E^{1/2}=CE^{1/2}
+\end{align}
+\subsection{Fermi Distribution}
+\begin{align}
+F(E)= 1 \ if \ E < E_F \\
+F(E)= 0 \ if \ E > E_F \\
+F(E)= \frac{1}{1+e^{\frac{E-E_F}{k_BT}}} \\
+E_{tot}= \int EZ(E)F(E)dE
+\end{align}
+\section{Ch. 13 Band Theory}
+\begin{align}
+V= V_0 \cos\left( \frac{2 \pi x}{a}\right) \\
+v_g = \frac{ \partial \omega}{ \partial k} =\frac{1}{\hbar} \frac{ \partial E}{\partial k} \\
+a = \frac{d v_g}{ d t}= \frac{1}{\hbar} \frac{ \partial^2 E}{ \partial k^2}
+\frac {d k}{d t}	\\
+F = \frac {dp}{dt}= \hbar \frac{k}{t} \\
+m^*=\frac{F}{a}=\frac{\hbar^2}
+{\frac{\partial^2 E}{\partial k^2}}
+\end{align}
+\section{Ch. 14 Metals and Insulators}
+\begin{align}
+\sigma = \frac{v_F^2Z(E_F)}{3}e^2\tau_F \\
+\nu = \frac{E_g}{h}
+\end{align}
+\section{Ch. 15 Semiconductors}
+\begin{align*}
+\textbf{Total \# of Electrons in
+	Conduction Band:} N_e = N_c \cdot e^{\left(\frac{E_c-E_F}{k_BT}\right)} \\
+N_c = 2 \left[\frac{2\pi m_e^*kT}{h^2}^{3/2}\right] \\
+\textbf{Total \# of Hole in
+	Valence Band:} \quad N_h = N_v \cdot e^{\left(\frac{E_F-E_v}{k_BT}\right)} \\
+N_v = 2 \left[\frac{2\pi m_h^*kT}{h^2}^{3/2}\right] \\
+E_f=E_v+\frac{E_g}{2}-\frac{1}{2}kTln\left(\frac{N_c}{N-V}\right)=
+E_v+\frac{E_g}{2}-\frac{3}{4}kTln\left(\frac{m_e^*}{m_h^*}\right) \\
+\textbf{Total Conductivity:} \quad \sigma =e(N_e\mu_e+
+N_h\mu_h)=eN_e(\mu_e+\mu_h) \\
+\text{Einstein's Relation(Ch.16.3 Diffusion Current)} \quad \frac{D_h}{\mu_h} = \frac{k_bT}{e} 
+\end{align*}  $N_i$ = Intrinsic Carrier Density. For an Intrinsic semiconductor holes = electrons
+$N_i^2=N_vN_c\exp(-E_g/(kT))$. \\ n-type: $N_e \approx N_D \quad and \quad N_h \approx \frac{N_i^2}{N_D}$ Minority carrier in %n-type is
+holes \\
+p-type: $N_h \approx N_A \ \ and \ \ N_e \approx \frac{N_i^2}{N_A}$
+Minority
+carrier %in p-type
+is
+electrons
+\end{multicols}

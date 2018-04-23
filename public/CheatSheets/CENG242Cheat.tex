@@ -1,0 +1,359 @@
+%% Added this section, to ha ve a list of algorithms in lwarp
+\chapter{CENG242Cheat}
+\todo{Remember to add more algorithms later}{Future Work}
+
+\begin{algorithm}
+\caption{Euclid’s algorithm}\label{euclid}
+\begin{algorithmic}[1]
+\Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
+\State $r\gets a\bmod b$
+\While{$r\not=0$}\Comment{We have the answer if r is 0}
+\State $a\gets b$
+\State $b\gets r$
+\State $r\gets a\bmod b$
+\EndWhile\label{euclidendwhile}
+\State \textbf{return} $b$\Comment{The gcd is b}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+
+ \begin{algorithm}
+	\caption{Merge Sort}
+	\begin{algorithmic}[1]
+		\Function{Merge}{$A,p,q,r$}\Comment{Where A - array, p - left, q - middle, r - right}
+		
+		\State ${n_1} = q - p + 1$
+		\State ${n_2} = r - q$
+		\State Let $L[1 \ldots {n_1} + 1]$ and $R[1 \ldots {n_2} + 1]$ be new arrays
+		\For{$i = 1$ to ${n_1}$}
+		\State $L[i] = A[p + i - 1]$
+		\EndFor
+		\For{$j = 1$ to ${n_2}$}
+		\State $R[i] = A[q + j]$
+		\EndFor
+		\State $L[{n_1} + 1] =  \infty $
+		\State $R[{n_2} + 1] =  \infty $
+		\State $i = 1$
+		\State $j = 1$
+		\For{$k = p$ to $r$}
+		\If {$L[i] < R[j]$}
+		\State $A[k] = L[i]$
+		\State $i = i + 1$
+		\ElsIf {$L[i] > R[j]$}
+		\State $A[k] = R[j]$
+		\State $j = j + 1$
+		\Else
+		\State $A[k] = - \infty$ \Comment{We mark the duplicates with the largest negative integer}
+		\State $j = j + 1$
+		\EndIf
+		\EndFor
+		\EndFunction
+		
+	\end{algorithmic}
+\end{algorithm}
+
+\section{Basic Graph Definitions}
+\begin{itemize}
+	\item A graph $G = (V,E)$ consists of a finite set of {\em vertices} $V$
+	and a finite set of {\em edges} $E$.
+	\begin{itemize}
+		\item {\em Directed graphs}: $E$ is a set of ordered pairs of vertices
+		$(u,v)$ where $u,v \in V$ \\
+		% \centerline{\epsfig{file=directed_example.eps,height=3.5cm}}
+		\item {\em Undirected graph}: $E$ is a set of unordered pairs of
+		vertices $\{u,v\}$ where $u,v \in V$ \\ \\
+		% \centerline{\epsfig{file=undirected_example.eps,height=3cm}}
+	\end{itemize}
+	\item Edge $(u,v)$ is {\em incident} to $u$ and $v$
+	\item {\em Degree} of vertex in undirected graph is the number of edges
+	incident to it.
+	\item {\em In (out) degree} of a vertex in directed graph is the number of
+	edges entering (leaving) it.
+	\item A {\em path} from $u_1$ to $u_2$ is a sequence of vertices
+	$<u_1$=$v_0,v_1,v_2, \cdots , v_k$=$u_2>$ such that $(v_i,v_{i+1}) \in E$
+	(or $\{v_i,v_{i+1}\} \in E$)
+	\begin{itemize}
+		\item We say that $u_2$ is {\em reachable} from $u_1$
+		\item The {\em length} of the path is $k$
+		\item It is a {\em cycle } if $v_0 = v_k$
+	\end{itemize}
+	
+	
+	\item An undirected graph is {\em connected /} if every pair of vertices are
+	connected by a path
+	\begin{itemize}
+		\item The {\em connected components } are the equivalence classes of
+		the vertices under the ``reachability'' relation. (All connected
+		pair of vertices are in the same connected component).
+	\end{itemize}
+	\item A directed graph is {\em strongly connected } if every pair of
+	vertices are reachable from each other
+	\begin{itemize}
+		\item The {\em strongly connected components } are the equivalence
+		classes of the vertices under the ``mutual reachability'' relation. 
+	\end{itemize}
+	
+	\vspace*{\baselineskip}
+	
+	\item Graphs appear all over the place in all kinds of applications, e.g:
+	\begin{itemize}
+		\item Trees $(\vert E \vert = \vert V \vert - 1)$
+		\item Connectivity/dependencies (house building plans, WWW-page
+		connections = internet graph)
+	\end{itemize}
+	\item Often the edges $(u,v)$ in a graph have weights $w(u,v)$, e.g.
+	\begin{itemize}
+		\item Road networks (distances)
+		\item Cable networks (capacity)
+	\end{itemize}
+\end{itemize}
+
+
+\subsection{Representation}
+\begin{itemize}
+	\item {\em Adjacency-list} representation:
+	\begin{itemize}
+		\item Array of $\vert V \vert$ list of edges incident to each
+		vertex. \\
+		
+		Examples: \\
+		\item Note: For undirected graphs, every edge is stored twice.
+		\item If graph is weighted, a weight is stored with each edge.
+	\end{itemize}
+	
+	
+	\item {\em Adjacency-matrix} representation:
+	\begin{itemize}
+		\item $\vert V \vert \times \vert V \vert$ matrix $A$ where 
+		\[ a_{ij} = \left\{ \begin{array}{ll}
+		1        & \mbox{ if $(i,j) \in E$} \\
+		0        & \mbox{ otherwise } \\
+		\end{array}
+		\right. \]
+		
+		Examples: \\
+		\item Note: For undirected graphs, the adjacency matrix is
+		symmetric along the main diagonal ($A^T = A$).
+		\item If graph is weighted, weights are stored instead of one's.
+	\end{itemize}
+	\item Comparison of matrix and list representation: \\
+	\begin{itemize}
+		\item[]
+		\begin{tabular}{l|l}
+			Adjacency list & Adjacency matrix \\ \hline
+			$O(\vert V \vert + \vert E \vert)$ space & $O(\vert V \vert ^2)$
+			space \\
+			Good if graph {\em sparse} $(\vert E \vert << \vert V
+			\vert ^2)$ & Good if graph {\em dense} $(\vert E \vert \approx
+			\vert V \vert ^2)$ \\
+			No quick access to $(u,v)$ & $O(1)$ access to $(u,v)$ \\
+		\end{tabular}
+	\end{itemize}
+	\item We will use adjacency list representation unless stated otherwise
+	($O(|V|+|E|)$ space).
+\end{itemize}
+
+
+\section{Graph traversal}
+\begin{itemize}
+	\item There are two standard (and simple) ways of traversing all
+	vertices/edges in a graph in a systematic way
+	\begin{itemize}
+		\item Breadth-first
+		\item Depth-first
+	\end{itemize}
+	\item We can use them in many fundamental algorithms, e.g finding cycles,
+	connected components, $\dots$
+\end{itemize}
+
+\subsection{Breadth-first search (BFS)}
+\begin{itemize}
+	\item Main idea:
+	\begin{itemize}
+		\item Start at some source vertex $s$ and visit,
+		\item All vertices at distance 1,
+		\item Followed by all vertices at distance 2,
+		\item Followed by all vertices at distance 3,
+		
+		$\vdots$
+	\end{itemize}
+	\item BFS corresponds to computing {\em shortest path} distance (number of
+	edges) from $s$ to all other vertices.
+	\item To control progress of our BFS algorithm, we think about {\em coloring}
+	each vertex
+	\begin{itemize}
+		\item {\em White } before we start,
+		\item {\em Gray } after we visit the vertex but before we have
+		visited all its adjacent vertices,
+		\item {\em Black } after we have visited the vertex and all its
+		adjacent vertices (all adjacent vertices are gray).
+	\end{itemize}
+	\item We use a queue $Q$ to hold all gray vertices---vertices we have seen
+	but  are still not done with.
+	\item We remember from which vertex a given vertex $v$ is colored gray
+	-- i.e. the node that discovered $v$ first; this is called
+	parent[$v$].
+	\item Algorithm: \\ \\
+	\fbox{
+		\parbox{10cm}{
+			{\sc BFS($s$) }
+			\begin{itemize}
+				\item[] color[$s$] = gray
+				\item[] $d[s] = 0$
+				\item[] ENQUEUE($Q,s$)
+				\item[] WHILE $Q$ not empty DO
+				\begin{itemize}
+					\item[] DEQUEUE($Q,u$)
+					\item[] FOR $(u,v)\in E$ DO
+					\begin{itemize}
+						\item[] IF color[$v$] = white THEN
+						\item[] ~~~~color[$v$] = gray
+						\item[] ~~~~$d[v] = d[u] + 1$
+						\item[] ~~~~parent[$v$] = u
+						\item[] ~~~~ENQUEUE($Q,v$)
+						\item[] FI
+						\item[] color[$u$] = black
+					\end{itemize}
+				\end{itemize}
+				\item[] OD
+			\end{itemize}
+	}}
+	\vspace*{\baselineskip}
+	
+	\item Algorithm runs in $O(\vert V \vert + \vert E \vert)$ time
+	
+	
+	\item Example (for directed graph): \\
+	\item Note:
+	\begin{itemize}
+		\item parent[$v$] forms a tree; {\em BFS-tree}.
+		\item $d[v]$ contains length of shortest path from $s$ to
+		$v$. (Prove by induction)
+		\item We can use parent[$v$] to find the shortest path from $s$ to a
+		given vertex.
+		%       \item We can use algorithm to detect cycles; just check if gray
+		%       node is ever met.
+	\end{itemize}
+	\item If graph is not connected we have to try to start the traversal
+	at all nodes. \\
+	
+	\fbox{
+		\parbox{8cm}{ 
+			FOR each vertex $u \in V $ DO
+			\begin{itemize}
+				\item[] IF color[$u$] = white THEN BFS($u$)
+			\end{itemize}
+			OD
+	}}
+	
+	\begin{itemize}
+		\item Note: We can use algorithm to compute connected components in
+		$O(|V|+|E|)$ time.
+	\end{itemize}
+\end{itemize}
+
+
+
+\subsection{Depth-first search (DFS)}
+\begin{itemize}
+	\item If we use stack instead of queue $Q$ we get another traversal order;
+	depth-first
+	\begin{itemize}
+		\item We go ``as deep as possible'',
+		\item Go back until we find unexplored adjacent vertex,
+		\item Go as deep as possible,
+		
+		$\vdots$
+	\end{itemize}
+	\item Often we are interested in ``start time'' and ``finish time'' of
+	vertex $u$
+	\begin{itemize}
+		\item {\em Start time\/} (d[$u$]): indicates at what ``time'' vertex
+		is first visited.
+		\item {\em Finish time\/} (f[$u$]): indicates at what ``time'' all
+		adjacent vertices have been visited.
+	\end{itemize}
+	\item We can write DFS iteratively using the same algorithm as for BFS
+	but with a STACK instead of a QUEUE, or, we can write a recursive DFS
+	procedure
+	\begin{itemize}
+		\item We will color a vertex gray when we first meet it and black
+		when we finish processing all adjacent vertices.
+	\end{itemize}
+	\item Algorithm: \\
+	
+	\fbox{
+		\parbox{8cm}{
+			{\sc DFS($u$) } 
+			\begin{itemize}
+				\item[] color[$u$] = gray
+				\item[] $d[u]$ = time
+				\item[] time = time + 1
+				\item[] FOR $(u,v)\in E$ DO
+				\begin{itemize}
+					\item[] IF color[$v$] = white THEN
+					\begin{itemize}
+						\item[] parent[$v$] = $u$
+						\item[] {\sc DFS(v)}
+					\end{itemize}
+					\item[] FI
+				\end{itemize}
+				\item[] OD
+				\item[] color[$u$] = black
+				\item[] $f[u]$ = time
+				\item[] time = time + 1
+			\end{itemize}
+	}}
+	
+	\item Algorithm runs in $O(\vert V \vert + \vert E \vert)$ time
+	\begin{itemize}
+		\item As before we can extend algorithm to unconnected graphs and
+		we can use it to detect cycles in $O(|V|+|E|)$ time.
+	\end{itemize}
+	
+	\item As previously parent[$v$] forms a tree; {\em DFS-tree}
+	\begin{itemize}
+		\item Note: If $u$ is descendent of $v$ in DFS-tree  then $d[v] <
+		d[u] < f[u] < f[v]$
+	\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Topological sorting}
+\begin{itemize}
+	\item Definition: Topological sorting of {\em directed acyclic graph}
+	$G=(V,E)$ is a linear ordering of vertices $V$ such that $(u,v) \in E
+	\Rightarrow u$ appear before $v$ in ordering.
+	\item Topological ordering can be used in scheduling:
+	\begin{itemize}
+		\item Example: Dressing (arrow implies ``must come before'') \\ \\
+		% \centerline{\epsfig{file=top_sort_example.eps,height=5.5cm}} \\
+		
+		We want to compute order in which to get dressed. One possibility: \\
+		
+		
+		\vspace*{\baselineskip}
+		
+		The given order is one possible topological order.
+	\end{itemize}
+	\item Algorithm: Topological order just reverse DFS finish time ($
+	\Rightarrow O(\vert V \vert + \vert E \vert)$ running time).
+	\item Correctness: $(u,v) \in E \Leftrightarrow f(v) < f(u)$
+	\begin{itemize}
+		\item Proof: When $(u,v)$ is explored by DFS algorithm, $v$ must be
+		white or black (gray $\Rightarrow$ cycle).
+		\begin{itemize}
+			\item $v$ white: $v$ visited and finished before $u$ is
+			finished $\Rightarrow f(v) < f(u)$
+			\item $v$ black: $v$ already finished $\Rightarrow f(v) <
+			f(u)$
+		\end{itemize}
+	\end{itemize}
+	\item Alternative algorithm: Count in-degree of each vertex and repeatedly
+	number and remove in-degree 0 vertex and its outgoing edges: Homework. 
+	
+\end{itemize}

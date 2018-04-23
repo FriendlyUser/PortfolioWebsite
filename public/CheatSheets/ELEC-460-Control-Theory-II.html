@@ -1,0 +1,1460 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="author" content="David Li" />
+
+<meta name="generator" content="LaTeX lwarp package" />
+
+<meta name="description" content="A list of cheatsheets for courses at the University of Victoria" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--[if lt IE 9]>
+
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+
+<title>CheatSheets For Uvic University Courses — ELEC 460: Control Theory II</title>
+
+<link rel="stylesheet" type="text/css" href="lwarp_sagebrush.css" />
+
+
+
+
+<!-- https://groups.google.com/forum/#!topic/
+                                               mathjax-users/jUtewUcE2bY -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX AMSmath Ready",function () {
+       var seteqsectionDefault = {name: "", num: 0};
+       var seteqsections = {}, seteqsection = seteqsectionDefault;
+       var TEX = MathJax.InputJax.TeX, PARSE = TEX.Parse;
+       var AMS = MathJax.Extension["TeX/AMSmath"];
+       TEX.Definitions.Add({
+       macros: {
+             seteqsection: "mySection",
+             seteqnumber: "mySetEqNumber"
+       }
+       });
+
+
+       PARSE.Augment({
+       mySection: function (name) {
+             seteqsection.num = AMS.number;
+             var n = this.GetArgument(name);
+             if (n === "") {
+             seteqsection = seteqsectionDefault;
+             } else {
+             if (!seteqsections["_"+n])
+                    seteqsections["_"+n] = {name:n, num:0};
+             seteqsection = seteqsections["_"+n];
+             }
+             AMS.number = seteqsection.num;
+       },
+       mySetEqNumber: function (name) {
+             var n = this.GetArgument(name);
+             if (!n || !n.match(/^ *[0-9]+ *$/))
+                    n = ""; else n = parseInt(n)-1;
+             <!-- $ syntax highlighting -->
+             if (n === "" || n < 1)
+                    TEX.Error
+                    ("Argument to "+name+" should be a positive integer");
+             AMS.number = n;
+       }
+       });
+       MathJax.Hub.Config({
+       TeX: {
+             equationNumbers: {
+             formatTag: function (n)
+                    {return "("+(seteqsection.name+"."+n).replace(/^\./,"")+")"},
+             formatID: function (n) {
+                    n = (seteqsection.name+'.'+n).replace
+                        (/[:"'<>&]/g,"").replace(/^\./,"");
+                    return 'mjx-eqn-' + n;
+             }
+             }
+       }
+       });
+});
+</script>
+
+
+<!-- http://docs.mathjax.org/en/latest/options/ThirdParty.html -->
+<script type="text/x-mathjax-config">
+   MathJax.Ajax.config.path["Contrib"] =
+       "https://cdn.mathjax.org/mathjax/contrib";
+</script>
+
+
+<!-- https://github.com/burnpanck/MathJax-siunitx -->
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+      extensions: ["tex2jax.js","[siunitx]/siunitx.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {
+             inlineMath: [["$","$"],["\\(","\\)"]] ,
+             processClass: "tabbing|verse"
+       },
+      TeX: {extensions: ["AMSmath.js","AMSsymbols.js", "sinuitx.js"]}
+ });
+ MathJax.Ajax.config.path['siunitx']                      = 'http://rawgit.com/burnpanck/MathJax-siunitx/master/';
+ </script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+       TeX: {
+       equationNumbers: {
+             autoNumber: "AMS"
+       }
+       }
+});
+</script>
+
+
+<!-- Alternative CDN provider: -->
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+
+
+<!-- No longer supported after April 30, 2017: -->
+<!--
+<script
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+</script>
+-->
+
+</head>
+<body>
+
+
+<a id="autopage-118"></a> <nav class="topnavigation"><a href="index.html" class="linkhome"
+>Home</a></nav>
+
+<header>
+
+<p><span class="fbox" style="border:6pt solid black ; padding:3pt">
+<a href="uvic.png" target="_blank"
+><img src="uvic.png"
+style="width:173pt; "
+class="inlineimage"
+></a></span></p>
+
+
+</header>
+
+<h1>CheatSheets For Uvic University Courses</h1>
+<nav class="sidetoc">
+
+<div class="sidetoctitle">
+
+<p>Contents</p>
+
+
+</div>
+
+<div class="sidetoccontents">
+
+<p><a href="index.html" class="linkhome"
+>Home</a></p>
+
+
+<p><a href=" Todo-List.html#autosec-10" class="tocchapter"
+><span class="sectionnumber">1</span>&#x2001;Todo List</a></p>
+
+
+<p><a href=" ELEC-320-Tough-Class.html#autosec-12" class="tocchapter"
+><span class="sectionnumber">2</span>&#x2001;ELEC 320: Tough Class</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-43" class="tocchapter"
+><span class="sectionnumber">3</span>&#x2001;CENG242Cheat</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-44" class="tocsection"
+>Basic Graph Definitions</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-47" class="tocsection"
+>Graph traversal</a></p>
+
+
+<p><a href=" CENG242Cheat.html#autosec-50" class="tocsection"
+>Topological sorting</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-52" class="tocchapter"
+><span class="sectionnumber">4</span>&#x2001;ELEC 220 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-54" class="tocsection"
+>Ch.1 DC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-56" class="tocsection"
+>Ch. 2 AC Conduction</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-57" class="tocsection"
+>Ch. 3 DC/AC Dielectrics</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-58" class="tocsection"
+>Ch. 4 AC Dielectrics Cont’d</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-59" class="tocsection"
+>Ch. 8 Schrodinger’s Equation</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-60" class="tocsection"
+>Ch. 12 Free Electron Theory of Metals</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-62" class="tocsection"
+>Ch. 13 Band Theory</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-63" class="tocsection"
+>Ch. 14 Metals and Insulators</a></p>
+
+
+<p><a href=" ELEC-220-CheatSheet.html#autosec-64" class="tocsection"
+>Ch. 15 Semiconductors</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-66" class="tocchapter"
+><span class="sectionnumber">5</span>&#x2001;ELEC 403 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-68" class="tocsection"
+>Ch.2</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-69" class="tocsection"
+>Ch. 4</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-70" class="tocsection"
+>Ch. 5</a></p>
+
+
+<p><a href=" ELEC-403-CheatSheet.html#autosec-71" class="tocsection"
+>Ch. 7</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-73" class="tocchapter"
+><span class="sectionnumber">6</span>&#x2001;ELEC 360 CheatSheet</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-75" class="tocsection"
+>LAPLACE TRANSFORMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-76" class="tocsection"
+>SOLUTION OF LINEAR DIFFERENTIAL EQUATION</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-77" class="tocsection"
+>STATESPACE REPRESENTATIONS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-78" class="tocsection"
+>SECOND ORDER SYSTEMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-79" class="tocsection"
+>ROUTH-HURWITZ STABILITY TEST</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-80" class="tocsection"
+>STEADY STATE ERROR ANALYSIS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-81" class="tocsection"
+>ROOT LOCUS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-82" class="tocsection"
+>BODE DIAGRAMS</a></p>
+
+
+<p><a href=" ELEC-360-CheatSheet.html#autosec-87" class="tocsection"
+>PHASE AND GAIN MARGINS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-89" class="tocchapter"
+><span class="sectionnumber">7</span>&#x2001;ELEC 370 Cheatsheet</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-91" class="tocsection"
+>MAGNETIC CIRCUITS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-92" class="tocsection"
+>TRANSFORMERS</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-96" class="tocsection"
+>DC-MACHINES</a></p>
+
+
+<p><a href=" ELEC-370-Cheatsheet.html#autosec-102" class="tocsection"
+>SYNCHRONOUS MACHINES</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-104" class="tocchapter"
+><span class="sectionnumber">8</span>&#x2001;CENG 355 CheatSheet</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-106" class="tocsection"
+>I/O</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-107" class="tocsection"
+>Interfacing</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-108" class="tocsection"
+>Memory</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-111" class="tocsection"
+>Arithmetic</a></p>
+
+
+<p><a href=" CENG-355-CheatSheet.html#autosec-112" class="tocsection"
+>Concurrency</a></p>
+
+
+<p><a href=" Glossary.html#autosec-114" class="tocchapter"
+><span class="sectionnumber">9</span>&#x2001;Glossary</a></p>
+
+
+<p><a href=" Glossary.html#autosec-116" class="tocchapter"
+>Glossary</a></p>
+
+
+<p><a href=" ELEC-460-Control-Theory-II.html#autosec-119" class="tocchapter"
+><span class="sectionnumber">10</span>&#x2001;ELEC 460: Control Theory II</a></p>
+
+
+</div>
+
+</nav>
+
+<section class="textbody">
+
+<!--Nullify \ensuremath for MathJax:-->
+
+\(\newcommand \ensuremath [1]{#1}\)
+
+<!--Additional customizations for MathJax:-->
+
+<p><h3 id="autosec-119"> <span class="sectionnumber">10&#x2001;</span>ELEC 460: Control Theory II</h3><a id="autopage-119"></a>
+
+<p><b>Necessary and Sufficient Condition for Stability</b><br />
+</p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>1. \(|a_n| &lt; |a_0|\)</p>
+
+</li>
+<li>
+<p>2. \(P(1) &gt; 0\)</p>
+
+</li>
+<li>
+<p>3.</p>
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+<!--
+
+
+                                                                                                    P (−1) > 0 for n even
+                                                                                                           < 0 for n odd
+
+
+-->
+
+<p>
+\begin{align*} P(-1) &amp; &gt; 0 \ \text {for n even } \\ &amp; &lt; 0 \ \text {for n odd} \end{align*}
+</p>
+
+</li>
+<li>
+<p>4. \(b_{n-1}&gt; |b_0|, |c_{n-2}|&gt;|c_0|, \cdots |q_2| &gt; |q_0|\)</p>
+
+</li>
+</ul>
+
+<p><b>Special Case n =2</b><br />
+\(P(z) =a_0z^2+a_1z+a_2\)<br />
+</p>
+<table>
+
+<tr>
+<td class="tdc">\(z^0\)</td>
+<td class="tdc">\(z^1\)</td>
+<td class="tdc">\(z^2\)</td>
+</tr>
+<tr>
+<td class="tdc">\(a_2\)</td>
+<td class="tdc">\(a_1\)</td>
+<td class="tdc">\(a_0\)</td>
+</tr>
+
+</table>
+
+<p><br />
+\(P(z) \neq 0\) for \(|z| \geq 1\) if and only if </p>
+
+
+<ul style="list-style-type:none">
+
+<li>
+<p>1. \(|a_2| &lt; |a_0|\)</p>
+
+</li>
+<li>
+<p>2. \(P(1) &gt; 0\)</p>
+
+</li>
+<li>
+<p>3. \(P(-1) &gt; 0 \quad (n=2)\)</p>
+
+</li>
+</ul>
+
+<p><b>Root Locus</b> presents the poles of the closed loop system when the gain K changes from zero to infinity.</p>
+
+
+<p><b>Construction of the Root Locus</b></p>
+
+
+<p>Open loop transfer function \(\displaystyle \text {KH}\left ( s \right )G\left ( s \right ) = K\frac {B(s)}{A(s)}\)</p>
+
+
+<p>m: the order of the <b>open-loop</b> numerator polynomial.</p>
+
+
+<p>n: the order of the <b>open-loop</b> denominator polynomial. \(q=n-m\)</p>
+
+
+<p><b>Rule 1:</b> number of branches equals the number of poles of the open-loop transfer function</p>
+
+
+<p><b>Rule 2:</b> If the total number of poles and zeros of the open-loop system to the right of the s-point on the real axis is odd, then this point lies on the locus.</p>
+
+
+<p><b>Rule 3:</b> The locus starting point (K=0) are at the open-loop poles and the locus ending points (K=\(\infty \)) are at the open loop zeros and n-m branches terminate at infinity.</p>
+
+
+<p><b>Rule 4 and 5:</b> Slope of asymptotes of root locus as ‘s’ approaches infinity.<br />
+Abscissa of the intersection between asymptotes of root locus and real-axis. </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                     n
+                                                                                                     P               m
+                                                                                                                     P
+                                                                                                           pi −              zi
+                                                                                                                                                      180
+                                                                                                                                                                   where r=1, 3, 5
+                                                                                                     i=1             i=1
+                                                                                               σ=                                     θ = ±r
+                                                                                                                 q                                     q
+                                                                                                                                                                                       A (s)
+                                                                                               f (s) = A (s) + KB (s) = 0                                 and          K=−
+                                                                                                                                                                                       B (s)
+                                                                                                             0                                            0
+                                                                                               dK    A (s) B (s) − A (s) B (s)
+                                                                                                  =−                           =0
+                                                                                               ds             B 2 (s)
+
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; \sigma = {\frac {\sum \limits _{i = 1}^n {{p_i}} - \sum \limits _{i = 1}^m {{z_i}} }{q}} \quad \theta = \pm r{\frac {180}{q}} \quad \text {where r=1, 3, 5} \\ &amp; f\left ( s \right ) = A\left ( s
+\right ) + KB\left ( s \right ) = 0\ \ \ \ and\ \ \ \ K = - \frac {A\left ( s \right )}{B\left ( s \right )} \\ &amp; \frac {\text {dK}}{\text {ds}} = - \frac {A^{’}\left ( s \right )B\left ( s \right ) - A\left ( s \right )B^{’}\left ( s
+\right )}{B^{2}\left ( s \right )} = 0 \\ \end{align*}
+</p>
+
+
+<p><b>Rule 5:</b></p>
+
+
+<p><b>Rule 6:</b> Break-away and break-in points. From the characteristic equation</p>
+
+
+<p>\[f\left ( s \right ) = A\left ( s \right ) + KB\left ( s \right ) = 0\ \ \ \ and\ \ \ \ K = - \frac {A\left ( s \right )}{B\left ( s \right )}\]</p>
+
+
+<p>The break-away and break-in points can be found from</p>
+
+
+<p>\[\frac {\text {dK}}{\text {ds}} = - \frac {A^{’}\left ( s \right )B\left ( s \right ) - A\left ( s \right )B^{’}\left ( s \right )}{B^{2}\left ( s \right )} = 0 \]</p>
+
+
+<p><b>Rule 7:</b> Angle of departure from complex poles or zeros. Subtract from \(180^o\) the sum of all angles from all other zeros and poles of the open-loop system to the complex pole (or zero) with appropriate signs.</p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                                                                                           ∞
+                                                                                                                                                                                           X
+                                                                                    Z-transform: Definition              F (z) = Z[f (t)] − Z[f (kT )] =                                           f (kT )z −k
+                                                                                                                                                                                           k=0
+                                                                                                                                                                                                      1
+                                                                                    e∗ (∞) = lim (1 − z −1 )E(z)                  Kp = lim GH(z),                                  e∗ (∞) =
+                                                                                               z→1                                                z→1                                              1 + Kp
+                                                                                              1                 (1 − z −1 )GH(z)
+                                                                                    e∗ (∞) =    ,      Kv = lim
+                                                                                             Kv             z→1         T
+                                                                                              1                 (1 − z −1 )2 GH(z)
+                                                                                    e∗ (∞) =    ,      Ka = lim
+                                                                                             Ka             z→1         T2
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; \text {Z-transform: Definition} \quad F(z)=Z[f(t)]-Z[f(kT)]=\sum _{k=0}^{\infty }f(kT)z^{-k} \\ &amp; e^\ast (\infty )=\lim _{z \rightarrow 1} (1-z^{-1})E(z) \quad K_p=\lim _{z \rightarrow 1}
+GH(z), \quad e^\ast (\infty ) = \frac {1}{1+K_p} \\ &amp; e^\ast (\infty ) = \frac {1}{K_v}, \quad K_v = \lim _{z \rightarrow 1} \frac {(1-z^{-1}) GH(z)}{T} \\ &amp; e^\ast (\infty ) = \frac {1}{K_a}, \quad K_a =
+\lim _{z \rightarrow 1}\frac {(1-z^{-1})^2 GH(z)}{T^2} \end{align*}
+</p>
+
+
+<p>Linear Factor Rule. For each factor of \(Q\) of the form \((ax+b)^m\), the partial fraction decomposition contains the following sum of \(m\) partial fractions: </p>
+
+
+<p>\[ \frac {A_1}{ax+b} + \frac {A_2}{(ax+b)^2} + \cdots + \frac {A_m}{(ax+b)^m}, \]</p>
+
+
+<p>where the \(A_i\) are constants to be determined.</p>
+
+
+<p>Quadratic Factor Rule. For each factor of \(Q\) of the form \((ax^2+bx+c)^m\), where \(ax^2+bx+c\) is an irreducible quadratic, the following sum of \(m\) partial fractions: </p>
+
+
+<p>\[ \frac {A_1x+B_1}{ax^2+bx+c} + \frac {A_2x+B_2}{(ax^2+bx+c)^2} + \cdots + \frac {A_mx+B_m}{(ax^2+bx+c)^m}, \]</p>
+
+
+<p>where the \(A_i\) and \(B_i\) are constants to be determined.</p>
+
+
+<p>Geometric Sum \(\sum \limits _{k = -N}^{N} {ar^{k - 1} = a\frac {1-r^{N}}{{1 - r}}} \sum _{i=0}^\infty a^i=\frac {1}{1-a}\)</p>
+
+
+<p>\(x(k+2)-\frac {3}{2}x(k+1)+\frac {1}{2}x(k)=u(k), \text (x(0)=1,x(1)=5/2) \)</p>
+
+
+<p>\([z^2X(z)-z^2x(0)-zx(1)]-\frac {3}{2}(zX(z)-zx(0)]+\frac {1}{2}X(z)=\frac {z}{z-1}\)</p>
+
+
+<p><b>Effects of T on Transient Behaviour</b> &#x2001;&#x2001;
+\(s= -\zeta \omega _n \pm j \omega _n \sqrt {1-\zeta ^2}\), &#x2001;&#x2001;
+\(\zeta \): damping ratio &#x2001;&#x2001;
+\(\omega _n\): undamped natural frequency, &#x2001;&#x2001;
+\(\omega _d\): damped natural frequency &#x2001;&#x2001;
+\(z=e^{Ts} \rightarrow z= \exp \left [T(-\zeta \omega _n +j\omega _n \sqrt {1-\zeta ^2})\right ]\), and \(|z|=e^{-T \zeta \omega _n}\), \(\angle z = T \omega _n \sqrt {1-\zeta ^2}= T \omega _d\). \(\uparrow T\) makes
+system less stable (for the same gain K) than \(\downarrow T\). <b>Matrix Inverses for 2x2 and 3x3</b> </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+                                                                                                                                                                       "                       #−1
+                                                                                                                     i−1                                                   a       b       c
+                                                                                                                                1
+                                                                                                       h                                      h                    i
+                                                                                                       a         b                 d                          −b
+                                                                                               A−1   =                       =                                             d       e       f
+                                                                                                       c         d             |A| −c                         a
+                                                                                                                                                                           g       h       i
+                                                                                                                        e        f                   b       c                b       c
+                                                                                                                                                                                           −1
+                                                                                                                     +                        −                        +
+                                                                                                                        h        i                   h       i                e       f   
+                                                                                                                                                                                          
+                                                                                                        1               d        f                   a       c                a       c   
+                                                                                               A−1 =       −                                 +                        −                   
+                                                                                                       |A|              g        i                   g       i                d       f   
+                                                                                                                                                                                          
+                                                                                                                                                                                          
+                                                                                                                         d        e                   a       b                a       b
+                                                                                                                     +                        −                        +
+                                                                                                                         g        h                   g       h                d       e
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; A^{-1} = \begin {bmatrix} a &amp; b \\ c &amp; d \end {bmatrix}^{-1}= \frac {1}{|A|}\begin {bmatrix} d &amp; -b \\ -c &amp; a \end {bmatrix} \ \begin {bmatrix} a &amp; b &amp; c \\ d &amp; e
+&amp; f \\ g &amp; h &amp; i \end {bmatrix}^{-1} \\ &amp; A^{-1} = \frac {1}{|A|}\begin {bmatrix} +\begin {vmatrix} e &amp; f \\ h &amp; i \end {vmatrix} &amp; -\begin {vmatrix} b &amp; c \\ h &amp; i \end
+{vmatrix} &amp; +\begin {vmatrix} b &amp; c \\ e &amp; f \end {vmatrix} \\ &amp; &amp; \\ -\begin {vmatrix} d &amp; f \\ g &amp; i \end {vmatrix} &amp; +\begin {vmatrix} a &amp; c \\ g &amp; i \end {vmatrix}
+&amp; -\begin {vmatrix} a &amp; c \\ d &amp; f \end {vmatrix} \\ &amp; &amp; \\ +\begin {vmatrix} d &amp; e \\ g &amp; h \end {vmatrix} &amp; -\begin {vmatrix} a &amp; b \\ g &amp; h \end {vmatrix} &amp;
++\begin {vmatrix} a &amp; b \\ d &amp; e \end {vmatrix} \end {bmatrix}^{-1} \end{align*}
+</p>
+
+
+<p><b>Bilinear Transform</b> &#x2001;&#x2001;\(s= \frac {2(1-z^{-1})}{T(1+z^{-1})}\), \(z=\cfrac {1+0.5Ts}{1-0.5Ts}\).</p>
+
+
+<p>1. Stability \(\Re [s] &lt; 0\)</p>
+
+
+<p>\(\displaystyle \Re \left (\frac {2}{T} \frac {1-z^{-1}}{1+z^{-1}}\right )= \Re \left (\frac {2}{T}\frac {z-1}{z+1}\right ) &lt; 0\), \(z= \sigma + j \omega \) &#x2001;&#x2001;</p>
+
+
+<p>\(\displaystyle \Re \frac {z-1}{z+1}=\Re \left [\frac {\sigma ^2-1+\omega ^2+2j\omega }{(\sigma +1)^2+\omega ^2}\right ] \rightarrow \sigma ^2-1+\omega ^2 &lt; 0\).</p>
+
+
+<p><b>Solution of inhomogeneous state equations</b> scalar \(\dot {x}=ax+bu \quad \dot {x}-ax=bu\) </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                                                          d −at
+                                                                                                e−at [ẋ(t) − ax(t)] =                       [e x(t)] = e−at bu(t)
+                                                                                                                                          dt
+                                                                                                                                          |                        {z                          }
+                                                                                                                                       integrate \(0 \rightarrow t\)
+                                                                                                                                  Z       t
+                                                                                                e−at x(t) − x(0) =                            e−aτ bu(τ )dτ
+                                                                                                                                      0
+                                                                                                                                                  Z   t
+                                                                                                 → x(t) = eat x(0) + eat                                  e−aτ bu(τ )dτ
+                                                                                                                                                  0
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; e^{-at}[\dot {x}(t)-ax(t)]=\underbrace {\frac {d}{dt}[e^{-at}x(t)]=e^{-at}bu(t)}_{\text {integrate ~$0 \rightarrow t$}} \\ &amp; e^{-at}x(t)-x(0) = \int ^t_0 e^{-a \tau }bu(\tau ) d\tau \\ &amp;
+\rightarrow x(t)=e^{at}x(0)+e^{at}\int _0^te^{-a\tau }bu(\tau )d\tau \end{align*}
+</p>
+
+
+<p>matrix: \(\dot (x)=Ax+bu\), but taking \(\mathcal {L}^{-1}\) leads to &#x2001;&#x2001;
+\(x(t)=e^{At}x(0)+\int _{0}^{t}e^{A(t-\tau )}bu(\tau ) d\tau \)</p>
+
+
+<p><b>Controllable Canonical Form</b> &#x2001;&#x2001;</p>
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                 b0 + b1 z −1 + · · · + bn z −n    b0 z n + b1 z n−1 + · · · + bn
+                                                                       G(z) =                                    = n
+                                                                                   1 + a1 z −1 + · · · + an         z + a1 z n−1 + · · · + an
+                                                                                      (b1 − a1 b0 )z −1 + (b2 − a2 b0 )z −2 + · · · + (bn − an b0 )z −n−1
+                                                                       G(z) = b0 +
+                                                                                                      1 + a1 z −1 + a2 z −2 + · · · + an z −n
+                                                                                                                       
+                                                                                              0        1      0    ···              0
+                                                                                              .                      .
+                                                                                    
+                                                                         x1 (k + 1)         .                           x1 (k)
+                                                                                              .                      .
+                                                                                                                     .   .   .. 
+                                                                              ..     =              ···
+                                                                                                                                ..    +  .  u(k)
+                                                                               .            ..
+                                                                                                                      
+                                                                                                                                            0
+                                                                                              .              ···
+                                                                                                                        
+                                                                        xn (k + 1)                                  1       xn (k)
+                                                                                                                                            1
+                                                                                             −an · · · · · · −a1
+                                                                                                                                       
+                                                                                                                                   x1 (k)
+                                                                                                                                   ..  + b0 u(k)
+                                                                                                                             
+                                                                       y(k) = bn − an b0 ,     bn−1 an−1 b0 ,    b1 − a1 b0
+                                                                                                                                      .
+                                                                                                                                   xn (k)
+                                                                       z→s      zX(z) = Z[x(k + 1)]      sX(s) = L[x(t)]
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; G(z) = \frac {b_0+b_1z^{-1}+ \cdots + b_nz^{-n}}{1+a_1z^{-1}+ \cdots + a_n}= \frac {b_0z^n+b_1z^{n-1}+ \cdots + b_n}{z^n+a_1z^{n-1}+\cdots + a_n} \\ &amp; G(z)= b_0 + \frac
+{(b_1-a_1b_0)z^{-1}+(b_2-a_2b_0)z^{-2}+ \cdots + (b_n-a_nb_0)z^{-n-1}}{1+a_1z^{-1}+a_2z^{-2}+ \cdots + a_nz^{-n}} \\ &amp; \begin {bmatrix} x_1(k+1) \\ \vdots \\ x_n(k+1) \end {bmatrix}= \begin {bmatrix}
+0 &amp; 1 &amp; 0 &amp; \cdots \\ \vdots &amp; \cdots &amp; &amp; \vdots \\ \vdots &amp; &amp; \cdots &amp; 1 \\ -a_n &amp; \cdots &amp; \cdots &amp; -a_1 \end {bmatrix}\begin {bmatrix} x_1(k) \\ \vdots \\
+x_n(k) \end {bmatrix}+\begin {bmatrix} 0 \\ \vdots \\ 0 \\ 1 \end {bmatrix}u(k) \\ &amp; y(k) = \begin {bmatrix} b_n-a_nb_0, &amp; b_{n-1}a_{n-1}b_0, &amp; b_1-a_1b_0 \end {bmatrix} \begin {bmatrix} x_1(k) \\
+\vdots \\ x_n(k) \end {bmatrix} + b_0 u(k) \\ &amp; z \rightarrow s \quad zX(z) = \mathcal {Z}[x(k+1)] \quad sX(s) = \mathcal {L}[x(t)] \end{align*}
+</p>
+
+
+</div>
+
+&#x2001;
+
+&#x2001;
+
+<p><b>Observable Canonical Form</b></p>
+
+
+&#x2001;&#x2001;
+<div class="minipage" style="vertical-align:bottom ; justify-content:flex-start ; ">
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                      0           0         0             −an
+                                                                                                                                  
+                                                                                                                                                   
+                                                                             x˙1                                                  x1      bn − an b0
+                                                                                      1          ···                     −an−1 
+                                                                             ..  =                                              .
+                                                                                                                           ..   ..  + 
+                                                                                                                                               ..      u(k)
+                                                                               .                                                                .
+                                                                                                                            .
+                                                                                     
+                                                                                      0                    ···
+                                                                             x˙n                                                  xn       b1 − a1 b0
+                                                                                      0           0         1             −a1
+                                                                                                                                     
+                                                                                                                                     x1
+                                                                                                                                     ..  + b0 u(k)
+                                                                                                                               
+                                                                            y(k) = 0,      ···         ··· ,        0,        1
+                                                                                                                                      .
+                                                                                                                                     xn
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; \begin {bmatrix} \dot {x_1} \\ \vdots \\ \dot {x_n} \end {bmatrix}= \begin {bmatrix} 0 &amp; 0 &amp; 0 &amp; -a_n \\ 1 &amp; \cdots &amp; &amp; -a_{n-1} \\ 0 &amp; &amp; \cdots &amp;
+\vdots \\ 0 &amp; 0 &amp; 1 &amp; -a_1 \end {bmatrix} \begin {bmatrix} x_1 \\ \vdots \\ x_n \end {bmatrix}+\begin {bmatrix} b_n-a_nb_0 \\ \vdots \\ b_1-a_1b_0 \end {bmatrix}u(k) \\ &amp; y(k) = \begin
+{bmatrix} 0, &amp; \cdots &amp; \cdots , &amp; 0, &amp; 1 \end {bmatrix} \begin {bmatrix} x_1 \\ \vdots \\ x_n \end {bmatrix} + b_0 u(k) \end{align*}
+</p>
+
+
+</div>
+
+&#x2001;
+
+&#x2001;
+
+<p><b>Part-Frac-Expansion Method, Dia Canonical</b> </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                   c1                 cn
+                                                                              G(z) = b0 +               + ··· ··· +
+                                                                                                 z − p1             z − pn
+                                                                                                                                                   
+                                                                                x1 (k + 1)    p1                    0         ···        0      x1 (k) 1
+                                                                                     ..                             ..                         ..    1
+                                                                                      .                              .                    0  .   
+                                                                                           
+                                                                                           =0
+                                                                                                                                                .  +  ..  u(k)
+                                                                              
+                                                                                     ..    .
+                                                                                            .                                ..         .. 
+                                                                                                                                              .        .
+                                                                                       .       .                                .          .       .
+                                                                              
+                                                                                                                                                        1
+                                                                               xn (k + 1)      0                    0         ···        pn     xn (k)
+                                                                                                                     
+                                                                                                                         x1
+                                                                                                                     ..  + b0 u(k)
+                                                                                                               
+                                                                              y(k) = c1          ···       cn
+                                                                                                                          .
+                                                                                                                         xn
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; G(z) = b_0 + \frac {c_1}{z-p_1} + \cdots \ \cdots + \frac {c_n}{z-p_n} \\ &amp; \begin {bmatrix} x_1(k+1) \\ \vdots \\ \vdots \\ x_n(k+1) \end {bmatrix} = \begin {bmatrix} p_1 &amp; 0 &amp;
+\cdots &amp; 0 \\ 0 &amp; \vdots &amp; &amp; 0 \\ \vdots &amp; &amp; \vdots &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; p_n \end {bmatrix}\begin {bmatrix} x_1(k) \\ \vdots \\ \vdots \\ x_n(k) \end {bmatrix} +
+\begin {bmatrix} 1 \\ 1 \\ \vdots \\ 1 \end {bmatrix} u(k) \\ &amp; y(k) = \begin {bmatrix} c_1 &amp; \cdots &amp; c_n \end {bmatrix} \begin {bmatrix} x_1 \\ \vdots \\ x_n \end {bmatrix} + b_0 u(k) \end{align*}
+</p>
+
+
+<p><b>Special Case</b> </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                y (n) + a1 y (n−1) + · · · + an−1 y + an = u ẋ = Ax + bu
+                                                                                                                                                  ..    ..
+                                                                                                                                                                    
+                                                                                                                                                   .     .
+                                                                                        
+                                                                                        x1                          0                1                            0 
+                                                                                         ..                                                                      .. 
+                                                                                                     
+                                                                                                                                                                   . 
+                                                                                                     
+                                                                                          . 
+                                                                                                                0                  0         1
+                                                                                x=                A=
+                                                                                  
+                                                                                          ..                     ..                                   ..          .. 
+                                                                                                                                                                      
+                                                                                                                   .                                         .      . 
+                                                                                                     
+                                                                                           .
+                                                                                                   
+                                                                                                                                                                     
+                                                                                        xn                        0                                               1
+                                                                                                                 −an           −an−1          ···      ···       −a1
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; y^{(n)}+a_1y^{(n-1)}+ \cdots + a_{n-1}y+a_{n}=u \quad \dot {x} = Ax + bu \\ &amp; x = \begin {bmatrix} x_1 \\ \vdots \\ \vdots \\ x_n \end {bmatrix} \quad A = \begin {bmatrix} 0 &amp; 1
+&amp; \vdots &amp; \vdots &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; &amp; \vdots \\ \vdots &amp; &amp; &amp; \ddots &amp; \vdots \\ 0 &amp; &amp; &amp; &amp; 1 \\ -a_n &amp; -a_{n-1} &amp; \cdots &amp; \cdots
+&amp; -a_1 \end {bmatrix} \end{align*}
+</p>
+<div class="minipage" style="justify-content:flex-start ; width:241pt ; ">
+
+<p>\[ b = \begin {bmatrix} 0 \\ 0 \\ \vdots \\ 1 \end {bmatrix} \]</p>
+
+
+</div>
+<div class="minipage" style="justify-content:flex-start ; width:674pt ; ">
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                       c = [1 0 .. 0]    y = cx + du and d = 0
+                                                                                                       Y (s) = [c(sI − A)−1 b + d]U (s)
+                                                                                                       Y (z)
+                                                                                                             = c(zI − A)−1 b + d
+                                                                                                       U (z)
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; c = [1 \ 0 \ .. \ 0] \ \quad y =cx+du \ \text {and} \ d=0 \\ &amp; Y(s) = [c(sI-A)^{-1}b+d]U(s) \quad \\ &amp; \frac {Y(z)}{U(z)} = c(zI-A)^{-1}b+d \end{align*}
+</p>
+
+
+</div>
+
+<p><b>Deadbeat Controller and Deadbeat Response</b> </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                            x(k + 1) = Gx(k) + Hu(k) u(k) = −Kx(k)
+                                                                                            x(k + 1) = (G − HK)x(k) x(k) = (G − HK)k x(0)
+                                                                                            x(k) = (G − HK)k x(0) x(k) = 0           (f or)k ≥       q(q ≤ n)
+                                                                                            det(zI − G + HK) = z n         N n = 0, N is nilpotent matrix.
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; x(k+1)=Gx(k)+Hu(k) \quad u(k)=-Kx(k) \\ &amp; x(k+1)=(G-HK)x(k) \quad x(k)=(G-HK)^kx(0) \\ &amp; x(k) = (G-HK)^kx(0) \quad x(k) =0 \quad \text (for) k \geq \quad q (q \leq n) \\ &amp;
+\det (zI-G+HK)=z^n \quad N^n =0, \text {N is nilpotent matrix.} \end{align*}
+</p>
+
+
+<p><b>Controllability</b> A system is controllable, if and only if, it is possible to transfer the system state from any arbitrary initial state x(0) to the origin in finite time. initial state x(0) \(\rightarrow \) desired state:
+x(n)=0.<b>Controllability condition for SI continuous systems:</b> \(\det C = \det [b, \ \ Ab, \ \, \cdots , A^{n-1}b] \neq 0\).</p>
+
+
+<p><b>Observability</b> A system is observable if any initial state x(0) can be determined from a finite number of output observations. \(\det O_c = \det \begin {bmatrix} c \\ cA \\ \vdots \\ cA^{n-1} \end {bmatrix} \neq
+0\).</p>
+
+
+<p><b>Continuous State Transition Matrix:</b> \(\phi (t)\), \(\phi (t)=e^{At}= \mathcal {L}^{-1}[(sI-A)^{-1}]\), then \(\dot {\phi }(t)=A\phi (t) \quad \phi (0)=I\), \(\dot (x)=Ax\)</p>
+
+
+<p>Verification: \(x(t)=\phi (0)x(0)=Ix(0)\) \(\dot {x}(t)=\dot {\phi }(t)x(0)=A\phi (t)x(0)=Ax(t)\).</p>
+
+
+<p>Properties of \(\phi (t)\): </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                          1) φ(0) = eA0 = I
+                                                                                          2) φ(t) = eAt = (e(−At) )−1 = [φ(−t)]−1
+                                                                                          3) φ(t1 + t2 ) = φ(t1 )φ(t2 ) = φ(t2 )φ(t1 )
+                                                                                          4) [φ(t)]n = φ(nt)
+                                                                                          5)φ(t0 − t1 )φ(t1 − t2 ) = φ(t0 − t2 ) = φ(−t1 + t0 )φ(−t2 + t1 )
+                                                                                          eA(t0 −t1 ) eA(t1 −t2 ) = eA(t0 −t2 ) = e−A(t1 −t0 ) e−A(t2 −t1 )
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; 1) \ \ \phi (0)=e^{A0}=I \\ &amp; 2) \ \ \phi (t) = e^{At} = (e^{(-At)})^{-1}=[\phi (-t)]^{-1} \\ &amp; 3) \ \ \phi (t_1+t_2)=\phi (t_1)\phi (t_2)=\phi (t_2)\phi (t_1) \\ &amp; 4) \ \ [\phi (t)]^n
+= \phi (nt) \\ &amp; 5) \phi (t_0-t_1)\phi (t_1-t_2)=\phi (t_0-t_2)=\phi (-t_1+t_0)\phi (-t_2+t_1) \\ &amp; e^{A(t_0-t_1)}e^{A(t_1-t_2)} = e^{A(t_0-t_2)}=e^{-A(t_1-t_0)}e^{-A(t_2-t_1)} \end{align*}
+</p>
+
+
+<p><b>BIBO Stability</b> Output is bounded for any bounded input. CTS systems : Poles in left half plane, Discrete Systems: poles inside unit circle.</p>
+
+
+<p><b>INTERNAL ( Also asymptotic stability)</b> Def: Equilibrium state: Continuous systems: Assume u(t) = 0; \(\dot {x}_e=0=Ax_e+bu \rightarrow x_e=0\) &#x2001;&#x2001;
+Discrete systems: Assume u(k) = 0; \(x_e(k+1)=0=x_e(k)+Gx_e(k) \rightarrow x_e=0\) &#x2001;&#x2001;
+<b>Def:</b> A system is asymptotically stable if any initial condition x(0) converges to the equilibrium state \(x_e=0\). (It is assumed \(u(t) = 0,t \leq 0\) or \(u(k)=0, k\geq 0\))</p>
+
+
+<p><b>Condition for asymptotic stability</b>: &#x2001;&#x2001;
+CTS \(\Re [\lambda _i\{A\}]&lt;0\) &#x2001;&#x2001;
+Discrete \(|\lambda _i \{G\}|\) , all eigenvalues in unit circle</p>
+
+
+<p>\(\text {BIBO Stability} \rightarrow \text {Asymptotic Stability (AS)}\) &#x2001;&#x2001;
+BIBO Stability &amp; no pole zero cancellation \(\rightarrow \) AS &#x2001;&#x2001;
+Eigenvalues of A are the solutions of \(\det (I\lambda -A) = 0\), &#x2001;&#x2001;
+Poles of G(z) are the zeros of denominator poly. \(G(z)=d+c(zI-A)^{-1}b\) where \((zI-A)^{-1}=\frac {\text {adj}(zI-A)}{\text {det}(zI-A)}\) C: nonsingular if system controllable. If the system is controllable, any closed-loop
+poles can be obtained,</p>
+
+
+<p><b>Feed-forward observers</b> State Observer: \(\tilde {X}(k+1)=G\tilde {x}(k)+Hu(k)\) \(\tilde {y}(k)=c \tilde {x}(k)\), Observed state: \(\tilde {x}(k)\), Observation error: \(e(k)=x(k)-\tilde {x}(k)\), \(e(k+1)=Ge(k)\),
+Dynamics of error depend on G &#x2001;&#x2001;
+<b>Prediction (full order) observer</b> where the estimate \(\bar {x}(k+1)\) is obtained based on measurements of up to y(k). </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                   x̄(k + 1) = Gx̄(k) + Hu(k) + ke [y(k) − ȳ(k)]
+                                                                                                   x̄(k + 1) = [G − ke c]x̃(k) + Hu(k) + ke cx(k)
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; \bar {x}(k+1)=G\bar {x}(k)+Hu(k)+k_e[y(k)-\bar {y}(k)] \\ &amp; \bar {x}(k+1)=[G-k_e c] \tilde {x}(k)+Hu(k)+k_ecx(k) \end{align*}
+</p>
+
+
+<p>\(k_e\) for this observer can be obtained using \(k_e=O^{-1}\bar {A}^{-1}(\alpha -a)^T\), where &#x2001;&#x2001;
+\(\tilde {A}=\begin {bmatrix} 1 &amp; 0 \cdots &amp; \cdots &amp; 0 \\ a_1 &amp; 1 &amp; &amp; \\ \vdots &amp; a_1 &amp; . &amp; \\ \vdots &amp; . &amp; . &amp; \\ a_{n-1} &amp; a_{n-2} &amp; \cdots &amp;
+a_1 &amp; 1 \end {bmatrix}\), &#x2001;&#x2001;
+lower triangular Toeplitz matrix, A square matrix that is not singular, i.e., one that has a matrix inverse. <b>Current observer</b> where the estimate is obtained based on measurements up to \(y(k+1)\). </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                              x̃(k + 1) = Gx̃(k) + Hu(k) + Ke [y(k + 1) − cx̃(k + 1)]
+                                                                                              z̄(k + 1) = cx̄(k + 1)
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; \tilde {x}(k+1)=G\tilde {x}(k)+Hu(k)+K_e[y(k+1)-c\tilde {x}(k+1)] \\ &amp; \bar {z}(k+1)=c\bar {x}(k+1) \end{align*}
+</p>
+
+
+<p><b>ASYMPTOTIC OBSERVERS 4 CTS SYS</b> </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+
+                                                                                                         ẋ(t) = Ax(t) + bu(t) x(0−) = x0
+                                                                                                         y(t) = cx(t)    t > 0−
+                                                                                                         Ox(0−) = [y(0−), · · · y n−1 (0−)]
+
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; \dot {x}(t) = A x(t)+bu(t) \quad x(0-)=x_0 \\ &amp; y(t) = cx(t) \quad t &gt; 0- \\ &amp; O x(0-) = [y(0-), \ \cdots \ y^{n-1}(0-)] \end{align*}
+</p>
+
+
+<p><b>Open-loop Observer</b> Use (\(\{A,B,c\}\), \(\{u(t), t&gt; 0\}\), and \(x_0\)) \(\rightarrow \{x(t),t&gt;0-\}\),</p>
+
+
+<p>Effects of disturbance \(\epsilon \): \(\tilde {x}_0=x_0-\epsilon \), \(|\epsilon | \ll |x_0|\), \(\tilde {\dot {x}}(t)=A \tilde {x}(t)+bu(t)\), \(\tilde {x}(0-)=\tilde {x}_0=x_0-\epsilon \), \(\dot {e}(t)=Ae(t)\),
+\(e(0-)=\epsilon \), A is unstable \(e(t) \rightarrow \infty \)</p>
+
+
+<p><b>Closed-loop observer:</b> Output Error: \(y(t)-\tilde {y}(t)=y(t)-c\tilde {x}(t)=c[x(t)-\tilde {x}(t=ce(t)\), Observer \(\tilde {x}(t)=A \tilde {x}(t)+bu(t)+l[y(t)-c\tilde {x}(t)\), \(\tilde {x}(t_o)=\tilde {x}_o\) \(\tilde
+{x}_o\) an estimated initial state vector \(l\): feedback gain vector. <b>Observer design:</b> \(l=O^{-1}\tilde {A}^{-1}(\alpha -a)^T\) &#x2001;&#x2001;
+<b>1. Pole Placement CTS</b>       </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+                                                                                                 ẋ(t) = Ax(t) + bu(t)     y(t) = cx(t)
+                                                                                                 a(s) = det(sI − A) = sn + a − 1sn−1 + · · · + an
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; \dot {x}(t)=Ax(t)+bu(t) \quad y(t)=cx(t) \\ &amp; a(s) = \det (sI-A)=s^n+a-1s^{n-1}+ \cdots + a_n \end{align*}
+</p>
+
+
+<p>Find a feedback gain vector K so that the characteristic polynomial of the resulting closed-loop system is given by the polynomial: </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+                                                                                             α(s) = sn + α1 sn−1 + · · · + αn       u(t) = hr(t) − Kx(t)
+                                                                                             ẋ(t) = (A − bK)x(t) + bhr(t) y = cx(t)
+                                                                                             α − a = KC ÃT       K = (α − a)Ã−T C −1
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; \alpha (s) =s^n+\alpha _1s^{n-1}+ \cdots + \alpha _n \quad u(t) =hr(t)- Kx(t) \\ &amp; \dot {x}(t) = (A-bK)x(t)+b h r(t) \quad y=cx(t) \\ &amp; \alpha - a = K C \tilde {A}^T \quad K =(\alpha
+-a)\tilde {A}^{-T} C^{-1} \end{align*}
+</p>
+
+
+<p>
+<a href="poleplacementPic.png" target="_blank"
+><img src="poleplacementPic.png"
+style="width:434pt; "
+class="inlineimage"
+></a> <b>2. Tracking a Reference Signal</b>
+<a href="trackingRefSig.png" target="_blank"
+><img src="trackingRefSig.png"
+style="width:434pt; "
+class="inlineimage"
+></a> <b>Tracking</b>: y(t) should follow r(t) at steady state(ss) i.e, y(k) follows r(k) at ss. Find \(h\) in \(u(k)=hr(k) -Kx(k)\) for tracking. ss \(x(k+1)=x(k)\) </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+
+                                                                                                    ẋ(t) = Ax + bu = x(t) ↓
+                                                                                                    x(t) = (A − bK)x(t) + bhr(t)
+                                                                                                    y(t) = c(I − G + HK)−1 Hr(t)          y(t) = r(t)
+                                                                                                            −1
+                                                                                                    h=
+                                                                                                       c(A − bK)−1 b
+
+-->
+
+
+<p>
+\begin{align*} &amp; \dot {x}(t)=Ax+bu=x(t) \downarrow \\ &amp; x(t)=(A-bK)x(t)+bhr(t) \\ &amp; y(t)= c(I-G+HK)^{-1}Hr(t) \quad y(t)=r(t) \\ &amp; h = \frac {-1}{c(A-bK)^{-1}b} \end{align*}
+</p>
+
+
+<p>Estimation of unmeasurable state variables is commonly called observation. \(G(s)=C(sI-A)^{-1}B\), \(\Delta (\lambda )= (\lambda ^2+2\zeta \omega _n+ \omega _n^2)(\lambda + \zeta \omega _n)\) &#x2001;&#x2001;
+Overdamped \(\zeta &gt; 1\), Critically Damped \(\zeta =1\), Underdamped(oscillations) \(0&lt; \zeta &lt; 1\) \(\zeta = \frac {-\ln (\% OS /100)}{\sqrt {\pi ^2 + \ln ^2(\% OS /100)}}\) \(t_{s} = \frac {4}{\sigma } = \frac
+{4}{\zeta \omega _{n}}\ \left ( 2\%\ band \right )\), \(t_{s} = \frac {3}{\sigma } = \frac {3}{\zeta \omega _{n}}\ \left ( 5\%\ band \right )\), <b>Discretization of CTS-Time State Equations:</b>
+<a href="dis2CTS.png" target="_blank"
+><img src="dis2CTS.png"
+style="width:434pt; "
+class="inlineimage"
+></a> </p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+                                                                                                                                               Z     T
+                                                                                           ẋ = Ax + bu     G(T ) = eAT = φ(T ) H(T ) = (                eAT dt)b
+                                                                                                                                                 0
+
+-->
+
+
+<p>
+\begin{align*} &amp; \dot {x}=Ax+bu \quad G(T)=e^{AT}= \phi (T) \ H(T) = (\int _0^T e^{AT} \ dt)b \end{align*}
+</p>
+
+
+<p><b>3. Integral Error Feedback Discrete</b> \(x(k+1)=Gx(k)+Hu(k)+w(k) \quad y(k)=c(k)x(k) \) w(k) is unknown but constant disturbance.</p>
+
+
+<p>Problem: Design a state-feedback controller so that 1) The CL eigenvalues are at prescribed locations.</p>
+
+
+<p>2) The output y(k) follows the reference r(k) for any w(k) (constant, but unknown) at steady state.</p>
+
+
+<p>\(\begin {bmatrix} x(k+1) \\ q(k+1)\end {bmatrix} = \begin {bmatrix}G &amp; 0 \\ -T_c &amp; 1\end {bmatrix}\begin {bmatrix}x(k) \\ q(k)\end {bmatrix}+ \begin {bmatrix}H \\ 0\end {bmatrix}u(k)+\begin
+{bmatrix} 0 \\ T\end {bmatrix}r(k)+\begin {bmatrix}w(k) \\ 0\end {bmatrix} \ \q(k+1)=q(k)+T(r(k)-y(k)) \)</p>
+
+
+<p>Find \(K = [K_x, K_q]\),\(K=(\alpha -a)\tilde {A}^{-T}C^{-1}\),</p>
+
+
+<p>\(\begin {bmatrix} x(k+1) \\ q(k+1)\end {bmatrix} = \begin {bmatrix}G-HK_x &amp; -HK_q \\ -T_c &amp; 1\end {bmatrix}\begin {bmatrix}x(k) \\ q(k)\end {bmatrix}+ \begin {bmatrix}0 \\ T\end
+{bmatrix}u(k)+\begin {bmatrix} 0 \\ T\end {bmatrix}r(k)+\begin {bmatrix}w(k) \\ 0\end {bmatrix}\) \(u(k)=-[K_x, K_q]\begin {bmatrix} x(k) \\ q(k) \end {bmatrix}\)</p>
+
+
+<p>
+<a href="DiscreteIntegralTracking.png" target="_blank"
+><img src="DiscreteIntegralTracking.png"
+style="width:434pt; "
+class="inlineimage"
+></a> <b>3. Integral Error Feedback CTS</b></p>
+
+
+<p>\(\begin {bmatrix} x(k+1) \\ q(k+1)\end {bmatrix} = \begin {bmatrix}A &amp; 0 \\ -c &amp; 1\end {bmatrix}\begin {bmatrix}x(k) \\ q(k)\end {bmatrix}+ \begin {bmatrix}b \\ 0\end {bmatrix}u(k)+\begin {bmatrix} 0
+\\ 1\end {bmatrix}r(k)+\begin {bmatrix}w(k) \\ 0\end {bmatrix} \ \q(k)=(r(k)-y(k)) \)
+<a href="CTSIntegralTracking.png" target="_blank"
+><img src="CTSIntegralTracking.png"
+style="width:434pt; "
+class="inlineimage"
+></a> <b>Combined Observer-Controller</b></p>
+
+
+<p>Observer feedback: \(l(y(t)-c\tilde {x}(t))\),</p>
+
+
+<p>Feedback control signal \(u(t)=-K\tilde {x}(t)+v(t)\) &#x2001;&#x2001;
+Observation error: \(\dot {e}(t)=(A-lc)e(t)\) \(\det \begin {bmatrix}sI-A &amp; bK \\ -lc &amp; sI-A+lc+bK \end {bmatrix} \\ =\det (sI-A+bk)\det (sI-A+lc)\) \(\begin {bmatrix} \dot {x}(t) \\ \dot {\tilde {x}}(t) \end
+{bmatrix}= \begin {bmatrix} A &amp; -bK \\ lc &amp; A-lc-bK \end {bmatrix}\begin {bmatrix} x(t) \\ {\tilde {x}}(t) \end {bmatrix}+ \begin {bmatrix} b \\ b \end {bmatrix} v(t) \quad \begin {bmatrix} x(t_0) \\ \tilde
+{x}(t_0) \end {bmatrix}= \begin {bmatrix} x_0 \\ \tilde {x}_0 \end {bmatrix} \) Quad Form: \(ax^2+bx+c=0 \quad x= \frac {-b \pm \sqrt {b^2-4ac}}{2a}\), Steady-state error is defined as the difference between the input
+(command) and the output of a system in the limit as time goes to infinity. \(x_1(1)=x_2(0)\).
+<a href="fullEstimateobs.png" target="_blank"
+><img src="fullEstimateobs.png"
+style="width:434pt; "
+class="inlineimage"
+></a>
+<a href="keFeedback.png" target="_blank"
+><img src="keFeedback.png"
+style="width:434pt; "
+class="inlineimage"
+></a>
+<a href="whyNot.png" target="_blank"
+><img src="whyNot.png"
+style="width:434pt; "
+class="inlineimage"
+></a>
+<a href="full-state-obs.png" target="_blank"
+><img src="full-state-obs.png"
+style="width:434pt; "
+class="inlineimage"
+></a>
+<a href="min-order-observer.png" target="_blank"
+><img src="min-order-observer.png"
+style="width:434pt; "
+class="inlineimage"
+></a></p>
+<h5 id="autosec-125"> Stability Test for Digital Systems</h5><a id="autopage-125"></a>
+
+<p><b>Jury-Marden Table Uses function P of z</b><br />
+</p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+                                                                                                      h                     i
+                                                                                                          an     an−1−k
+                                                                                           bk = det
+                                                                                                          a0      ak+1
+                                                                                           k = 0, 1, · · · n − 1
+                                                                                                      h                         i
+                                                                                                          bn−1     bn−2−k
+                                                                                           ck = det
+                                                                                                           b0       bk+1
+                                                                                           k = 0, 1, · · · n − 1
+                                                                                                      h                 i
+                                                                                                          p3     p2−k
+                                                                                           qk = det
+                                                                                                          p0     pk+1
+                                                                                           k = 0, 1, 2
+
+
+-->
+
+
+<p>
+\begin{align*} &amp; b_k = \det \begin {bmatrix} a_n &amp; a_{n-1-k} \\ a_0 &amp; a_{k+1} \end {bmatrix} \\ &amp; k = 0,1, \cdots n-1 \\ &amp; c_k = \det \begin {bmatrix} b_{n-1} &amp; b_{n-2-k} \\ b_0 &amp;
+b_{k+1} \end {bmatrix} \\ &amp; k = 0,1, \cdots n-1 \\ &amp; q_k = \det \begin {bmatrix} p_{3} &amp; p_{2-k} \\ p_0 &amp; p_{k+1} \end {bmatrix} \\ &amp; k =0,1,2 \end{align*}
+</p>
+<table>
+
+<tr>
+<td class="tdl tdrule">Row</td>
+<td class="tdl tdrule">\(z^0\)</td>
+<td class="tdl tdrule">\(z^1\)</td>
+<td class="tdl tdrule">\(z^2\)</td>
+<td class="tdl tdrule"></td>
+<td class="tdl">\(z^{n-2}\)</td>
+<td class="tdl">\(z^{n-1}\)</td>
+<td class="tdl">\(z^n\)</td>
+</tr>
+<tr>
+<td class="tdl">1</td>
+<td class="tdl">\(a_n\)</td>
+<td class="tdl">\(a_{n-1}\)</td>
+<td class="tdl">\(a_{n-2}\)</td>
+<td class="tdl">\(\cdots \)</td>
+<td class="tdl">\(a_2\)</td>
+<td class="tdl">\(a_1\)</td>
+<td class="tdl">\(a_0\)</td>
+</tr>
+<tr>
+<td class="tdl">2</td>
+<td class="tdl">\(a_0\)</td>
+<td class="tdl">\(a_1\)</td>
+<td class="tdl">\(a_2\)</td>
+<td class="tdl">\(\cdots \)</td>
+<td class="tdl">\(a_{n-2}\)</td>
+<td class="tdl">\(a_{n-1}\)</td>
+<td class="tdl">\(a_n\)</td>
+</tr>
+<tr>
+<td class="tdl">3</td>
+<td class="tdl">\(b_{n-1}\)</td>
+<td class="tdl">\(b_{n-2}\)</td>
+<td class="tdl">\(b_{n-3}\)</td>
+<td class="tdl">\(\cdots \)</td>
+<td class="tdl">\(b_1\)</td>
+<td class="tdl">\(b_0\)</td>
+<td class="tdl"></td>
+</tr>
+<tr>
+<td class="tdl">4</td>
+<td class="tdl">\(b_0\)</td>
+<td class="tdl">\(b_1\)</td>
+<td class="tdl">\(b_2\)</td>
+<td class="tdl">\(\cdots \)</td>
+<td class="tdl">\(b_{n-2}\)</td>
+<td class="tdl">\(b_{n-1}\)</td>
+<td class="tdl"></td>
+</tr>
+<tr>
+<td class="tdl">5</td>
+<td class="tdl">\(c_{n-2}\)</td>
+<td class="tdl">\(c_{n-3}\)</td>
+<td class="tdl">\(c_{n-4}\)</td>
+<td class="tdl">\(\cdots \)</td>
+<td class="tdl">\(c_0\)</td>
+<td class="tdl"></td>
+<td class="tdl"></td>
+</tr>
+<tr>
+<td class="tdl">6</td>
+<td class="tdl">\(c_0\)</td>
+<td class="tdl">\(c_1\)</td>
+<td class="tdl">\(c_2\)</td>
+<td class="tdl">\(\cdots \)</td>
+<td class="tdl">\(c_{n-2}\)</td>
+<td class="tdl"></td>
+<td class="tdl"></td>
+</tr>
+<tr>
+<td class="tdl">2n-5</td>
+<td class="tdl">\(p_3\)</td>
+<td class="tdl">\(p_2\)</td>
+<td class="tdl">\(p_1\)</td>
+<td class="tdl">\(p_0\)</td>
+<td class="tdl"></td>
+<td class="tdl"></td>
+<td class="tdl"></td>
+</tr>
+<tr>
+<td class="tdl">2n-4</td>
+<td class="tdl">\(p_0\)</td>
+<td class="tdl">\(p_1\)</td>
+<td class="tdl">\(p_2\)</td>
+<td class="tdl">\(p_3\)</td>
+<td class="tdl"></td>
+<td class="tdl"></td>
+<td class="tdl"></td>
+</tr>
+<tr>
+<td class="tdl">2n-3</td>
+<td class="tdl">\(q_2\)</td>
+<td class="tdl">\(q_1\)</td>
+<td class="tdl">\(q_0\)</td>
+<td class="tdl"></td>
+<td class="tdl"></td>
+<td class="tdl"></td>
+<td class="tdl"></td>
+</tr>
+
+</table>
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+                                                                                                                                        A(z)
+                                                                            P (z) = a0 z n + a1 z n−1 + · · · + an−1 z + an    G(z) =
+                                                                                                                                        P (z)
+                                                                            Stability Condition: P (z) 6= 0 |z| ≥ 1 (Draw Unit Circle to test stability)
+                                                                                                                           z+1          s+1
+                                                                            Routh-Stability in Digital Domain: s =                z=
+                                                                                                                           z−1          s−1
+
+-->
+
+
+<p>
+\begin{align*} &amp; P(z) = a_0z^n+a_1z^{n-1} + \cdots + a_{n-1}z+a_n \quad G(z)= \frac {A(z)}{P(z)} \\ &amp; \text {Stability Condition:} \quad P(z) \neq 0 \quad |z| \geq 1 \quad (\text {Draw Unit Circle to test
+stability})\\ &amp; \text {Routh-Stability in Digital Domain: } s = \frac {z+1}{z-1} \quad z=\frac {s+1}{s-1} \end{align*}
+</p>
+
+
+<p><span class="hidden"> \( \seteqsection {10} \) </span> </p>
+
+
+
+<!--
+
+                                                                                        
