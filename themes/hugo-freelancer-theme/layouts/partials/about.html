@@ -25,7 +25,9 @@
 			<div class="panel panel-success">
 				<div class="panel-heading"><i class="fa fa-{{ with .Site.Params.about.interests.icon }}{{.}}{{end}}"></i>    {{ with .Site.Params.about.interests.interestTitle }}{{ . }}{{ end }}
 				</div>
+				<div class="col-lg-6">
 				<div class="panel-body">
+					<h6>{{ with .Site.Params.about.interests.listTitle }}{{ . }}{{ end }}</h6>
 					<div class="list-group">
 					 {{ with .Site.Params.about.interests.list }}
 						{{ range $i, $e := $.Site.Params.about.interests.list }}
@@ -35,7 +37,23 @@
 						{{ end }}
 					{{ end }}
 					</div>
+					<h6>{{ with .Site.Params.about.interests.programmingTitle }}{{ . }}{{ end }}</h6>
+					<div class="list-group">
+					 {{ with .Site.Params.about.interests.programmingList }}
+						{{ range $i, $e := $.Site.Params.about.interests.programmingList  }}
+						<a href="#" class="list-group-item">
+						{{ $e }}
+						</a>
+						{{ end }}
+					{{ end }}
+					</div>
 				</div>
+				</div>
+				<div class="col-lg-6">
+				<!-- <div class="panel-footer" style="background: #18bc9c;">-->
+				<iframe  allowtransparency="true" style="background: #18bc9c;" src="{{ with .Site.Params.about.interests.chatbotURL }}{{.}}{{ end }}" height="650"> </iframe>
+				<!-- </div> -->
+				</div> 
 			</div>
 		</div>
     </div>

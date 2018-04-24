@@ -64,11 +64,24 @@ theme = "hugo-freelancer-theme"
         right = "I am a student looking to showcase my work."
 		# Interesting facts about myself
 		[params.about.interests]
-			interestTitle = "Interesting Facts"
+			interestTitle = "Interesting Facts About Myself and Areas of Interest."
 			icon     = "fas fa-thumbs-up"
+			listTitle = "Areas of Interest"
 			list = ["Machine Learning Algorithms (in particular foundational math)",
 					"Blockchain technologies",
-					"Good at math, decent at exams and like reading manga."]
+					"Web Development",
+					"Data Analysis"]
+			programmingTitle = "List of Programming Languages"
+			programmingList = [
+					   "Python",
+					   "C# C and C++",
+					   "Java",
+					   "LaTeX",
+					   "HTML",
+					   "Matlab",
+					   "JavaScript"]
+			# Input the chat bot url containing information about myself
+			chatbotURL = "chatbot/"
 
 						
         [params.about.button]
