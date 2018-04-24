@@ -1,8 +1,0 @@
-opsystem = "Windows"
-latexname = "lualatex"
-sourcename = "Cheatsheets"
-homehtmlfilename = "index"
-htmlfilename = ""
-latexmk = "true"
-language = "english"
-xdyfile = "lwarp.xdy"
