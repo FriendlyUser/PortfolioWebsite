@@ -1,0 +1,275 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% LaTeX Template
+% Version 1.3 (29/10/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Xavier Danaux (xdanaux@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the moderncv.cls and .sty files to be in the same 
+% directory as this .tex file. These files provide the resume style and themes 
+% used for structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvstyle{banking} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{purple} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+%\moderncvstyle{banking}
+%\moderncvcolor{purple} 
+
+
+% Customization
+\usepackage{fontawesome}
+\definecolor{purpleColour}{rgb}{0.50,0.33,0.80}% purple
+
+\usepackage{moderntimeline/moderntimeline}
+
+% Set the scale.
+% I go up to 2013 otherwise some late dates overflow on the entry
+\tlmaxdates{2014}{2020}
+% Set the line width.
+% This automatically sets the space under the top label to be 1pt more
+\tlwidth{0.8ex}
+% Set the labels text size
+\tltext{\tiny}
+\tlrunningcolor{purpleColour}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage[scale=0.75]{geometry} % Reduce document margins
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{David} % Your first name
+\familyname{Li} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Resume/CV}
+\address{431 Montcalm}{Victoria, BC}
+%\mobile{}%(000) 111 1111}
+\phone{250-479-6036}
+%\fax{(000) 111 1113}
+\email{studentdavidli@gmail.com}
+%\homepage{https://davidliprojects.netlify.com/}{davidliprojects.netlify.com} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
+\extrainfo{
+\faHome \ \href{https://davidliprojects.netlify.com/}{davidliprojects.netlify.com} \ \ \ \
+\faGithub \ \href{https://github.com/FriendlyUser}{\sffamily github.com/FriendlyUser}
+}
+%\photo[70pt][0.4pt]{pictures/picture} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{"A witty and playful quotation" - John Smith}
+
+%----------------------------------------------------------------------------------------
+% custom commands
+%\newcommand{\companyName}{Generic Company}%Change after every single posting
+%\newcommand{\positionName}{Poor University Student }%Change after every single posting
+
+\newcommand{\companyName}{Tutela Technologies}%Change after every single posting
+\newcommand{\positionName}{Software Developer }%Change after every single posting
+% https://tex.stackexchange.com/questions/1492/passing-parameters-to-a-document
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	COVER LETTER
+%----------------------------------------------------------------------------------------
+
+% To remove the cover letter, comment out this entire block
+
+\clearpage
+
+%\recipient{HR Department}{Corporation\\123 Pleasant Lane\\12345 City, State} % Letter recipient
+\recipient{HR Department}{\companyName}
+\date{\today} % Letter date
+%\opening{Dear Sir or Madam,} % Opening greeting
+\opening{Dear Co-op Recruiter,}
+\closing{Sincerely yours, } % Closing phrase
+%\enclosure[Attached]{curriculum vit\ae{}} % List of enclosed documents
+\enclosure[Attached]{Cover Letter, Resume and Unofficial academic transcript}
+
+\makelettertitle %\hfill % Print letter title
+%\makecvtitle % Print the CV title
+I would like to express my interest in the \positionName Coop position for \companyName. As a self-directed student working towards a Computer Engineering degree, skilled at programming, writing automatic test cases. working with APIs, and comfortable with SQL, I believe I am a strong candidate. I want to work in a dynamic environment that allows me to develop and grow. I learned about this opportunity through Learning and Motion. Also, I am available for 4 months or possibly 8 months. 
+ \hfill \break \\
+
+During my first two coop terms at the Ministry of Transportation: Information Management Branch, my responsibilities included writing scripts to automatic tedious tasks, debugging web application when customers raised bugs/issues in JIRA, wrote queries for data visualization in dashboards and used common agile tools JIRA and Confluence to create documentation and issue tracking. My third coop term at Membran Entertainment Canada I developed websites using react, expanded my knowledge of front-end development, created a REST API with CRUD operations for a postgres database, and researching blockchain technologies such as Ethereum and Hyperledger Composer. \hfill \break  \\
+
+My problem solving skills are exceptional because I am detail-oriented. My communication skills have greatly developed both through my degree and as I mature. Furthermore, my research and technical writing skills continue to advance. I have worked in large groups collaboratively to meet tight deadlines in my academic courses. Furthermore, I can create and meet deadlines by carefully planning, establishing priorities and allocating resources. I am a fast learner since I can easily adapt to changing technologies and processes. I look forward to hearing from you.
+
+
+%\lipsum[1-2] % Dummy text
+%\lipsum[4] % Dummy text
+
+\makeletterclosing % Print letter signature
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	CURRICULUM VITAE
+%----------------------------------------------------------------------------------------
+
+\makecvtitle % Print the CV title
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{Experience}
+%\subsection{IT Experience}
+
+
+\section{Education}
+
+%\cventry{2011--2012}{Masters of Commerce}{The University of California}{Berkeley}{\textit{GPA -- 8.0}}{First Class Honours}  % Arguments not required can be left empty
+\tllabelcventry[purpleColour]{2014/9}{2019/9}{September 2014 --- August 2019}{Bachelor of Computer Engineering}{The University of Victoria}{Victoria}{\textit{GPA -- 6.81}}{Planning to Specialize in Computational Intelligence}
+
+%\section{Masters Thesis}
+
+%\cvitem{Title}{\emph{Money Is The Root Of All Evil -- Or Is It?}}
+%\cvitem{Supervisors}{Professor James Smith \& Associate Professor Jane Smith}
+%\cvitem{Description}{This thesis explored the idea that money has been the cause of untold anguish and suffering in the world. I found that it has, in fact, not.}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Experience}
+\tlcventry[purpleColour]{2018/5}{2018/9}{Decentralized Application Developer}{\href{http://membranlabs.com/}{Membran Entertainment Canada}}{Victoria}{May 2018 --- August 2018}
+{ENGR 003
+\begin{itemize}
+ \item developed a RESTful API using Node.js, Postgres and worked software tools with Insomnia and cURL.
+ \item generated automatic test cases using jest.
+ \item worked with solidity to create smart contracts.
+ \item created technical documentation in markdown using mermaid for flow charts
+\end{itemize}}
+ 
+\tlcventry[purpleColour]{2016/9}{2017/5}{Data Analyst}{\href{https://dir.gov.bc.ca/gtds.cgi?show=Branch&organizationCode=TRAN&organizationalUnitCode=ISB}{Ministry of Transportation: Information Management Branch}}{Victoria}{Sept 2016 --- April 2017}
+{ENGR 001 \& ENGR 002
+\begin{itemize}
+ \item worked on scripts to automate report generation 
+ \item tested and debugged web applications
+ \item writing queries for data visualization in team dashboards
+ \item created technical documentation in Confluence
+\end{itemize}}
+%\subsection{Vocational}
+%
+%\cventry{2012--Present}{1\textsuperscript{st} Year Analyst}{\textsc{Lehman Brothers}}{Los Angeles}{}{Developed spreadsheets for risk analysis on exotic derivatives on a wide array of commodities (ags, oils, precious and base metals), managed blotter and secondary trades on structured notes, liaised with Middle Office, Sales and Structuring for bookkeeping.
+%\newline{}\newline{}
+%Detailed achievements:
+%\begin{itemize}
+%\item Learned how to make amazing coffee
+%\item Finally determined the reason for \textsc{PC LOAD LETTER}:
+%\begin{itemize}
+%\item Paper jam
+%\item Software issues:
+%\begin{itemize}
+%\item Word not sending the correct data to printer
+%\item Windows trying to print in letter format
+%\end{itemize}
+%\item Coffee spilled inside printer
+%\end{itemize}
+%\item Broke the office record for number of kitten pictures in cubicle
+%\end{itemize}}
+
+%------------------------------------------------
+
+%\cventry{2011--2012}{Summer Intern}{\textsc{Lehman Brothers}}{Los Angeles}{}{Rated "truly distinctive" for Analytical Skills and Teamwork.}
+
+%------------------------------------------------
+
+%\subsection{Miscellaneous}
+%
+%\cventry{2010--2011}{}{}{}{}{Spent some time finding myself. This was a courageous endeavour that didn't have a job title. It was quite important to my overall development though so I'm adding it to my CV. Also it explains the gap in my otherwise stellar CV.}
+%
+%\cventry{2009--2010}{Computer Repair Specialist}{Buy More}{Burbank}{}{Worked in the Nerd Herd and helped to solve computer problems. Allowed me to become expert in all forms of martial arts and weaponry.}
+
+%----------------------------------------------------------------------------------------
+%	AWARDS SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{Awards}
+%
+%\cvitem{2011}{School of Business Postgraduate Scholarship}
+%\cvitem{2010}{Top Achiever Award -- Commerce}
+
+%----------------------------------------------------------------------------------------
+%	COMPUTER SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Computer skills}
+
+\cvitem{Basic}{\textsc{php}, \textsc{bash}}
+\cvitem{Intermediate}{ \textsc{SQL}, \textsc{python}, \textsc{css}, \textsc{html}, \textsc{javascript} \textsc{Matlab}, \textsc{Java}, \textsc{C}, }
+\cvitem{Advanced}{\LaTeX}
+
+%----------------------------------------------------------------------------------------
+%	SOFT SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Soft skills}
+
+\cvitem{Interpersonal Skills:}{Excellent ability to adapt to changing work environments.}  
+\cvitem{Organization: }{Capable of outlining a plan to manage a busy schedule.}
+\cvitem{Team Player:}{ Collaborated in large groups to present and complete academic work.}
+
+%----------------------------------------------------------------------------------------
+%	COMMUNICATION SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{Communication Skills}
+%
+%\cvitem{2010}{Oral Presentation at the California Business Conference}
+%\cvitem{2009}{Poster at the Annual Business Conference in Oregon}
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{Languages}
+%
+%\cvitemwithcomment{English}{Mothertongue}{}
+%\cvitemwithcomment{Spanish}{Intermediate}{Conversationally fluent}
+%\cvitemwithcomment{Dutch}{Basic}{Basic words and phrases only}
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Notable Projects}
+
+\cvitem{Personal Dashboard}{Used python and plotly to visually track and analyze personal information.}
+\cvitem{Pirates Game}{Client-Server Application used in Node.js, Express and Phasor.}
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{Interests}
+%
+%\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
+%
+%\cvlistdoubleitem{Games}{Working Out}
+%\cvlistdoubleitem{Reading}{Programming}
+%\cvlistitem{Blockchain}
+
+%----------------------------------------------------------------------------------------
+
+\section{References}
+
+Available upon request.
+\end{document}
